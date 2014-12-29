@@ -16,13 +16,14 @@ To get this to work, you just need to require the module once per run-time, like
 
 ## Other BigCommerce modules
 
-* [BigCommerce Product Page Demo Videos](https://github.com/iamandrebulatov/BigCommerce-Product-Page-Demo-Videos)
-* [BigCommerce Product Page Brand Descriptions](https://github.com/iamandrebulatov/BigCommerce-Product-Page-Brand-Descriptions)
-* [BigCommerce Product Page Brand Logos](https://github.com/iamandrebulatov/BigCommerce-Product-Page-Brand-Logos)
-* [BigCommerce Category Page Color Swatch](https://github.com/iamandrebulatov/BigCommerce-Color-Swatch-On-Category)
-* [BigCommerce Category Page 2nd Alternate Thumbnail](https://github.com/iamandrebulatov/BigCommerce-Category-Pages-2nd-Alternate-Thumbnail)
-* [BigCommerce Category Page Videos](https://github.com/iamandrebulatov/BigCommerce-Category-Page-Demo-Videos)
-* [BigCommerce Category Page Out of Stock Ribbons](https://github.com/iamandrebulatov/BigCommerce-Out-of-Stock-Category-Items)
+* [BigCommerce Product Page Demo Videos](https://github.com/iamandrebulatov/BC-Product-Page-Demo-Videos)
+* [BigCommerce Product Page Brand Descriptions](https://github.com/iamandrebulatov/BC-Product-Page-Brand-Descriptions)
+* [BigCommerce Product Page Brand Logos](https://github.com/iamandrebulatov/BC-Product-Page-Brand-Logos)
+* [BigCommerce Product Page Custom Fields On Right](https://github.com/iamandrebulatov/BC-Product-Page-Custom-Fields-On-Right)
+* [BigCommerce Category Page Color Swatch](https://github.com/iamandrebulatov/BC-Category-Page-Color-Swatch)
+* [BigCommerce Category Page 2nd Alternate Thumbnail](https://github.com/iamandrebulatov/BC-Category-Page-2nd-Alternate-Thumbnail)
+* [BigCommerce Category Page Videos](https://github.com/iamandrebulatov/BC-Category-Page-Demo-Videos)
+* [BigCommerce Category Page Out of Stock Ribbons](https://github.com/iamandrebulatov/BC-Category-Page-Out-of-Stock-Items)
 
 
 ## Support
