@@ -3,6 +3,11 @@ BigCommerce-Color-Swatch-On-Category
 
 BigCommerce Color Swatch On Category
 
+##Resources
+
+- [Storing collection of HTML elements in variable for later use](http://stackoverflow.com/questions/10748323/storing-collection-of-html-elements-in-variable-for-later-use)
+
+
 ## Installation
 
     Will provide later.
