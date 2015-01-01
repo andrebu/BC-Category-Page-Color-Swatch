@@ -11,7 +11,7 @@ BigCommerce Color Swatch On Category
 - [jQuery - Check if the tag's content is equal to sometext then do something](http://stackoverflow.com/questions/8604033/jquery-check-if-the-tags-content-is-equal-to-sometext-then-do-something)
 - [edit (append?) a string stored in a jquery variable](http://stackoverflow.com/questions/24393053/edit-append-a-string-stored-in-a-jquery-variable)
 - [how to append an element between two elements](http://stackoverflow.com/questions/8553052/how-to-append-an-element-between-two-elements)
-- []()
+- [jquery: check if string exist in element, return boolean](http://stackoverflow.com/questions/4553199/jquery-check-if-string-exist-in-element-return-boolean)
 - []()
 - []()
 
