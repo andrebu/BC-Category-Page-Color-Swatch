@@ -159,10 +159,11 @@
 				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productAttributeRow').html() ;
 //console.log(colorSwatch);
 //console.log(colorSwatchExistence);
-				$('em.p-price').before('<div class="catColorSwatch">'+colorSwatch+'</div>');
+console.log(this);
+				$(this).find('em.p-price').before('<div class="catColorSwatch">'+colorSwatch+'</div>');
 
 	    });
-
+	    
 // Save for true/false method
 //                colorSwatchExistence = $(productPage).text().indexOf('Color') > -1;
 //				$(results).closest('.productAttributeRow').before(productListing);
