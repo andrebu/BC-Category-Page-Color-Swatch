@@ -16,7 +16,6 @@ BigCommerce Color Swatch On Category
 - []()
 
 
-
 ## Installation
 
     Will provide later.
