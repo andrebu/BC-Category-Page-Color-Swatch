@@ -1,0 +1,40 @@
+/* Category Page Color Swatch Options  */
+.CategoryContent .ProductList .catColorSwatch .productOptionPickListSwatch {
+	
+}
+.CategoryContent .ProductList .catColorSwatch .productOptionPickListSwatch ul {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+.CategoryContent .ProductList .catColorSwatch li {
+	float: left; 
+	display: inline-block !important; 
+	padding: 0; 
+	width: 26px; 
+}
+.CategoryContent .ProductList .catColorSwatch .swatchColours {
+	position: relative; 
+	display: inline-block !important;
+	margin: 0 !important;
+	padding: 2px !important; 
+}
+.CategoryContent .ProductList .catColorSwatch .swatchColours .swatchColour {
+	width: 30px;
+	display: block;
+}
+.CategoryContent .ProductList .catColorSwatch label {
+	cursor: pointer;
+	position: relative; 
+	margin: 0;  
+}
+.CategoryContent .ProductList .catColorSwatch input {
+	height: 0;
+	overflow: hidden;
+	z-index: -10000;
+	position: absolute;
+	float: none;
+}
+.CategoryContent .ProductList .catColorSwatch .swatch .name {
+	display: none;
+}
