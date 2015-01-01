@@ -53,6 +53,7 @@
 
 
 
+/*
 	$(".Options").each(function checkForColorSwatch(url) {
 		var productListing = $(this).closest('em.p-price');
 			    console.log(productListing);
@@ -82,6 +83,7 @@
 				$(productListing).before(colorSwatchStore.getColorSwatch());
 
 	    });
+*/
 
 
 
@@ -91,14 +93,53 @@
 
 
 
-	$(".Options").each(function checkForColorSwatch(url) {
+/*
+	$(".Options").each(function checkForColorSwatch(productLink) {
 		var productListing = $(this).closest('em.p-price');
 // console.log(productListing);
 			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
 // console.log(productLink);
 
 			$.extend({
-			    getValues: function(url) {
+			    getValues: function(productLink) {
+			        var result = null;
+			        $.ajax({
+			            url: productLink,
+			            type: 'GET',
+			            dataType: 'html',
+			            async: false,
+			            success: function(data) {
+//			                result = data;
+			            }
+			        });
+//			       return result;
+			    }
+			});
+
+//			Then to access it, create the variable like so:
+			
+			var results = $.getValues(productLink);
+//console.log(results);
+			    colorSwatch = $(results).find("span:contains('Color')");
+//console.log(colorSwatch);
+				$(results).closest('.productAttributeRow').before(productListing);
+
+	    });
+*/
+
+
+
+
+
+
+	$(".Options").each(function checkForColorSwatch() {
+		var productListing = $(this).closest('em.p-price').html() ;
+// console.log(productListing);
+			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
+// console.log(productLink);
+
+			$.extend({
+			    getValues: function(productLink) {
 			        var result = null;
 			        $.ajax({
 			            url: productLink,
@@ -115,13 +156,17 @@
 
 //			Then to access it, create the variable like so:
 			
-			var results = $.getValues("url string");
-//console.log(results);
-			    colorSwatch = $(results).find("span:contains('Color')");
+			var productPage = $.getValues(productLink);
+				$productPageProcessing = $( productPage );
+				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productAttributeRow').html() ;
 console.log(colorSwatch);
-				$(results).closest('.productAttributeRow').before(productListing);
+                colorSwatchExistence = $(productPage).text().indexOf('Color') > -1;
+console.log(colorSwatchExistence);
+//				$(results).closest('.productAttributeRow').before(productListing);
+				productListing.before(colorSwatch);
 
 	    });
+
 
 
 
