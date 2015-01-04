@@ -124,6 +124,43 @@ console.log(colorSwatch);
 
 
 
+// latest js for actual color swatch on page
+	$(".Options").each(function checkForColorSwatch() {
+		var productListing = $(this).closest('em.p-price').html() ;
+// console.log(productListing);
+			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
+// console.log(productLink);
+
+			$.extend({
+			    getValues: function(productLink) {
+			        var result = null;
+			        $.ajax({
+			            url: productLink,
+			            type: 'GET',
+			            dataType: 'html',
+			            async: false,
+			            success: function(data) {
+			                result = data;
+			            }
+			        });
+			       return result;
+			    }
+			});
+
+			var productPage = $.getValues(productLink);
+				$productPageProcessing = $( productPage );
+//				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productAttributeRow').html() ;
+				colorSwatch = $productPageProcessing.find('.productOptionPickListSwatch').html() ;
+//console.log(colorSwatch);
+//console.log(colorSwatchExistence);
+//console.log(this);
+                $(this).parent().parent().find('.ProductImage').append('<div class="catColorSwatch">'+colorSwatch+'</div>');
+
+	    });
+
+
+
+
 
 
 
