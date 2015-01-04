@@ -125,6 +125,7 @@ console.log(colorSwatch);
 
 
 // latest js for actual color swatch on page
+// Are commits on branches recorded in the commit log and count?
 	$(".Options").each(function checkForColorSwatch() {
 		var productListing = $(this).closest('em.p-price').html() ;
 // console.log(productListing);
