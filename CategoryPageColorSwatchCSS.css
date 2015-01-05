@@ -20,7 +20,7 @@
 	padding: 2px !important; 
 }
 .CategoryContent .ProductList .catColorSwatch .swatchColours .swatchColour {
-	width: 30px;
+	width: 21px;
 	display: block;
 }
 .CategoryContent .ProductList .catColorSwatch label {
@@ -38,3 +38,23 @@
 .CategoryContent .ProductList .catColorSwatch .swatch .name {
 	display: none;
 }
+
+/* Color Swatch options container strip */
+.colorOptionsContainer {	
+	display: block;
+	position: absolute;
+	top: 230px;
+	left: auto;
+	color: white;
+	width: 100%;
+	line-height: 30px;
+	text-transform: uppercase;
+	font-size: 14px;
+	/* default fallback */
+	background: rgb(0, 0, 0) transparent;
+	/* nice browsers */
+	background: rgba(0, 0, 0, 0.6);
+}
+
+
+
