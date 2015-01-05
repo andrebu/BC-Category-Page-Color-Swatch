@@ -41,7 +41,7 @@ $toProcess.appendTo( "#container" );
 alert( $( "#myDiv2" ).html() );
 ```
 
-- []()
+- [How to tell if an element exists](http://jqueryfordesigners.com/index.html%3Fp=24.html)
 
 
 ## Installation
