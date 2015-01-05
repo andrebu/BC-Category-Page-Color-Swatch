@@ -1,7 +1,45 @@
 <script language="javascript" type="text/javascript">
 
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+/* try to combine this with category videos! */
+
+
+
 	$(".Options").each(function checkForColorSwatch(url) {
 		var productListing = $(this); 
+//			productListingWithColor = $(this).hasClass('withColorOptions');
+//			productListingWithSize = productListing.$('.withSizeOptions');
 			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href'); 
 		function ajax2() {
 		    return $.ajax({
@@ -14,20 +52,39 @@
 			            }
 			        })
 			    .done(function() { 
-			        productListing.addClass('withColorOptions');
+			    	if($('.productAttributeRow').find( "span:contains('Color:')" ).length) {
+				        productListing.addClass('withColorOptions');
+				        console.log('colors');
+				        }
+			    	if($('.productAttributeRow').find( "span:contains('Size:')" ).length) {
+				        productListing.addClass('withSizeOptions');
+				        }				     
 			    }).fail(function() { 
 			    	return;
 			    });
 			}
 			$.when(ajax2()).done(function(a2){
-		        productListing.closest('li')
-		        	.append('<div class="colorOptionsContainer"> \
-					            <div class="colorOptionsOverlay"> \
-					                <span> \
-					                    Available In Multiple Colors \
-					                </span> \
-					            </div> \
-					        </div>');
+				console.log(productListing);
+				if($(productListing).hasClass('withColorOptions')){
+			        productListingWithColor.closest('li')
+			        	.append('<div class="colorOptionsContainer"> \
+						            <div class="colorOptionsOverlay"> \
+						                <span> \
+						                    Available In Multiple Colors \
+						                </span> \
+						            </div> \
+						        </div>')};
+				if($(productListing).hasClass('withSizeOptions')){
+			        productListing.closest('li')
+			        	.append('<div class="sizeOptionsContainer"> \
+						            <div class="sizeOptionsOverlay"> \
+						                <span> \
+						                    Available In Multiple Sizes \
+						                </span> \
+						            </div> \
+						        </div>')};
+				if($(productListing).hasClass('withVideo')){
+			        console.log('something works!')};
 	        });
 	    });
 
