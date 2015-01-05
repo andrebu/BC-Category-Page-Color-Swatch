@@ -130,8 +130,47 @@
 
 
 
+	$(".Options").each(function checkForColorSwatch(url) {
+		var productListing = $(this); 
+			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href'); 
+		function ajax2() {
+		    return $.ajax({
+			            url: productLink,
+			            type: 'GET',
+			            dataType: 'html',
+			            async: false,
+			            success: function(data) {
+			                result = data;
+			            }
+			        })
+			    .done(function() { 
+			        productListing.addClass('withColorOptions');
+			    }).fail(function() { 
+			    	return;
+			    });
+			}
+			$.when(ajax2()).done(function(a2){
+		        productListing.closest('li')
+		        	.append('<div class="colorOptionsContainer"> \
+					            <div class="colorOptionsOverlay"> \
+					                <span> \
+					                    Available In Multiple Colors \
+					                </span> \
+					            </div> \
+					        </div>');
+	        });
+	    });
 
 
+
+
+
+
+
+
+
+
+/*
 	$(".Options").each(function checkForColorSwatch() {
 		var productListing = $(this).closest('em.p-price').html() ;
 // console.log(productListing);
@@ -156,21 +195,26 @@
 
 			var productPage = $.getValues(productLink);
 				$productPageProcessing = $( productPage );
+				colorSwatchChecker = $('.productAttributeRow').find( "span:contains('Color:')" ).length;
+				colorSwatchChecker2 = $productPageProcessing.colorSwatchChecker;
+				console.log(colorSwatchChecker2);
 //				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productAttributeRow').html() ;
-				colorSwatch = $productPageProcessing.find('.productOptionPickListSwatch').html() ;
+//				colorSwatch = $productPageProcessing.find('.productOptionPickListSwatch').html() ;
 //console.log(colorSwatch);
 //console.log(colorSwatchExistence);
 //console.log(this);
-				$(this).parent().parent().find('em.p-price').before('<div class="catColorSwatch">'+colorSwatch+'</div>');
+//				$(this).parent().parent().find('em.p-price').before('<div class="catColorSwatch">'+colorSwatch+'</div>');
+//                $(this).parent().parent().find('.ProductImage').append('<div class="catColorSwatch">'+colorSwatch+'</div>');
+*/
 
 	    });
-	    
+	    	    
 // Save for true/false method
 //                colorSwatchExistence = $(productPage).text().indexOf('Color') > -1;
 //				$(results).closest('.productAttributeRow').before(productListing);
 // productOptionPickListSwatch
 
-
+//$('.productAttributeRow').find( "span:contains('Color:')" ).length;
 
 
 
