@@ -39,11 +39,11 @@
 	display: none;
 }
 
-/* Color Swatch options container strip */
-.colorOptionsContainer {	
+/* Color Swatch and Size Options container strip on Category Pages */
+.colorOptionsContainer, 
+.sizeOptionsContainer {	
 	display: block;
 	position: absolute;
-	top: 230px;
 	left: auto;
 	color: white;
 	width: 100%;
@@ -54,6 +54,12 @@
 	background: rgb(0, 0, 0) transparent;
 	/* nice browsers */
 	background: rgba(0, 0, 0, 0.6);
+}
+.colorOptionsContainer {
+	top: 230px; 
+}
+.sizeOptionsContainer {
+	top: 180px; 
 }
 
 
