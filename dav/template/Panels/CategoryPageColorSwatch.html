@@ -38,8 +38,6 @@
 
 	$(".Options").each(function checkForColorSwatch(url) {
 		var productListing = $(this); 
-//			productListingWithColor = $(this).hasClass('withColorOptions');
-//			productListingWithSize = productListing.$('.withSizeOptions');
 			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href'); 
 		function ajax2() {
 		    return $.ajax({
@@ -52,11 +50,10 @@
 			            }
 			        })
 			    .done(function() { 
-			    	if($('.productAttributeRow').find( "span:contains('Color:')" ).length) {
+			    	if($(result).find( "span:contains('Color:')" ).length) {
 				        productListing.addClass('withColorOptions');
-				        console.log('colors');
 				        }
-			    	if($('.productAttributeRow').find( "span:contains('Size:')" ).length) {
+			    	if($(result).find( "span:contains('Size:')" ).length) {
 				        productListing.addClass('withSizeOptions');
 				        }				     
 			    }).fail(function() { 
@@ -64,9 +61,8 @@
 			    });
 			}
 			$.when(ajax2()).done(function(a2){
-				console.log(productListing);
 				if($(productListing).hasClass('withColorOptions')){
-			        productListingWithColor.closest('li')
+			        productListing.closest('li')
 			        	.append('<div class="colorOptionsContainer"> \
 						            <div class="colorOptionsOverlay"> \
 						                <span> \
@@ -83,9 +79,9 @@
 						                </span> \
 						            </div> \
 						        </div>')};
-				if($(productListing).hasClass('withVideo')){
-			        console.log('something works!')};
+//				if($(productListing).hasClass('withVideo')){
+//			        };
 	        });
 	    });
-
+	    
 </script>
