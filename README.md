@@ -1,7 +1,36 @@
 BigCommerce-Color-Swatch-On-Category
 ====================================
 
-BigCommerce Color Swatch On Category
+BigCommerce Color Swatch Options and Size Options On Category Pges
+
+
+## Installation
+
+    1. Add %%Panel.CategoryPageColorSwatch%% to
+
+                    ```HTML
+                        <ul class="ProductList %%GLOBAL_DisplayMode%%">
+                            %%GLOBAL_CategoryProductListing%%
+                            %%Panel.CategoryPageVideos%%                            
+                    
+                    <!-- ADD Panel reference here -->
+                            %%Panel.CategoryPageColorSwatch%%                            
+                    <!-- ADD Panel reference here -->
+                    
+                        </ul>
+                    ```
+     2. Add CSS to styles.css
+     
+
+## Using
+
+To get this to work, you just need to require the module once per run-time, like so.
+
+    1. Just install and it'll do the work for you!  
+    2. Color options must contain the term "Colors:" in the Option title
+    3. Size options must contain the term "Sizes:" in the Option title
+
+
 
 ##Resources
 
@@ -42,17 +71,6 @@ alert( $( "#myDiv2" ).html() );
 ```
 
 - [How to tell if an element exists](http://jqueryfordesigners.com/index.html%3Fp=24.html)
-
-
-## Installation
-
-    Will provide later.
-
-## Using
-
-To get this to work, you just need to require the module once per run-time, like so.
-
-    Just install and it'l do the work for you!
 
 
 ## Other BigCommerce modules
