@@ -6,20 +6,21 @@ BigCommerce Color Swatch Options and Size Options On Category Pges
 
 ## Installation
 
-    1. Add %%Panel.CategoryPageColorSwatch%% to
+1. Add %%Panel.CategoryPageColorSwatch%% to
 
-                    ```HTML
-                        <ul class="ProductList %%GLOBAL_DisplayMode%%">
-                            %%GLOBAL_CategoryProductListing%%
-                            %%Panel.CategoryPageVideos%%                            
-                    
-                    <!-- ADD Panel reference here -->
-                            %%Panel.CategoryPageColorSwatch%%                            
-                    <!-- ADD Panel reference here -->
-                    
-                        </ul>
-                    ```
-     2. Add CSS to styles.css
+```HTML
+    <ul class="ProductList %%GLOBAL_DisplayMode%%">
+        %%GLOBAL_CategoryProductListing%%
+        %%Panel.CategoryPageVideos%%                            
+
+<!-- ADD Panel reference here -->
+        %%Panel.CategoryPageColorSwatch%%                            
+<!-- ADD Panel reference here -->
+
+    </ul>
+```  
+
+2. Add CSS to styles.css
      
 
 ## Using
