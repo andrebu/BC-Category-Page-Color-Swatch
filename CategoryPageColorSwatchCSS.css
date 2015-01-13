@@ -1,4 +1,27 @@
-/* Category Page Color Swatch Options  */
+/* Color and Size Options TRUE/FALSE container strip on Category Pages */
+.colorOptionsContainer, 
+.sizeOptionsContainer {	
+	display: block;
+	position: absolute;
+	left: auto;
+	color: white;
+	width: 100%;
+	line-height: 30px;
+	text-transform: uppercase;
+	font-size: 14px;
+	/* default fallback */
+	background: rgb(0, 0, 0) transparent;
+	/* nice browsers */
+	background: rgba(0, 0, 0, 0.6);
+}
+.colorOptionsContainer {
+	top: 230px; 
+}
+.sizeOptionsContainer {
+	top: 180px; 
+}
+
+/* Color and Size Options SWATCHES containers */
 .CategoryContent .ProductList .catColorSwatch .productOptionPickListSwatch {
 	
 }
@@ -20,7 +43,7 @@
 	padding: 2px !important; 
 }
 .CategoryContent .ProductList .catColorSwatch .swatchColours .swatchColour {
-	width: 30px;
+	width: 21px;
 	display: block;
 }
 .CategoryContent .ProductList .catColorSwatch label {
@@ -37,4 +60,22 @@
 }
 .CategoryContent .ProductList .catColorSwatch .swatch .name {
 	display: none;
+}
+.catColorSwatch {
+	
+}
+.catSizeSwatch {
+	clear: both; 
+}
+.catSizeSwatch li {
+	display: inline; 
+	padding: 0; 
+}
+.catSizeSwatch li label {
+	display: inline-block; 
+	border: 1px solid #eeeeee; 
+	padding: 2px 6px; 
+}
+.catSizeSwatch li label div.radio {
+	display: none; 
 }
