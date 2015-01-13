@@ -1,5 +1,4 @@
 <script language="javascript" type="text/javascript">
-
 /* 	Existance checker function */
 /*
 	$.fn.exists = function(callback) {
@@ -10,7 +9,6 @@
 		return this;
 	};
 */
-
 /* 	Using ECF to check for Video Option Trigger, hiding it, and adding buttons */
 /*
 	$(function () {
@@ -27,7 +25,6 @@
 	$(".Options").each(function checkForColorSwatch() {
 		var productListing = $(this).closest('em.p-price').html() ;
 			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
-
 			$.extend({
 			    getValues: function(productLink) {
 			        var result = null;
@@ -43,13 +40,17 @@
 			       return result;
 			    }
 			});
-
 			var productPage = $.getValues(productLink);
 				$productPageProcessing = $( productPage );
 //				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productAttributeRow').html() ;
 				colorSwatch = $productPageProcessing.find('.productOptionPickListSwatch').html() ;
-				$(this).parent().parent().find('em.p-price').before('<div class="catColorSwatch">'+colorSwatch+'</div>');
-
+				sizeSwatch = $productPageProcessing.find('.productOptionViewRectangle').html() ;
+				if(colorSwatch != null) {
+					$(this).parent().parent().find('em.p-price').before('<div class="catColorSwatch">'+colorSwatch+'</div>');
+					};
+				if(sizeSwatch != null) {
+					$(this).parent().parent().find('em.p-price').before('<div class="catSizeSwatch">'+sizeSwatch+'</div>');
+					};
 	    });
 	    
 </script>
