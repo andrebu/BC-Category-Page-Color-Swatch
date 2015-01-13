@@ -22,60 +22,66 @@
 }
 
 /* Color and Size Options SWATCHES containers */
-.CategoryContent .ProductList .catColorSwatch .productOptionPickListSwatch {
-	
+.catColorSwatch {
+	cursor: none; 
 }
-.CategoryContent .ProductList .catColorSwatch .productOptionPickListSwatch ul {
-	margin-left: 0;
+.catColorSwatch ul {
 	padding-left: 0;
-	list-style-type: none;
+	list-style-type: none; 
+	margin: 0; 
 }
-.CategoryContent .ProductList .catColorSwatch li {
+.catColorSwatch ul li.swatch {
 	float: left; 
 	display: inline-block !important; 
 	padding: 0; 
 	width: 26px; 
 }
-.CategoryContent .ProductList .catColorSwatch .swatchColours {
+.catColorSwatch ul li.swatch .swatchColours {
 	position: relative; 
 	display: inline-block !important;
 	margin: 0 !important;
 	padding: 2px !important; 
 }
-.CategoryContent .ProductList .catColorSwatch .swatchColours .swatchColour {
+.catColorSwatch ul li.swatch .swatchColours .swatchColour {
 	width: 21px;
 	display: block;
 }
-.CategoryContent .ProductList .catColorSwatch label {
-	cursor: pointer;
+.catColorSwatch ul li.swatch label {
 	position: relative; 
-	margin: 0;  
+	margin: 0; 
+/* 	cursor: pointer; */
 }
-.CategoryContent .ProductList .catColorSwatch input {
+.catColorSwatch ul li.swatch label div.radio {
+	display: none; 
+}
+.catColorSwatch ul li.swatch input {
 	height: 0;
 	overflow: hidden;
 	z-index: -10000;
 	position: absolute;
 	float: none;
 }
-.CategoryContent .ProductList .catColorSwatch .swatch .name {
+.catColorSwatch .swatch .name {
 	display: none;
-}
-.catColorSwatch {
-	
 }
 .catSizeSwatch {
 	clear: both; 
 }
-.catSizeSwatch li {
+.catSizeSwatch ul {
+	margin: 0; 
+}
+.catSizeSwatch ul li {
 	display: inline; 
 	padding: 0; 
 }
-.catSizeSwatch li label {
+.catSizeSwatch ul li label {
 	display: inline-block; 
 	border: 1px solid #eeeeee; 
 	padding: 2px 6px; 
+	margin: 0; 
 }
-.catSizeSwatch li label div.radio {
+.catSizeSwatch ul li label div.radio {
 	display: none; 
 }
+
+
