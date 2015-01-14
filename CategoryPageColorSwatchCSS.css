@@ -1,45 +1,4 @@
-/* Category Page Color Swatch Options  */
-.CategoryContent .ProductList .catColorSwatch .productOptionPickListSwatch {
-	
-}
-.CategoryContent .ProductList .catColorSwatch .productOptionPickListSwatch ul {
-	margin-left: 0;
-	padding-left: 0;
-	list-style-type: none;
-}
-.CategoryContent .ProductList .catColorSwatch li {
-	float: left; 
-	display: inline-block !important; 
-	padding: 0; 
-	width: 26px; 
-}
-.CategoryContent .ProductList .catColorSwatch .swatchColours {
-	position: relative; 
-	display: inline-block !important;
-	margin: 0 !important;
-	padding: 2px !important; 
-}
-.CategoryContent .ProductList .catColorSwatch .swatchColours .swatchColour {
-	width: 21px;
-	display: block;
-}
-.CategoryContent .ProductList .catColorSwatch label {
-	cursor: pointer;
-	position: relative; 
-	margin: 0;  
-}
-.CategoryContent .ProductList .catColorSwatch input {
-	height: 0;
-	overflow: hidden;
-	z-index: -10000;
-	position: absolute;
-	float: none;
-}
-.CategoryContent .ProductList .catColorSwatch .swatch .name {
-	display: none;
-}
-
-/* Color Swatch and Size Options container strip on Category Pages */
+/* Overlays --- Color and Size Options TRUE/FALSE container strip on Category Pages */
 .colorOptionsContainer, 
 .sizeOptionsContainer {	
 	display: block;
@@ -62,5 +21,67 @@
 	top: 180px; 
 }
 
-
-
+/* Swatches --- Color and Size Options SWATCHES containers */
+/* Color Swatch */
+.catColorSwatch {
+	cursor: none; 
+}
+.catColorSwatch ul {
+	padding-left: 0;
+	list-style-type: none; 
+	margin: 0; 
+}
+.catColorSwatch ul li.swatch {
+	float: left; 
+	display: inline-block !important; 
+	padding: 0; 
+	width: 26px; 
+}
+.catColorSwatch ul li.swatch .swatchColours {
+	position: relative; 
+	display: inline-block !important;
+	margin: 0 !important;
+	padding: 2px !important; 
+}
+.catColorSwatch ul li.swatch .swatchColours .swatchColour {
+	width: 21px;
+	display: block;
+}
+.catColorSwatch ul li.swatch label {
+	position: relative; 
+	margin: 0; 
+/* 	cursor: pointer; */
+}
+.catColorSwatch ul li.swatch label div.radio {
+	display: none; 
+}
+.catColorSwatch ul li.swatch input {
+	height: 0;
+	overflow: hidden;
+	z-index: -10000;
+	position: absolute;
+	float: none;
+}
+.catColorSwatch .swatch .name {
+	display: none;
+}
+/* Size Swatch */
+.catSizeSwatch {
+	clear: both; 
+}
+.catSizeSwatch ul {
+	margin: 0; 
+}
+.catSizeSwatch ul li {
+	display: inline; 
+	padding: 0; 
+}
+.catSizeSwatch ul li label {
+	display: inline-block; 
+	border: 1px solid #eeeeee; 
+	padding: 2px 6px; 
+	margin: 0; 
+}
+.catSizeSwatch ul li label div.radio {
+	display: none; 
+}
