@@ -1,4 +1,6 @@
-// Color Swatch and Size Boxes
+/* try to combine this with category videos! */
+
+// Swatches - Color and Size options swatches 
 	$(".Options").each(function checkForVideo(url) {
 		var ProductCatOpt = $(this);
 			ProductId = $(this).parent().parent().find('div.ProductImage').attr('data-product');
@@ -42,87 +44,13 @@
 	                });
 
 
-
-
-
-
-
-
-
-
-
+// Overlays - True/False Size and Color Options
 /*
 	$(".Options").each(function checkForColorSwatch(url) {
-		var productListing = $(this).closest('em.p-price');
-			    console.log(productListing);
-			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
-			    console.log(productLink);
+		var productListing = $(this); 
+			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href'); 
 		function ajax2() {
-	    return $.ajax({
-				url: productLink,
-				success: function(swatch) {
-				    swatch = $(swatch).find("span:contains('Color')");
-//				    $(productListing).before(swatch);
-				    alert('Done.');
-				 }
-				});
-			}
-			$.when(ajax2()).done(function(a2){
-				    $(productListing).before(swatch);
-	        });
-	    });
-*/
-
-
-
-	$(".Options").each(function checkForColorSwatch(url) {
-		var productListing = $(this).closest('em.p-price');
-			    console.log(productListing);
-			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
-			    console.log(productLink);
-
-				var colorSwatchStore = (function(){
-				    var colorSwatch;
-				
-				    $.ajax({
-				      type: "GET",
-				      url: productLink,
-				      dataType: "html",
-				      success : function(data) {
-				                    colorSwatch = $(data).("span:contains('Color')");
-				                }
-				    });
-							    console.log(colorSwatch);
-
-				    return {getColorSwatch : function()
-				    {
-				        if (colorSwatch) return colorSwatch;
-				        // else show some error that it isn't loaded yet;
-				    }};
-				})();
-
-				$(productListing).before(colorSwatchStore.getColorSwatch());
-
-	    });
-
-
-
-
-
-
-
-
-
-	$(".Options").each(function checkForColorSwatch(url) {
-		var productListing = $(this).closest('em.p-price');
-// console.log(productListing);
-			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
-// console.log(productLink);
-
-			$.extend({
-			    getValues: function(url) {
-			        var result = null;
-			        $.ajax({
+		    return $.ajax({
 			            url: productLink,
 			            type: 'GET',
 			            dataType: 'html',
@@ -130,38 +58,39 @@
 			            success: function(data) {
 			                result = data;
 			            }
-			        });
-			       return result;
-			    }
-			});
-
-//			Then to access it, create the variable like so:
-			
-			var results = $.getValues("url string");
-//console.log(results);
-			    colorSwatch = $(results).find("span:contains('Color')");
-console.log(colorSwatch);
-				$(results).closest('.productAttributeRow').before(productListing);
-
-	    });
-
-
-
-
-
-
-
-
-/*
-		function ajax1() {
-		    return $.ajax(productLink)
+			        })
 			    .done(function() { 
-			        $(ProductCatOpt).addClass('withVideo');
+			    	if($(result).find( "span:contains('Color:')" ).length) {
+				        productListing.addClass('withColorOptions');
+				        }
+			    	if($(result).find( "span:contains('Size:')" ).length) {
+				        productListing.addClass('withSizeOptions');
+				        }				     
 			    }).fail(function() { 
 			    	return;
 			    });
 			}
-			$.when(ajax1()).done(function(a1){
-		        $('.withVideo').closest('li').append('<span class="videoDemoBtn"><div class="triangle"></div></span>');
+			$.when(ajax2()).done(function(a2){
+				if($(productListing).hasClass('withColorOptions')){
+			        productListing.closest('li')
+			        	.append('<div class="colorOptionsContainer"> \
+						            <div class="colorOptionsOverlay"> \
+						                <span> \
+						                    Available In Multiple Colors \
+						                </span> \
+						            </div> \
+						        </div>')};
+				if($(productListing).hasClass('withSizeOptions')){
+			        productListing.closest('li')
+			        	.append('<div class="sizeOptionsContainer"> \
+						            <div class="sizeOptionsOverlay"> \
+						                <span> \
+						                    Available In Multiple Sizes \
+						                </span> \
+						            </div> \
+						        </div>')};
+//				if($(productListing).hasClass('withVideo')){
+//			        };
 	        });
+	    });
 */
