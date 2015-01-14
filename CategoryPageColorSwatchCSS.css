@@ -1,4 +1,4 @@
-/* Color and Size Options TRUE/FALSE container strip on Category Pages */
+/* Overlays --- Color and Size Options TRUE/FALSE container strip on Category Pages */
 .colorOptionsContainer, 
 .sizeOptionsContainer {	
 	display: block;
@@ -21,7 +21,8 @@
 	top: 180px; 
 }
 
-/* Color and Size Options SWATCHES containers */
+/* Swatches --- Color and Size Options SWATCHES containers */
+/* Color Swatch */
 .catColorSwatch {
 	cursor: none; 
 }
@@ -64,6 +65,7 @@
 .catColorSwatch .swatch .name {
 	display: none;
 }
+/* Size Swatch */
 .catSizeSwatch {
 	clear: both; 
 }
@@ -83,5 +85,3 @@
 .catSizeSwatch ul li label div.radio {
 	display: none; 
 }
-
-
