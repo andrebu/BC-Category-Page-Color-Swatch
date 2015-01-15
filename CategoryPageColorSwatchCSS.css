@@ -21,30 +21,83 @@
 	top: 180px; 
 }
 
-/* Swatches --- Color and Size Options SWATCHES containers */
+/* Color and Size Options SWATCHES containers */
+.optionSwatch {
+/*
+	background: rgb(1, 1, 1) transparent;
+	background: rgba(1, 1, 1, 0.3); 
+*/
+	background: rgba(226,226,226,1);
+	background: -moz-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(204,202,204,1) 23%, rgba(205,203,205,1) 27%, rgba(209,209,209,1) 51%, rgba(194,194,194,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(226,226,226,1)), color-stop(23%, rgba(204,202,204,1)), color-stop(27%, rgba(205,203,205,1)), color-stop(51%, rgba(209,209,209,1)), color-stop(100%, rgba(194,194,194,1)));
+	background: -webkit-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(204,202,204,1) 23%, rgba(205,203,205,1) 27%, rgba(209,209,209,1) 51%, rgba(194,194,194,1) 100%);
+	background: -o-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(204,202,204,1) 23%, rgba(205,203,205,1) 27%, rgba(209,209,209,1) 51%, rgba(194,194,194,1) 100%);
+	background: -ms-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(204,202,204,1) 23%, rgba(205,203,205,1) 27%, rgba(209,209,209,1) 51%, rgba(194,194,194,1) 100%);
+	background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(204,202,204,1) 23%, rgba(205,203,205,1) 27%, rgba(209,209,209,1) 51%, rgba(194,194,194,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#c2c2c2', GradientType=1 );	
+	cursor: auto; 
+	position: absolute;
+	border-radius: 7px 0 0 7px; 
+	width: 38px; 
+	right: -8px; 
+	padding-bottom: 5px; 
+}
 /* Color Swatch */
 .catColorSwatch {
-	cursor: none; 
+	top: 60px;
+}
+.catColorSwatch:after {
+	content: '';
+	display: block;
+	height: 3px;
+	width: 0px;
+	position: absolute;
+	top: 96px;
+	left: 30px;
+	background: transparent;
+	z-index: 1;
+	border-top: 5px solid rgba(1, 1, 1, 0.2);
+	border-right: 8px solid transparent;
 }
 .catColorSwatch ul {
 	padding-left: 0;
 	list-style-type: none; 
 	margin: 0; 
+	display: block; 
+	width: 100%; 
+}
+.catColorSwatch ul:before {
+	content: "Colors";
+	color: #fff;
+	text-transform: uppercase; 
+	font-size: 9px; 
+	line-height: 7px; 
+	cursor: auto; 
+	display: block; 
+	padding: 9px 2px; 
+	margin-bottom: 5px; 
+	border-bottom: 1px dashed; 
 }
 .catColorSwatch ul li.swatch {
-	float: left; 
-	display: inline-block !important; 
+/* 	float: left;  */
+	display: block; 
 	padding: 0; 
-	width: 26px; 
+	width: 80%; 
+	min-height: initial !important;
+	height: 13px !important; 
+	background: none; 
+	margin: 0 auto 2px; 
+	overflow: hidden; 
 }
 .catColorSwatch ul li.swatch .swatchColours {
 	position: relative; 
 	display: inline-block !important;
 	margin: 0 !important;
 	padding: 2px !important; 
+	width: 100%; 
 }
 .catColorSwatch ul li.swatch .swatchColours .swatchColour {
-	width: 21px;
+/* 	width: 21px; */
 	display: block;
 }
 .catColorSwatch ul li.swatch label {
@@ -65,23 +118,58 @@
 .catColorSwatch .swatch .name {
 	display: none;
 }
-/* Size Swatch */
+/* Sizes Option Swatch */
 .catSizeSwatch {
 	clear: both; 
+	top: 200px;
+}
+.catSizeSwatch:after {
+	content: '';
+	display: block;
+	height: 3px;
+	width: 0px;
+	position: absolute;
+	top: 121px; 
+	left: 30px;
+	background: transparent;
+	z-index: 1;
+	border-top: 5px solid rgba(1, 1, 1, 0.2);
+	border-right: 8px solid transparent;
 }
 .catSizeSwatch ul {
-	margin: 0; 
+	margin: 0 auto; 
+}
+.catSizeSwatch ul:before {
+	content: "Sizes";
+	color: #fff;
+	text-transform: uppercase; 
+	font-size: 9px; 
+	line-height: 7px; 
+	cursor: auto; 
+	display: block; 
+	padding: 9px 2px; 
+	margin-bottom: 5px; 
+	border-bottom: 1px dashed; 
 }
 .catSizeSwatch ul li {
 	display: inline; 
 	padding: 0; 
 }
 .catSizeSwatch ul li label {
-	display: inline-block; 
-	border: 1px solid #eeeeee; 
+	display: block; 
+/* 	border: 1px solid #eeeeee;  */
 	padding: 2px 6px; 
 	margin: 0; 
+	line-height: 13px;
+	font-size: 8px; 
+	vertical-align: middle; 
+	color: #fff; 
 }
 .catSizeSwatch ul li label div.radio {
 	display: none; 
 }
+/* Fix for color and size swtches so the boxes can hang off the side and still show */
+.CategoryContent .ProductList li {
+    overflow: visible; 
+}
+
