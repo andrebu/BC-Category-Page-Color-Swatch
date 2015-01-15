@@ -1,4 +1,4 @@
-/* Overlays --- Color and Size Options TRUE/FALSE container strip on Category Pages */
+/* Color and Size Options TRUE/FALSE container strip on Category Pages */
 .colorOptionsContainer, 
 .sizeOptionsContainer {	
 	display: block;
@@ -12,7 +12,7 @@
 	/* default fallback */
 	background: rgb(0, 0, 0) transparent;
 	/* nice browsers */
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(0, 0, 0, 0.6); 
 }
 .colorOptionsContainer {
 	top: 230px; 
@@ -41,12 +41,10 @@
 	width: 38px; 
 	right: -8px; 
 	padding-bottom: 5px; 
+	z-index: 2; 
 }
-/* Color Swatch */
-.catColorSwatch {
-	top: 60px;
-}
-.catColorSwatch:after {
+.catColorSwatch:after, 
+.catSizeSwatch:after {
 	content: '';
 	display: block;
 	height: 3px;
@@ -56,8 +54,15 @@
 	left: 30px;
 	background: transparent;
 	z-index: 1;
-	border-top: 5px solid rgba(1, 1, 1, 0.2);
+	border-top: 5px solid rgba(156, 169, 154, 0.2);
 	border-right: 8px solid transparent;
+}
+/* Color Swatch */
+.catColorSwatch {
+	top: 60px;
+}
+.catColorSwatch:after {
+	top: 96px;
 }
 .catColorSwatch ul {
 	padding-left: 0;
@@ -82,7 +87,7 @@
 /* 	float: left;  */
 	display: block; 
 	padding: 0; 
-	width: 80%; 
+	width: 80% !important; 
 	min-height: initial !important;
 	height: 13px !important; 
 	background: none; 
@@ -124,17 +129,7 @@
 	top: 200px;
 }
 .catSizeSwatch:after {
-	content: '';
-	display: block;
-	height: 3px;
-	width: 0px;
-	position: absolute;
 	top: 121px; 
-	left: 30px;
-	background: transparent;
-	z-index: 1;
-	border-top: 5px solid rgba(1, 1, 1, 0.2);
-	border-right: 8px solid transparent;
 }
 .catSizeSwatch ul {
 	margin: 0 auto; 
@@ -172,4 +167,14 @@
 .CategoryContent .ProductList li {
     overflow: visible; 
 }
-
+@media screen and (max-width: 767px) {
+	#CategoryContent .ProductList, .CategoryContent .ProductList {
+		overflow: visible;
+	}
+	.Content.Wide {
+		overflow: visible; 
+	}
+	#LayoutColumn1 {
+		overflow: visible;
+	}
+}
