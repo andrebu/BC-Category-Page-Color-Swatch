@@ -22,7 +22,7 @@
 			var productPage = $.getValues(productLink);
 				$productPageProcessing = $( productPage );
 				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productOptionPickListSwatch').html() ;
-				colorSwatch = $productPageProcessing.find( "span:contains('Size')" ).closest('.productOptionViewRectangle').html() ;
+				sizeSwatch = $productPageProcessing.find( "span:contains('Size')" ).closest('.productOptionViewRectangle').html() ;
 //				colorSwatch = $productPageProcessing.find('.productOptionPickListSwatch').html() ;
 //				sizeSwatch = $productPageProcessing.find('.productOptionViewRectangle').html() ;
 				if(colorSwatch != null) {
