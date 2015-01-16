@@ -21,9 +21,10 @@
 			});
 			var productPage = $.getValues(productLink);
 				$productPageProcessing = $( productPage );
-//				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productAttributeRow').html() ;
-				colorSwatch = $productPageProcessing.find('.productOptionPickListSwatch').html() ;
-				sizeSwatch = $productPageProcessing.find('.productOptionViewRectangle').html() ;
+				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productOptionPickListSwatch').html() ;
+				colorSwatch = $productPageProcessing.find( "span:contains('Size')" ).closest('.productOptionViewRectangle').html() ;
+//				colorSwatch = $productPageProcessing.find('.productOptionPickListSwatch').html() ;
+//				sizeSwatch = $productPageProcessing.find('.productOptionViewRectangle').html() ;
 				if(colorSwatch != null) {
 					$(this).parent().parent().find('em.p-price').before('<div class="catColorSwatch optionSwatch">'+colorSwatch+'</div>');
 					};
