@@ -72,6 +72,7 @@ alert( $( "#myDiv2" ).html() );
 ```
 
 - [How to tell if an element exists](http://jqueryfordesigners.com/index.html%3Fp=24.html)
+- [Creating folded ribbons edges with CSS](http://mark-story.com/posts/view/creating-folded-ribbons-edges-with-css) - this post from [Mark Story](http://mark-story.com/) really helped with the "foldover" corner on the color and size swatch boxes, giving the effect that the container is wrapped around or hangs over the edge of the category product image container.
 
 
 ## Other BigCommerce modules
