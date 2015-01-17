@@ -49,7 +49,7 @@
 	display: block;
 	height: 3px;
 	width: 0px;
-	position: absolute;
+	position: relative;
 	top: 96px;
 	left: 30px;
 	background: transparent;
@@ -62,7 +62,7 @@
 	top: 60px;
 }
 .catColorSwatch:after {
-	top: 96px;
+	top: 13px;;
 }
 .catColorSwatch ul {
 	padding-left: 0;
@@ -105,7 +105,7 @@
 /* 	width: 21px; */
 	display: block;
 }
-.catColorSwatch ul li.swatch label {
+.catColorSwatch ul li label {
 	position: relative; 
 	margin: 0; 
 /* 	cursor: pointer; */
@@ -123,13 +123,16 @@
 .catColorSwatch .swatch .name {
 	display: none;
 }
+.catColorSwatch .name {
+	font-size: 10px; 
+}
 /* Sizes Option Swatch */
 .catSizeSwatch {
 	clear: both; 
 	top: 200px;
 }
 .catSizeSwatch:after {
-	top: 121px; 
+	top: 13px; 
 }
 .catSizeSwatch ul {
 	margin: 0 auto; 
@@ -146,6 +149,7 @@
 	margin-bottom: 5px; 
 	border-bottom: 1px dashed; 
 }
+.catColorSwatch ul li, 
 .catSizeSwatch ul li {
 	display: inline; 
 	padding: 0; 
@@ -160,6 +164,7 @@
 	vertical-align: middle; 
 	color: #fff; 
 }
+.catColorSwatch ul li label div.radio, 
 .catSizeSwatch ul li label div.radio {
 	display: none; 
 }
