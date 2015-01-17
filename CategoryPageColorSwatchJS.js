@@ -19,10 +19,13 @@
 			    }
 			});
 			var productPage = $.getValues(productLink);
-				$productPageProcessing = $( productPage );
-//				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productAttributeRow').html() ;
-				colorSwatch = $productPageProcessing.find('.productOptionPickListSwatch').html() ;
-				sizeSwatch = $productPageProcessing.find('.productOptionViewRectangle').html() ;
+				$productPageProcessing = $( productPage ).find('.productAttributeList');				
+				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).parents().eq(2).find('.productAttributeValue div').html();
+				sizeSwatch = $productPageProcessing.find( "span:contains('Size')" ).parents().eq(2).find('.productAttributeValue div').html();
+//				colorSwatch = $productPageProcessing.find('.productOptionPickListSwatch').html() ;
+//				sizeSwatch = $productPageProcessing.find('.productOptionViewRectangle').html() ;
+//				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productAttributeValue').html() ;
+//				sizeSwatch = $productPageProcessing.find( "span:contains('Size')" ).closest('.productAttributeValue').html() ;
 				if(colorSwatch != null) {
 					$(this).parent().parent().find('em.p-price').before('<div class="catColorSwatch optionSwatch">'+colorSwatch+'</div>');
 					};
@@ -30,11 +33,11 @@
 					$(this).parent().parent().find('em.p-price').before('<div class="catSizeSwatch optionSwatch">'+sizeSwatch+'</div>');
 					};
 	    });
+</script>
 
-
-
+<!--
+<script language="javascript" type="text/javascript">
 // Overlays - True/False Size and Color Options
-/*
 	$(".Options").each(function checkForColorSwatch(url) {
 		var productListing = $(this); 
 			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href'); 
@@ -82,4 +85,4 @@
 //			        };
 	        });
 	    });
-*/
+	    
