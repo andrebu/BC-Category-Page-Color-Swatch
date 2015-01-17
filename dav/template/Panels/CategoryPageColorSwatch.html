@@ -20,11 +20,13 @@
 			    }
 			});
 			var productPage = $.getValues(productLink);
-				$productPageProcessing = $( productPage );
-				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productOptionPickListSwatch').html() ;
-				sizeSwatch = $productPageProcessing.find( "span:contains('Size')" ).closest('.productOptionViewRectangle').html() ;
+				$productPageProcessing = $( productPage ).find('.productAttributeList');				
+				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).parents().eq(2).find('.productAttributeValue div').html();
+				sizeSwatch = $productPageProcessing.find( "span:contains('Size')" ).parents().eq(2).find('.productAttributeValue div').html();
 //				colorSwatch = $productPageProcessing.find('.productOptionPickListSwatch').html() ;
 //				sizeSwatch = $productPageProcessing.find('.productOptionViewRectangle').html() ;
+//				colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).closest('.productAttributeValue').html() ;
+//				sizeSwatch = $productPageProcessing.find( "span:contains('Size')" ).closest('.productAttributeValue').html() ;
 				if(colorSwatch != null) {
 					$(this).parent().parent().find('em.p-price').before('<div class="catColorSwatch optionSwatch">'+colorSwatch+'</div>');
 					};
