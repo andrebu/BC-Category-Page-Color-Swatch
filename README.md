@@ -74,6 +74,8 @@ alert( $( "#myDiv2" ).html() );
 - [How to tell if an element exists](http://jqueryfordesigners.com/index.html%3Fp=24.html)
 - [Creating folded ribbons edges with CSS](http://mark-story.com/posts/view/creating-folded-ribbons-edges-with-css) - this post from [Mark Story](http://mark-story.com/) really helped with the "foldover" corner on the color and size swatch boxes, giving the effect that the container is wrapped around or hangs over the edge of the category product image container.
 - [How do I get the n-th level parent of an element in jQuery?](http://stackoverflow.com/questions/7093659/how-do-i-get-the-n-th-level-parent-of-an-element-in-jquery)
+- [MDN: AJAX - Getting Started](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
+- [How to return the response from an Ajax call?](http://stackoverflow.com/questions/14220321/how-to-return-the-response-from-an-ajax-call)
 - []()
 
 
