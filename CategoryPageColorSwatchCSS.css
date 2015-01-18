@@ -175,6 +175,7 @@
 	color: #fff; 
 }
 .catColorSwatch ul li label div.radio, 
+.catColorSwatch input, 
 .catSizeSwatch ul li label div.radio, 
 .catSizeSwatch input {
 	display: none; 
