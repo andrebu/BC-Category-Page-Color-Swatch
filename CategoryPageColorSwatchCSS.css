@@ -175,7 +175,8 @@
 	color: #fff; 
 }
 .catColorSwatch ul li label div.radio, 
-.catSizeSwatch ul li label div.radio {
+.catSizeSwatch ul li label div.radio, 
+.catSizeSwatch input {
 	display: none; 
 }
 /* Fix for color and size swtches so the boxes can hang off the side and still show */
