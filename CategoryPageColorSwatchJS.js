@@ -1,4 +1,40 @@
 /* try to combine this with category videos! */
+
+	function ShowLoadingIndicator() {
+		if (typeof(disableLoadingIndicator) != 'undefined' && disableLoadingIndicator) {
+			return;
+		}
+		var width = $(window).width();
+		// var position = $('#Container').css('position');
+		// if (position == 'relative') {
+		// 	width = $('#Container').width();
+		// }
+	
+		var scrollTop;
+		if(self.pageYOffset) {
+			scrollTop = self.pageYOffset;
+		}
+		else if(document.documentElement && document.documentElement.scrollTop) {
+			scrollTop = document.documentElement.scrollTop;
+		}
+		else if(document.body) {
+			scrollTop = document.body.scrollTop;
+		}
+		$('#AjaxLoading').show();
+	}
+	
+	function HideLoadingIndicator() {
+		$('#AjaxLoading').hide();
+	}
+
+	$('html').ajaxStart(function() {
+		ShowLoadingIndicator();
+	});
+
+	$('html').ajaxComplete(function() {
+		HideLoadingIndicator();
+	});
+
 // Swatches - Color and Size options swatches 
 	$(".Options").each(function checkForColorSwatch() {
 		var productListing = $(this).closest('em.p-price').html() ;
