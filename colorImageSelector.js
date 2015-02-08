@@ -10,21 +10,20 @@ on click
 	
 	
 $("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').each( function getColorPhotosSrcs(){
-//console.log(this); 
+
 	var listings = $(this);
-	// add .selectedValue class to li 
+		color = $(this).find('.name').text();
+		
 	$(this).find('label').click();
-	// add .checked class to li 
-	//$(this).find('.radio span').addClass('checked'); 
-//console.log(this);
+
 	// find url of img when this li is checked and store it
 	for (i = 0; i < listings.length; i++) {
 		var colorImgSrc += $(document).find('.MagicZoomPlus img').attr('src'); 
 		console.log(colorImgSrc); 
 	}
-//	console.log(this);
-	//$(this).removeClass('selectedValue'); 
-	//$(this).find('.radio span').removeClass('checked'); 
+
+	var colorBtnSrc[ color ] =
+
 })
 
 
