@@ -8,6 +8,7 @@ end
 on click 
 */
 	
+var colorBtnSrc = {};
 	
 $("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').each( function getColorPhotosSrcs(){
 
@@ -22,12 +23,13 @@ $("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').ea
 //		console.log(colorImgSrc); 
 //	}
 
-	var colorBtnSrc[ color ] = $(document).find('.MagicZoomPlus img').attr('src'); 
+	var colorBtnSrc[color] = $(document).find('.MagicZoomPlus img').attr('src'); 
 
 })
 
+console.log(colorBtnSrc);
 
-$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').removeClass('selectedValue').find('.radio span').removeClass('checked'); 
-$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').eq(2).addClass('selectedValue').find('.radio span').addClass('checked'); 
+//$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').removeClass('selectedValue').find('.radio span').removeClass('checked'); 
+//$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').eq(2).addClass('selectedValue').find('.radio span').addClass('checked'); 
 
-$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').eq(2).find('label').click();
+//$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').eq(2).find('label').click();
