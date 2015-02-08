@@ -23,7 +23,7 @@ $("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').ea
 //		console.log(colorImgSrc); 
 //	}
 
-	colorBtnSrc[prodColor] = $(document).find('.MagicZoomPlus img').attr('src'); 
+	colorBtnSrc[prodColor] = $(document).find('.MagicZoomPlus').attr('src'); 
 
 })
 
