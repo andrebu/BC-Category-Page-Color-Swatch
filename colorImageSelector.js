@@ -25,3 +25,7 @@ console.log(colorImgSrc);
 })
 
 
+$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').removeClass('selectedValue').find('.radio span').removeClass('checked'); 
+$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').eq(2).addClass('selectedValue').find('.radio span').addClass('checked'); 
+
+$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').eq(2).find().click();
