@@ -12,17 +12,17 @@ on click
 $("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').each( function getColorPhotosSrcs(){
 
 	var listings = $(this);
-		color = $(this).find('.name').text();
-		
+		prodColor = $(this).find('.name').text();
+	console.log(prodColor);
 	$(this).find('label').click();
 
 	// find url of img when this li is checked and store it
-	for (i = 0; i < listings.length; i++) {
-		var colorImgSrc += $(document).find('.MagicZoomPlus img').attr('src'); 
-		console.log(colorImgSrc); 
-	}
+//	for (i = 0; i < listings.length; i++) {
+//		var colorImgSrc += $(document).find('.MagicZoomPlus img').attr('src'); 
+//		console.log(colorImgSrc); 
+//	}
 
-	var colorBtnSrc[ color ] =
+	var colorBtnSrc[ color ] = $(document).find('.MagicZoomPlus img').attr('src'); 
 
 })
 
