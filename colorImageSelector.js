@@ -11,18 +11,21 @@ on click
 
 var colorBtnSrc = {};
 	
-$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').each( function getColorPhotosSrcs(){
+$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').each( function (){
 
 	var listings = $(this);
 		prodColor = $(this).find('.name').text();
 	console.log(prodColor);
-	$(this).find('label').click( function() {
-		colorBtnSrc[prodColor] = $(document).find('.MagicZoomPlus').attr('href'); 		
-console.log(prodColor + colorBtnSrc);
+
+	$.when(
+		$(this).find('label').click()
+	)
+	.then( function() {
+		colorBtnSrc[prodColor] = $(document).find('.ProductThumbImage a').attr('href');
+		console.log(colorBtnSrc[prodColor])		
 	});
-
+console.log(colorBtnSrc[prodColor])
 })
-
 
 //$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').removeClass('selectedValue').find('.radio span').removeClass('checked'); 
 //$("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').eq(2).addClass('selectedValue').find('.radio span').addClass('checked'); 
