@@ -21,8 +21,8 @@ $("span:contains('Color')").parents().eq(2).find('.productAttributeValue li').ea
 		$(this).find('label').click()
 	)
 	.then( function() {
-		colorBtnSrc[prodColor] = $(document).find('.ProductThumbImage a').attr('href');
-		console.log(colorBtnSrc[prodColor])		
+		colorBtnSrc[prodColor] = $(this).parents().find('.ProductThumbImage a').attr('href');
+console.log(colorBtnSrc[prodColor])		
 	});
 console.log(colorBtnSrc[prodColor])
 })
