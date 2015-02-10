@@ -16,25 +16,26 @@
 
 	            result = data;
 	            var productPage = result;
-	            $productPageProcessing = $(productPage).find("span:contains('Color')").parents().eq(2).find('.productAttributeValue li');
-	            colorBtnSrc = {};
+	            var $productPageProcessing = $(productPage).find("span:contains('Color')").parents().eq(2).find('.productAttributeValue li');
+	            var colorBtnSrc = {};
 
-	            var FunctionOne = $productPageProcessing.each(function() {
-
+	            var clickTheSwatch = $productPageProcessing.each(function() {
+	                var r = $.Deferred();
 	                var listings = $(this);
 	                prodColor = $(this).find('.name').text();
 	                console.log(prodColor);
 
 	                $(this).find('label').click();
+	                return r;
 	            });
 
-	            var FunctionTwo = function() {
+	            var storeImgSrc = function() {
 	                colorBtnSrc[prodColor] = $(this).parents().find('.ProductThumbImage a').attr('href');
 	                console.log(colorBtnSrc[prodColor]);
 	            };
-	            console.log(colorBtnSrc[prodColor])
+	            console.log(colorBtnSrc[prodColor]);
 
-	            FunctionOne().done(FunctionTwo);
+	            clickTheSwatch().done(storeImgSrc);
 
 	        }).fail(function() {
 	            return;
