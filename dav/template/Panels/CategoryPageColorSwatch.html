@@ -1,37 +1,37 @@
 <script language="javascript" type="text/javascript">
-/* try to combine this with category videos! */
-$(document).ready(function(){
-// Swatches - Color and Size options swatches 
-	$(".Options").each(function checkForOptionSwatches(url) {
-		var productListing = $(this).closest('em.p-price').html() ;
-			productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
-		var	$this = $(this);
-		function getOptionSwatches() {
-			return $.ajax({
-		            url: productLink,
-		            type: 'GET',
-		            dataType: 'html',
-		            //async: false
-		    });
-		}
-		getOptionSwatches()
-			.done(function(data) { 
-		
-	                result = data;
-    				var productPage = result;
-						$productPageProcessing = $( productPage ).find('.productAttributeList');	
-					colorSwatch = $productPageProcessing.find( "span:contains('Color')" ).parents().eq(2).find('.productAttributeValue div').html();
-					sizeSwatch = $productPageProcessing.find( "span:contains('Size')" ).parents().eq(2).find('.productAttributeValue div').html();
-					if(colorSwatch != null) {
-						$this.parent().parent().find('em.p-price').before('<div class="catColorSwatch optionSwatch">'+colorSwatch+'</div>');
-						};
-					if(sizeSwatch != null) {
-						$this.parent().parent().find('em.p-price').before('<div class="catSizeSwatch optionSwatch">'+sizeSwatch+'</div>');
-						};
-			    }).fail(function() { 
-			    	return;
-			    });
-			}
-	    );
-});
+    /* try to combine this with category videos! */
+    $(document).ready(function() {
+        // Swatches - Color and Size options swatches 
+        $(".Options").each(function checkForOptionSwatches(url) {
+            var productListing = $(this).closest('em.p-price').html();
+            productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
+            var $this = $(this);
+
+            function getOptionSwatches() {
+                return $.ajax({
+                    url: productLink,
+                    type: 'GET',
+                    dataType: 'html',
+                    //async: false
+                });
+            }
+            getOptionSwatches()
+                .done(function(data) {
+
+                    result = data;
+                    var productPage = result;
+                    $productPageProcessing = $(productPage).find('.productAttributeList');
+                    colorSwatch = $productPageProcessing.find("span:contains('Color')").parents().eq(2).find('.productAttributeValue div').html();
+                    sizeSwatch = $productPageProcessing.find("span:contains('Size')").parents().eq(2).find('.productAttributeValue div').html();
+                    if (colorSwatch != null) {
+                        $this.parent().parent().find('em.p-price').before('<div class="catColorSwatch optionSwatch">' + colorSwatch + '</div>');
+                    };
+                    if (sizeSwatch != null) {
+                        $this.parent().parent().find('em.p-price').before('<div class="catSizeSwatch optionSwatch">' + sizeSwatch + '</div>');
+                    };
+                }).fail(function() {
+                    return;
+                });
+        });
+    });
 </script>
