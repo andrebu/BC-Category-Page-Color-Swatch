@@ -1,9 +1,13 @@
 	            var colorSpan = $(".name:contains('Color')");
 	            	console.log(colorSpan);
-	            var	colorSwatchWrapper = colorSpan.parents().eq(2).find('.productAttributeValue');
-	            	console.log(attrValueRow);
-	            var colorBoxes = colorSwatchWrapper.find('li');
+	            var	colorSwatchWrapper = colorSpan.closest('.productAttributeList');
+	            	console.log(colorSwatchWrapper);
+	            var	colorBoxesList = colorSpan.parents().eq(2).find('.productAttributeValue');
+	            	console.log(colorBoxesList);
+	            var colorBoxes = colorBoxesList.find('li');
 	            	console.log(colorBoxes);
+	            var prodColor = colorBoxes.find('.name').text();
+	            	console.log(prodColor);
 	            
 
 
