@@ -8,7 +8,25 @@
 	            	console.log(colorBoxes);
 	            var prodColor = colorBoxes.find('.name').text();
 	            	console.log(prodColor);
-	            
+	            var colorProdPgBtn = colorBoxes.find('label')
+	            	console.log(colorProdPgBtn); 
+	            var imgContainer = $('.ProductThumbImage a');
+	            	console.log(imgContainer); 
+	            var selectedColorImgUrl = imgContainer.attr('href');
+	            	console.log(selectedColorImgUrl); 
+
+					colorProdPgBtn.eq(0).click();	            
+	            var selectedColorImgUrl = imgContainer.attr('href');
+	            	console.log(selectedColorImgUrl); 
+					colorProdPgBtn.eq(1).click();	            
+	            var selectedColorImgUrl = imgContainer.attr('href');
+	            	console.log(selectedColorImgUrl); 
+					colorProdPgBtn.eq(2).click();	            
+	            var selectedColorImgUrl = imgContainer.attr('href');
+	            	console.log(selectedColorImgUrl); 
+					colorProdPgBtn.eq(3).click();	            
+	            var selectedColorImgUrl = imgContainer.attr('href');
+	            	console.log(selectedColorImgUrl); 
 
 
 	            var $productPageProcessing = $(productPage).find("span:contains('Color')").parents().eq(2).find('.productAttributeValue li');
