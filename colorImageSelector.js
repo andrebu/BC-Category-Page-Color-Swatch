@@ -1,3 +1,12 @@
+//http://cdn3.bigcommerce.com/r-0a0a8d1b7360352bf8b4ebebdd674726dd042734/javascript/product.attributes.js[1] ? line 268 or so
+$.post("/remote.php", {action:"add", w: "getProductAttributeDetails", product_id:166}, function(response) {
+        console.log(response.details.image);
+    });
+
+
+------
+
+
 	            var colorSpan = $(".name:contains('Color')");
 	            	console.log(colorSpan);
 	            var	colorSwatchWrapper = colorSpan.closest('.productAttributeList');
