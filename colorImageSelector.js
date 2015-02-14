@@ -4,7 +4,7 @@ $.post("/remote.php", {action:"add", w: "getProductAttributeDetails", product_id
     });
 
 
-------
+-------
 
 
 	            var colorSpan = $(".name:contains('Color')");
