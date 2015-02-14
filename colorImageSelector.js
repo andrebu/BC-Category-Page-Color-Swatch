@@ -7,6 +7,43 @@ $.post("/remote.php", {action:"add", w: "getProductAttributeDetails", product_id
 -------
 
 
+var data = null;
+                    if($('#productDetailsAddToCartForm').length) {
+                        data = $('#productDetailsAddToCartForm').serializeArray();
+                    } else {
+                        data = $('.productAttributeList:first').closest('form').serializeArray();
+                    }
+
+					data.push({
+						name: 'w',
+						value: 'getProductAttributeDetails'
+					});
+
+					data = $.param(data);
+
+					$.ajax({
+						url: '/remote.php',
+						type: 'POST',
+						dataType: 'json',
+						data: data,
+						success: function (response) {
+							if (response.success && response.details) {
+                                if($('#ProductDetails').length) {
+                                    $('#ProductDetails').updateProductDetails(response.details);
+                                }
+                                else {
+                                    $('.productAttributeList:first').updateProductDetails(response.details);
+                                }
+							}
+						}
+					});
+
+
+
+
+------------
+
+
 	            var colorSpan = $(".name:contains('Color')");
 	            	console.log(colorSpan);
 	            var	colorSwatchWrapper = colorSpan.closest('.productAttributeList');
