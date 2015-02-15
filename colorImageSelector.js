@@ -7,7 +7,26 @@ $.post("/remote.php", {action:"add", w: "getProductAttributeDetails", product_id
 -------
 
 
-var data = null;
+	/**
+	* This plugin implements behaviours applicable to all option types which can trigger sku / rule effects (change of
+	* price, weight, image, etc.)
+	*/
+	$.fn.productOptionRuleCondition = function (options) {
+		return this.each(function(){
+			$(this)
+				.addClass('productAttributeRuleCondition')
+				.find(':input')
+				.change(function(){
+					// ask the server for any updated product information based on current options - can't use
+					// ajaxSubmit here because it will try to send files too so use serializeArray and put our custom
+					// 'w' parameter into it
+
+                    // we want to enable out-of-stock notification for all 3 (product detail, quickview and cart) pages
+                    // and for some historical reasons they all have different html structure
+                    // (eg, cart page dosn't have #productDetailsAddToCartFrom form)
+                    // therefore we need to find the correct form to serialize
+                    // rather than doing massive template upgrades
+                    var data = null;
                     if($('#productDetailsAddToCartForm').length) {
                         data = $('#productDetailsAddToCartForm').serializeArray();
                     } else {
@@ -37,6 +56,9 @@ var data = null;
 							}
 						}
 					});
+				});
+		});
+	};
 
 
 
