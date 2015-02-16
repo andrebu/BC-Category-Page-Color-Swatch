@@ -30,11 +30,10 @@ $(".withColorSwatch").each(function () {
 	  var colorNumber = queue.pop(); 
 	  var colorName = currentColor.pop();
 	  var attributeValue = productColorSwatch.find('.validation').attr('name').replace(/\D/g,'');
-	  console.log(attributeValue);
 	  var args = {action:"add", w: "getProductAttributeDetails", product_id:productId, attribute: []};
 	  args.attribute[attributeValue] = colorNumber;
 	
-	  console.log("Getting \"color\"", colorName);
+	  console.log("Getting #", colorNumber, " - ", colorName, ", for ", productName);
 	  $.post("/remote.php", args, function(response) {
 	    if ( response && response.details && response.details.image ) {
 	      console.log("Got " + colorName + " image #" + colorNumber + " at URL " + response.details.image + " for ***" + productName + "***");
