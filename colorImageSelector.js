@@ -1,14 +1,16 @@
 $(".Options").each(function () {
+	var productDiv = $(this).parent().parent();
+	var productColorSwatch = productDiv.find('.catColorSwatch');
 	var images = [];
 	
 	//var productId = $("input[name=product_id]").val();
 	//var productId = $('div.ProductImage').attr('data-product');
-	var productId = $(this).parent().parent().find('div.ProductImage').attr('data-product');
+	var productId = productDiv.find('div.ProductImage').attr('data-product');
 	
 	// We can pull the color values from the DOM! :)
 	var allColorNumbers = [];
 	var allColorNames = [];
-	$(this).parent().parent().find("input.validation").each(function() {
+	productColorSwatch.find("input.validation").each(function() {
 	  allColorNumbers.push($(this).val());
 	  allColorNames.push($(this).parent().find('.name').text());
 	});
@@ -26,7 +28,7 @@ $(".Options").each(function () {
 	  // Next color in queue
 	  var colorNumber = queue.pop(); 
 	  var colorName = currentColor.pop();
-	  var attributeValue = $('.validation').attr('name').replace(/\D/g,'');
+	  var attributeValue = productColorSwatch.find('.validation').attr('name').replace(/\D/g,'');
 	  console.log(attributeValue);
 	  var args = {action:"add", w: "getProductAttributeDetails", product_id:productId, attribute: []};
 	  args.attribute[attributeValue] = colorNumber;
