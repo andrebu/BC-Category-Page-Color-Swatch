@@ -1,6 +1,7 @@
-$(".Options").each(function () {
+$(".withColorSwatch").each(function () {
 	var productDiv = $(this).parent().parent();
 	var productColorSwatch = productDiv.find('.catColorSwatch');
+	var productName = productDiv.find('.pname').text();
 	var images = [];
 	
 	//var productId = $("input[name=product_id]").val();
@@ -36,7 +37,7 @@ $(".Options").each(function () {
 	  console.log("Getting \"color\"", colorName);
 	  $.post("/remote.php", args, function(response) {
 	    if ( response && response.details && response.details.image ) {
-	      console.log("Got " + colorName + " image #" + colorNumber + " at URL " + response.details.image);
+	      console.log("Got " + colorName + " image #" + colorNumber + " at URL " + response.details.image + " for ***" + productName + "***");
 	      images.push(response.details.image);
 	    }
 	    poll(cb); // Next in queue
@@ -44,7 +45,7 @@ $(".Options").each(function () {
 	}
 	
 	poll(function() {
-	  console.log("This is all the images I found", images);
+	  console.log("For " + productName + ", these are all the images I found", images);
 	});
 });
 
