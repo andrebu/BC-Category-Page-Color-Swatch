@@ -33,10 +33,10 @@ $(".withColorSwatch").each(function () {
 	  var args = {action:"add", w: "getProductAttributeDetails", product_id:productId, attribute: []};
 	  args.attribute[attributeValue] = colorNumber;
 	
-	  console.log("Getting #", colorNumber, " - ", colorName, ", for ", productName);
+	  console.log("Getting color #" + colorNumber, "-", colorName + ", for ***" + productName + "***");
 	  $.post("/remote.php", args, function(response) {
 	    if ( response && response.details && response.details.image ) {
-	      console.log("Got " + colorName + " image #" + colorNumber + " at URL " + response.details.image + " for ***" + productName + "***");
+	      console.log("Got", colorName, "image #" + colorNumber, "at URL", response.details.image, "for ***" + productName + "***");
 	      images.push(response.details.image);
 	    }
 	    poll(cb); // Next in queue
@@ -44,7 +44,7 @@ $(".withColorSwatch").each(function () {
 	}
 	
 	poll(function() {
-	  console.log("For " + productName + ", these are all the images I found", images);
+	  console.log("For", productName + ", these are all the images I found:", images);
 	});
 });
 
