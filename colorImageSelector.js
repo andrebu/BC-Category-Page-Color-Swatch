@@ -1,3 +1,49 @@
+var images = [];
+
+var productId = $("input[name=product_id]").val();
+
+// We can pull the color values from the DOM! :)
+var colors = [];
+$(".productOptionPickListSwatch li input.validation").each(function() {
+  colors.push($(this).val());
+});
+
+
+var queue = Array.prototype.concat.call(colors); // Make a copy of the array
+function poll(cb) {
+  // Is queue finished ?
+  if ( !queue.length ) {
+    cb();
+    return;
+  }
+
+  // Next color in queue
+  var color = queue.pop();
+  var attributeValue = $('.validation').attr('name').replace(/\D/g,'');
+  var args = {action:"add", w: "getProductAttributeDetails", product_id:productId, attribute: []};
+  args.attribute[attributeValue] = color;
+
+  console.log("Getting \"color\"", color);
+  $.post("/remote.php", args, function(response) {
+    if ( response && response.details && response.details.image ) {
+      console.log("Got image", response.details.image);
+      images.push(response.details.image);
+    }
+    poll(cb); // Next in queue
+  });
+}
+
+poll(function() {
+  console.log("I am finished");
+  console.log("This is all the images I found", images);
+});
+
+
+
+----------
+
+
+
 //http://cdn3.bigcommerce.com/r-0a0a8d1b7360352bf8b4ebebdd674726dd042734/javascript/product.attributes.js[1] ? line 268 or so
 $.post("/remote.php", {action:"add", w: "getProductAttributeDetails", product_id:166}, function(response) {
         console.log(response.details.image);
