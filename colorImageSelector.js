@@ -1,3 +1,56 @@
+$(".Options").each(function checkForOptionSwatches(url) {
+    var productListing = $(this).closest('em.p-price').html();
+    productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
+    var $this = $(this);
+
+	var images = [];
+	
+	var productId = $("input[name=product_id]").val();
+	
+	// We can pull the color values from the DOM! :)
+	var allColorNumbers = [];
+	var allColorNames = [];
+	$("input.validation").each(function() {
+	  allColorNumbers.push($(this).val());
+	  allColorNames.push($(this).parent().find('.name').text());
+	});
+	
+	
+	var queue = Array.prototype.concat.call(allColorNumbers); // Make a copy of the array
+	var currentColor = Array.prototype.concat.call(allColorNames);
+	function poll(cb) {
+	  // Is queue finished ?
+	  if ( !queue.length ) {
+	    cb();
+	    return;
+	  }
+	
+	  // Next color in queue
+	  var colorNumber = queue.pop(); 
+	  var colorName = currentColor.pop();
+	  var attributeValue = $('.validation').attr('name').replace(/\D/g,'');
+	  var args = {action:"add", w: "getProductAttributeDetails", product_id:productId, attribute: []};
+	  args.attribute[attributeValue] = colorNumber;
+	
+	  console.log("Getting \"color\"", colorName);
+	  $.post("/remote.php", args, function(response) {
+	    if ( response && response.details && response.details.image ) {
+	      console.log("Got " + colorName + " image # " + colorNumber + " at URL " + response.details.image);
+	      images.push(response.details.image);
+	    }
+	    poll(cb); // Next in queue
+	  });
+	}
+	
+	poll(function() {
+	  console.log("This is all the images I found", images);
+	});
+
+});
+
+
+-----------------
+
 var images = [];
 
 var productId = $("input[name=product_id]").val();
