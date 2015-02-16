@@ -1,11 +1,8 @@
-$(".Options").each(function checkForOptionSwatches(url) {
-    var productListing = $(this).closest('em.p-price').html();
-    productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
-    var $this = $(this);
-
+$(".Options").each(function () {
 	var images = [];
 	
-	var productId = $("input[name=product_id]").val();
+	//var productId = $("input[name=product_id]").val();
+	var productId = $('div.ProductImage').attr('data-product');
 	
 	// We can pull the color values from the DOM! :)
 	var allColorNumbers = [];
@@ -35,7 +32,7 @@ $(".Options").each(function checkForOptionSwatches(url) {
 	  console.log("Getting \"color\"", colorName);
 	  $.post("/remote.php", args, function(response) {
 	    if ( response && response.details && response.details.image ) {
-	      console.log("Got " + colorName + " image # " + colorNumber + " at URL " + response.details.image);
+	      console.log("Got " + colorName + " image #" + colorNumber + " at URL " + response.details.image);
 	      images.push(response.details.image);
 	    }
 	    poll(cb); // Next in queue
@@ -45,9 +42,7 @@ $(".Options").each(function checkForOptionSwatches(url) {
 	poll(function() {
 	  console.log("This is all the images I found", images);
 	});
-
 });
-
 
 -----------------
 
