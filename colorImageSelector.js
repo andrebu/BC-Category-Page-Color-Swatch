@@ -22,8 +22,8 @@ $(".withColorSwatch").each(function () {
 	});
 	
 	
-	var queue = Array.prototype.concat.call(allColorNumbers); // Make a copy of the array
-	var currentColor = Array.prototype.concat.call(allColorNames);
+	var queue = Array.prototype.concat.call(colors); // Make a copy of the array
+	//var currentColor = Array.prototype.concat.call(allColorNames);
 	function poll(cb) {
 	  // Is queue finished ?
 	  if ( !queue.length ) {
@@ -32,24 +32,29 @@ $(".withColorSwatch").each(function () {
 	  }
 	
 	  // Next color in queue
-	  var colorNumber = queue.pop(); 
-	  var colorName = currentColor.pop();
+	  var color = queue.pop();
+	  //var colorNumber = queue.pop(); 
+	  //var colorName = currentColor.pop();
 	  var attributeValue = productColorSwatch.find('.validation').attr('name').replace(/\D/g,'');
 	  var args = {action:"add", w: "getProductAttributeDetails", product_id:productId, attribute: []};
-	  args.attribute[attributeValue] = colorNumber;
+	  args.attribute[attributeValue] = color.value;
 	
 	  console.log("Getting color #" + colorNumber, "-", colorName + ", for ***" + productName + "***");
 	  $.post("/remote.php", args, function(response) {
 	    if ( response && response.details && response.details.image ) {
-	      console.log("Got", colorName, "image #" + colorNumber, "at URL", response.details.image, "for ***" + productName + "***");
-	      images.push(response.details.image);
+	      //console.log("Got", colorName, "image #" + colorNumber, "at URL", response.details.image, "for ***" + productName + "***");
+	      //images.push(response.details.image);
+	      console.log("Got image", response.details.image);
+	      result[color.name] = response.details.image;
 	    }
 	    poll(cb); // Next in queue
 	  });
 	}
 	
 	poll(function() {
-	  console.log("For", productName + ", these are all the images I found:", images);
+		console.log("For", productName + ", these are all the images I found:", images);
+		console.log("I am finished");
+		console.log("this is the result", result);
 	});
 });
 
