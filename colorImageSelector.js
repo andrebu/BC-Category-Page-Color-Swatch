@@ -9,11 +9,16 @@ $(".withColorSwatch").each(function () {
 	var productId = productDiv.find('div.ProductImage').attr('data-product');
 	
 	// We can pull the color values from the DOM! :)
-	var allColorNumbers = [];
-	var allColorNames = [];
+	//var allColorNumbers = [];
+	//var allColorNames = [];
+	var colors = [];
 	productColorSwatch.find("input.validation").each(function() {
-	  allColorNumbers.push($(this).val());
-	  allColorNames.push($(this).parent().find('.name').text());
+		colors.push({
+			value: $(this).val(),
+			name: $(this).parent().find("span.swatchColours").attr("title")
+      //allColorNumbers.push($(this).val());
+	  //allColorNames.push($(this).parent().find('.name').text());
+		});
 	});
 	
 	
@@ -96,6 +101,9 @@ poll(function() {
 
 
 ----------
+
+
+
 
 
 
