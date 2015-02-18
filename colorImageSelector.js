@@ -15,12 +15,13 @@ $(".withColorSwatch").each(function () {
 	productColorSwatch.find("input.validation").each(function() {
 		colors.push({
 			value: $(this).val(),
-			name: $(this).parent().find("span.swatchColours").attr("title")
+			name: $(this).parent().find("span.swatchColours").attr("title"),
+			url: ''
       //allColorNumbers.push($(this).val());
 	  //allColorNames.push($(this).parent().find('.name').text());
 		});
 	});
-		console.log(colors);
+		//console.log(colors);
 	
 	
 	var queue = Array.prototype.concat.call(colors); // Make a copy of the array
@@ -38,22 +39,25 @@ $(".withColorSwatch").each(function () {
 	  //var colorName = currentColor.pop();
 	  var attributeValue = productColorSwatch.find('.validation').attr('name').replace(/\D/g,'');
 	  var args = {action:"add", w: "getProductAttributeDetails", product_id:productId, attribute: []};
+	  //console.log('color value is ' + color.value);
 	  args.attribute[attributeValue] = color.value;
 	
 	  //console.log("Getting color #" + colorNumber, "-", colorName + ", for ***" + productName + "***");
-	  console.log("Getting \"color\"", color);
+	  //console.log("Getting \"color\"", color);
 	  $.post("/remote.php", args, function(response) {
 	    if ( response && response.details && response.details.image ) {
 	      //console.log("Got", colorName, "image #" + colorNumber, "at URL", response.details.image, "for ***" + productName + "***");
 	      //images.push(response.details.image);
-	      console.log("Got image", response.details.image);
+	      //console.log("Got image", response.details.image);
 	      result[color.name] = response.details.image;
-	      colors.push({
-		      url: response.details.image
-		      });
+	      color.url = response.details.image;
 	    }
-	    	  console.log("result color name is ----", result[color.name]);
-		console.log(colors);
+	    //console.log("result color name is ----", color.name);
+		console.log(color);
+		console.log(productName);
+		console.log(color.name);
+		console.log(color.value);
+		console.log(color.url);
 	    poll(cb); // Next in queue
 	  });
 	}
