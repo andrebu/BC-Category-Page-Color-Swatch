@@ -53,11 +53,7 @@ $(".withColorSwatch").each(function () {
 	      color.url = response.details.image;
 	    }
 	    //console.log("result color name is ----", color.name);
-		console.log(color);
-		console.log(productName);
-		console.log(color.name);
-		console.log(color.value);
-		console.log(color.url);
+		console.log(productName, color, color.url);
 	    poll(cb); // Next in queue
 	  });
 	}
@@ -67,4 +63,10 @@ $(".withColorSwatch").each(function () {
 		console.log("I am finished");
 		//console.log("this is the result", result);
 	});
+	
+	var productImage = this links product image;
+	$(color swatch link color boxes).click({
+		this-number-product change productImage to color.url;
+	})
+	
 });
