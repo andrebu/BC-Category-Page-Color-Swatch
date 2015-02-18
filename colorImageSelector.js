@@ -58,13 +58,13 @@ $(".withColorSwatch").each(function () {
 	  });
 
 	var productImage = productDiv.find('.ProductImage a img');
-	var colorSwatchBox = productColorSwatch.find('.validation[value=' + color.value + ']')
+	var colorSwatchBox = productColorSwatch.find('.validation[value=' + color.value + ']').parent().parent();
 	console.log(productImage);
 	console.log(colorSwatchBox);
-	//var 
-	//$(color swatch link color boxes).click({
-	//	this-number-product change productImage to color.url;
-	//})
+	//colorSwatchBox.click({
+    colorSwatchBox.on('click', function() {
+		productImage.attr('src', color.url);
+	});
 	}
 	
 	poll(function() {
