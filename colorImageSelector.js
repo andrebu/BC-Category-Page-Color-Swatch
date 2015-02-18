@@ -64,9 +64,11 @@ $(".withColorSwatch").each(function () {
 		//console.log("this is the result", result);
 	});
 	
-	var productImage = this links product image;
-	$(color swatch link color boxes).click({
-		this-number-product change productImage to color.url;
-	})
+	var productImage = $(this).parent().parent().find('.ProductImage a img');
+	console.log(productImage);
+	//var 
+	//$(color swatch link color boxes).click({
+	//	this-number-product change productImage to color.url;
+	//})
 	
 });
