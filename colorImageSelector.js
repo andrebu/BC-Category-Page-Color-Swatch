@@ -53,22 +53,25 @@ $(".withColorSwatch").each(function () {
 	      color.url = response.details.image;
 	    }
 	    //console.log("result color name is ----", color.name);
-		console.log(productName, color, color.url);
+		//console.log(productName, color, color.url);
 	    poll(cb); // Next in queue
 	  });
-	}
-	
-	poll(function() {
-		//console.log("For", productName + ", these are all the images I found:", images);
-		console.log("I am finished");
-		//console.log("this is the result", result);
-	});
-	
-	var productImage = $(this).parent().parent().find('.ProductImage a img');
+
+	var productImage = productDiv.find('.ProductImage a img');
+	var colorSwatchBox = productColorSwatch.find('.validation[value=' + color.value + ']')
 	console.log(productImage);
+	console.log(colorSwatchBox);
 	//var 
 	//$(color swatch link color boxes).click({
 	//	this-number-product change productImage to color.url;
 	//})
+	}
+	
+	poll(function() {
+		//console.log("For", productName + ", these are all the images I found:", images);
+		//console.log("I am finished");
+		//console.log("this is the result", result);
+
+	});	
 	
 });
