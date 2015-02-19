@@ -237,6 +237,22 @@
 	display: none; 
 }
 
+/* Fix for color and size swtches so the boxes can hang off the side and still show */
+.CategoryContent .ProductList li {
+    overflow: visible; 
+}
+@media screen and (max-width: 767px) {
+	#CategoryContent .ProductList, .CategoryContent .ProductList {
+		overflow: visible;
+	}
+	.Content.Wide {
+		overflow: visible; 
+	}
+	#LayoutColumn1 {
+		overflow: visible;
+	}
+}
+
 
 
 
