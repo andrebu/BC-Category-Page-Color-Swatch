@@ -17,33 +17,45 @@ $(".withColorSwatch").each(function () {
 	
 	var queue = Array.prototype.concat.call(colors); // Make a copy of the array
 	function poll(cb) {
-	  // Is queue finished ?
-	  if ( !queue.length ) {
-	    cb();
-	    return;
-	  }
+		// Is queue finished ?
+		if ( !queue.length ) {
+			cb();
+			return;
+		}
 	
-	  // Next color in queue
-	  var color = queue.pop();
-	  var attributeValue = productColorSwatch.find('.validation').attr('name').replace(/\D/g,'');
-	  var args = {action:"add", w: "getProductAttributeDetails", product_id:productId, attribute: []};
-	  args.attribute[attributeValue] = color.value;
-	
-	  $.post("/remote.php", args, function(response) {
-	    if ( response && response.details && response.details.image ) {
-	      result[color.name] = response.details.image;
-	      color.url = response.details.image;
-	    }
-	    poll(cb); // Next in queue
-	  });
+		// Next color in queue
+		var color = queue.pop();
+		var attributeValue = productColorSwatch.find('.validation').attr('name').replace(/\D/g,'');
+		var args = {action:"add", w: "getProductAttributeDetails", product_id:productId, attribute: []};
+		args.attribute[attributeValue] = color.value;
+		
+		$.post("/remote.php", args, function(response) {
+			if ( response && response.details && response.details.image ) {
+				result[color.name] = response.details.image;
+				color.url = response.details.image;
+			}
+			poll(cb); // Next in queue
+		});
 
-	var productImage = productDiv.find('.ProductImage a img');
-	var colorSwatchBox = productColorSwatch.find('.validation[value=' + color.value + ']').parent().parent();
-    colorSwatchBox.on('click', function() {
-		productImage.attr('src', color.url);
-	});
+		var productImage = productDiv.find('.ProductImage a img');
+		var colorSwatchBox = productColorSwatch.find('.validation[value=' + color.value + ']').parent().parent();
+	    colorSwatchBox.on({        
+	            mouseenter: function (event) {
+					productImage.attr('src', color.url);
+	            },
+//	            mouseleave: function (event) {
+//	            },
+	            click: function (event) {
+					productImage.attr('src', color.url);
+//					also set border and selected class
+	            }
+	        },
+	        "body"
+	    );
 	}
 	
-	poll();	
+	poll(function() {
+			console.log('Why do I need this?');
+	});	
 	
 });

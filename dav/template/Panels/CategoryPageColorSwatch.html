@@ -25,6 +25,7 @@
                     sizeSwatch = $productPageProcessing.find("span:contains('Size')").parents().eq(2).find('.productAttributeValue div').html();
                     if (colorSwatch != null) {
                         $this.parent().parent().find('em.p-price').before('<div class="catColorSwatch optionSwatch">' + colorSwatch + '</div>');
+                        $this.addClass('withColorSwatch');
                     };
                     if (sizeSwatch != null) {
                         $this.parent().parent().find('em.p-price').before('<div class="catSizeSwatch optionSwatch">' + sizeSwatch + '</div>');
