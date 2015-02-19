@@ -1,5 +1,7 @@
 /* Color and Size Options TRUE/FALSE container strip on Category Pages */
-/* http://shop.nordstrom.com/c/mens-tshirts?dept=8000001&origin=topnav */
+.catSizeSwatch {
+	display: none; 
+}
 .catColorSwatch {
 	display: inline-block; 
 }
@@ -12,16 +14,26 @@
 .catColorSwatch .swatchColour {
 	display: inline-block;
 	width: 17px !important;
-	height: 17px !important;
+	height: 17px !important; 
+	border: 1px solid #fff; 
 }
 .catColorSwatch li.swatch.swatchOneColour {
 	display: inline-block; 
 	float: left; 
-	width: auto;
+	width: auto !important;
 	padding: 0; 
 	border: 1px solid #d5d5d5;
 	margin: 5px 4px 1px 1px;
 }
+.catColorSwatch li.swatch.swatchOneColour.selectedColorBox { 
+/* 	border: 2px solid #39b54a;	 */
+	padding: 0; 
+}
+/*
+.catColorSwatch li.swatch.swatchOneColour:hover { 
+	border: 2px solid #666;
+}
+*/
 .catColorSwatch .swatch.swatchOneColour label {
 	margin: 0; 
 	line-height: normal; 
@@ -29,7 +41,6 @@
 .catColorSwatch .swatch.swatchOneColour span.swatchColours.swatchOneColour {
 	line-height: inherit; 
 }
-
 
 
 
