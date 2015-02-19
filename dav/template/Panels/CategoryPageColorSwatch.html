@@ -1,4 +1,44 @@
 <script language="javascript" type="text/javascript">
+        $('<style type="text/css">\
+			/* Color and Size Options on Category Pages */\
+			.catSizeSwatch {\
+				display: none;\
+			}\
+			.catColorSwatch {\
+				display: inline-block;\
+			}\
+			.catColorSwatch .validation,\
+			.catColorSwatch .name,\
+			.catSizeSwatch .validation,\
+			.catSizeSwatch .name {\
+				display: none;\
+			}\
+			.catColorSwatch .swatchColour {\
+				display: inline-block;\
+				width: 17px !important;\
+				height: 17px !important;\
+				border: 1px solid #fff;\
+			}\
+			.catColorSwatch li.swatch.swatchOneColour {\
+				display: inline-block;\
+				float: left;\
+				width: auto !important;\
+				padding: 0;\
+				border: 1px solid #d5d5d5;\
+				margin: 5px 4px 1px 1px;\
+			}\
+			.catColorSwatch li.swatch.swatchOneColour.selectedColorBox {\
+				padding: 0;\
+			}\
+			.catColorSwatch .swatch.swatchOneColour label {\
+				margin: 0;\
+				line-height: normal;\
+			}\
+			.catColorSwatch .swatch.swatchOneColour span.swatchColours.swatchOneColour {\
+				line-height: inherit;\
+			}\
+			</style>')
+            .appendTo('head');
     /* try to combine this with category videos! */
     $(document).ready(function() {
         // Swatches - Color and Size options swatches 
