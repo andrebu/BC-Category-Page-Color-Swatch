@@ -68,32 +68,32 @@
 					
 							var productImage = productDiv.find('.ProductImage a img');
 							var colorSwatchBox = productColorSwatch.find('.validation[value=' + color.value + ']').parent().parent();
-							var activeImage = $(this).parents().eq(2).find('.ProductImage a img').attr('src');
-							console.log(colorSwatchBox);
-							console.log(this);
+							var activeImage = productImage.attr('src');
+							productImage.attr('data-original', activeImage);
+							var originalImage = productImage.attr('data-original');
 						    colorSwatchBox.on({        
 						            mouseenter: function (event) {
+							            originalImage = $(this).parents().eq(2).find('.ProductImage a img').attr('data-original');
 										$(this).parents().eq(2).find('.ProductImage a img').attr('src', color.url);
 										if (!$(this).hasClass('selectedColorBox')) {
 											$(this).css({'border':'2px solid #666', 'margin':'4px 3px 0 0'});
 										}
 						            },
 						            mouseleave: function (event) {
-//										console.log(activeImage);
 										if (!$(this).hasClass('selectedColorBox')) {
 											$(this).css({'border':'1px solid #d5d5d5', 'margin':'5px 4px 1px 1px'});
-//										productImage.attr('src', activeImage);
-										$(this).parents().eq(2).find('.ProductImage a img').attr('src', activeImage);
+											//productImage.attr('src', activeImage);
+											$(this).parents().eq(2).find('.ProductImage a img').attr('src', originalImage);
 										}
 						            }, 
 						            click: function (event) {
 							            $(this).parent().find('li').removeClass('selectedColorBox');
 							            $(this).addClass('selectedColorBox');
 										$(this).parents().eq(2).find('.ProductImage a img').attr('src', color.url);
+										$(this).parents().eq(2).find('.ProductImage a img').attr('data-original', color.url);
 							            $(this).parent().find('li').css({'border':'1px solid #d5d5d5', 'margin':'5px 4px 1px 1px'}); 
 										$(this).css({'border':'2px solid #39b54a', 'margin':'4px 3px 0 0'});
-										activeImage = $(this).parents().eq(2).find('.ProductImage a img').attr('src');
-//										console.log(activeImage);
+										//activeImage = $(this).parents().eq(2).find('.ProductImage a img').attr('src');
 						            } 
 						        }
 						    );
