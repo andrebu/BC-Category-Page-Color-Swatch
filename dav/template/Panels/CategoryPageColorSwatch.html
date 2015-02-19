@@ -71,6 +71,9 @@
 								var activeImage;
 							    colorSwatchBox.on({        
 							            click: function (event) {
+								            console.log(this);
+								            $(this).parent().find('li').removeClass('selectedColorBox');
+								            $(this).addClass('selectedColorBox');
 											productImage.attr('src', color.url);
 						//					console.log(color.url);
 											var activeImage = $(this).parents().eq(2).find('.ProductImage a img').attr('src');
