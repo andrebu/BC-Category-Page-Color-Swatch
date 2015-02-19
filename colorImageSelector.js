@@ -39,18 +39,22 @@ $(".withColorSwatch").each(function () {
 
 		var productImage = productDiv.find('.ProductImage a img');
 		var colorSwatchBox = productColorSwatch.find('.validation[value=' + color.value + ']').parent().parent();
+		var activeImage = productImage.attr('src');
 	    colorSwatchBox.on({        
+	            click: function (event) {
+					productImage.attr('src', color.url);
+					console.log(color.url);
+					var activeImage = $(this).parents().eq(2).find('.ProductImage a img').attr('src');
+					console.log(activeImage);
+//					also set border and selected class
+	            },
 	            mouseenter: function (event) {
 					productImage.attr('src', color.url);
 	            },
-//	            mouseleave: function (event) {
-//	            },
-	            click: function (event) {
-					productImage.attr('src', color.url);
-//					also set border and selected class
+	            mouseleave: function (event) {
+					productImage.attr('src', activeImage);
 	            }
-	        },
-	        "body"
+	        }
 	    );
 	}
 	
