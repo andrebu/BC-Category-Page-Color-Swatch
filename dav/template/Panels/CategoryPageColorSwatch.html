@@ -7,10 +7,16 @@
 			.catColorSwatch {\
 				display: inline-block;\
 			}\
-			.catColorSwatch .validation,\
-			.catColorSwatch .name,\
+			.catColorSwatch li {\
+				padding: 0 4px;\
+			}\
+			.catColorSwatch .swatchOneColour .validation,\
+			.catColorSwatch .swatchOneColour .name,\
 			.catSizeSwatch .validation,\
 			.catSizeSwatch .name {\
+				display: none;\
+			}\
+			.catColorSwatch li .validation {\
 				display: none;\
 			}\
 			.catColorSwatch .swatchColour {\
@@ -19,6 +25,7 @@
 				height: 17px !important;\
 				border: 1px solid #fff;\
 			}\
+			.catColorSwatch li,\
 			.catColorSwatch li.swatch.swatchOneColour {\
 				display: inline-block;\
 				float: left;\
@@ -30,12 +37,16 @@
 			.catColorSwatch li.swatch.swatchOneColour.selectedColorBox {\
 				padding: 0;\
 			}\
-			.catColorSwatch .swatch.swatchOneColour label {\
+			.catColorSwatch li label {\
 				margin: 0;\
 				line-height: normal;\
 			}\
-			.catColorSwatch .swatch.swatchOneColour span.swatchColours.swatchOneColour {\
+			.catColorSwatch li.swatch.swatchOneColour label span.swatchColours.swatchOneColour {\
 				line-height: inherit;\
+			}\
+			.catColorSwatch .name {\
+				line-height: 21px;\
+				padding: 0 4px;\
 			}\
 			</style>')
         .appendTo('head');
@@ -163,7 +174,7 @@
                         // Color swatch clickability ends here
                     };
                     if (sizeSwatch != null) {
-                        $this.parent().parent().find('em.p-price').before('<div class="catSizeSwatch optionSwatch">' + sizeSwatch + '</div>');
+                        $this.parent().parent().find('.ProductDetails').before('<div class="catSizeSwatch optionSwatch">' + sizeSwatch + '</div>');
                     };
                 }).fail(function() {
                     return;
