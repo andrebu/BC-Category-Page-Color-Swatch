@@ -1,9 +1,9 @@
 <script language="javascript" type="text/javascript">
     $('<style type="text/css">\
 			/* Color and Size Options on Category Pages */\
-			.catSizeSwatch {\
+			/*.catSizeSwatch {\
 				display: none;\
-			}\
+			}*/\
 			.catColorSwatch {\
 				display: inline-block;\
 			}\
@@ -12,8 +12,8 @@
 			}\
 			.catColorSwatch .swatchOneColour .validation,\
 			.catColorSwatch .swatchOneColour .name,\
-			.catSizeSwatch .validation,\
-			.catSizeSwatch .name {\
+			.catSizeSwatch .validation/*,\
+			.catSizeSwatch .name*/ {\
 				display: none;\
 			}\
 			.catColorSwatch li .validation {\
@@ -48,6 +48,32 @@
 				line-height: 19px;\
 				padding: 0 4px;\
 			}\
+			.catSizeSwatch {\
+				background-size: auto 100%;\
+				position: absolute;\
+				top: 253px;\
+				right: 0px;\
+				padding: 3px 0;\
+				width: 45px;\
+			}\
+			.catSizeSwatch .list-horizontal {\
+				margin: 0;\
+			}\
+			.catSizeSwatch .list-horizontal .option {\
+				display: inline-block;\
+				width: 45px;\
+				padding: 0;\
+				background: none;\
+			}\
+			.catSizeSwatch .list-horizontal .option label {\
+				margin: 0;\
+			}\
+			.catSizeSwatch .list-horizontal .option label .name {\
+			    font-weight: bold;\
+			    color: black;\
+			    display: block;\
+			    font-size: 8px;\
+			}\
 			.sizeOptionsOverlay {\
 				/* background: url("%%GLOBAL_TPL_PATH%%/images/JointSizesL.png") center center no-repeat; */\
 				background-size: auto 100%;\
@@ -57,6 +83,7 @@
 				padding: 3px 0;\
 				width: 45px;\
 			}\
+			.catSizeSwatch .jointTitle,\
 			.sizeOptionsOverlay .jointTitle {\
 			    font-weight: bold;\
 				display: inline-block;\
@@ -69,8 +96,9 @@
 			    color: #BBB;\
 			    vertical-align: bottom;\
 			}\
+			.catSizeSwatch img,\
 			.sizeOptionsOverlay .jointSize img {\
-			    width: 14.4px;\
+			    width: 14px;\
 			    display: block;\
 			    margin: 0 auto;\
 			}\
@@ -83,11 +111,13 @@
 			.sizeOptionsOverlay .jointSize i {\
 			    display: block;\
 			}\
+			.catSizeSwatch img.small,\
 			.sizeOptionsOverlay .jointSize.small img {\
 			    width: 10px;\
 			}\
+			.catSizeSwatch img.big,\
 			.sizeOptionsOverlay .jointSize.big img {\
-			    width: 18.8px;\
+			    width: 18px;\
 			}\
 			</style>')
         .appendTo('head');
@@ -115,8 +145,8 @@
                     $productPageProcessing = $(productPage).find('.productAttributeList');
                     colorSwatch = $productPageProcessing.find("span:contains('Color')").parents().eq(2).find('.productAttributeValue div').html();
                     sizeSwatch = $productPageProcessing.find("span:contains('Size')").parents().eq(2).find('.productAttributeValue div').html();
-                    //sizeOptionsOverlay = '<div class="sizeOptionsOverlay">&nbsp;</div>';
-                    sizeOptionsOverlay = '<div class="sizeOptionsOverlay">' +
+                    sizeOptionsOverlay = '<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span>' + sizeSwatch + '</div>';
+                    //sizeOptionsOverlay = '<div class="sizeOptionsOverlay">' +
                     					'<span class="jointTitle">Fits these joint sizes:</span>' +
                     					'<div class="jointSize small male"><span>10mm</span><img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png"></div>' + 
                     					'<div class="jointSize  male"><span>14.5mm</span><img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png"></div>' + 
@@ -222,8 +252,12 @@
                         // Color swatch clickability ends here
                     };
                     if (sizeSwatch != null) {
-                        //$this.parent().parent().find('.ProductDetails').before('<div class="catSizeSwatch optionSwatch">' + sizeSwatch + '</div>');
-                        $this.parent().parent().find('.ProductDetails').before(sizeOptionsOverlay); 
+	                    var thisProductListing = $this.parent().parent();
+                        thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
+                        //thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
+                        thisProductListing.find('.name:contains("10mm")').after('<img class="small" src="%%GLOBAL_TPL_PATH%%/images/malejoint.png">');
+                        thisProductListing.find('.name:contains("14mm")').after('<img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png">');
+                        thisProductListing.find('.name:contains("18mm")').after('<img class="big" src="%%GLOBAL_TPL_PATH%%/images/malejoint.png">');
                     };
                 }).fail(function() {
                     return;
