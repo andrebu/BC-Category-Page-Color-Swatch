@@ -48,38 +48,46 @@
 				line-height: 19px;\
 				padding: 0 4px;\
 			}\
-			.size-options-overlay {\
+			.sizeOptionsOverlay {\
 				/* background: url("%%GLOBAL_TPL_PATH%%/images/JointSizesL.png") center center no-repeat; */\
 				background-size: auto 100%;\
 				position: absolute;\
-				top: 319px;\
-				right: -7px;\
+				top: 253px;\
+				right: 0px;\
+				padding: 3px 0;\
+				width: 55px;\
 			}\
-			.size-options-overlay .jointSize {\
+			.sizeOptionsOverlay .jointTitle {\
+				font-weight: bold;\
+			    font-size: 8px;\
+			    font-weight: bold;\
+				display: inline-block;\
+			}\
+			.sizeOptionsOverlay .jointSize {\
 			    display: inline-block;\
 			    text-align: center;\
 			    color: #BBB;\
 			    vertical-align: bottom;\
 			}\
-			.size-options-overlay .jointSize img {\
-			    width: 32px;\
+			.sizeOptionsOverlay .jointSize img {\
+			    width: 14.4px;\
 			    display: block;\
 			    margin: 0 auto;\
 			}\
-			.size-options-overlay .jointSize span {\
+			.sizeOptionsOverlay .jointSize span {\
 			    font-weight: bold;\
 			    color: black;\
 			    display: block;\
 			    font-size: 8px;\
 			}\
-			.size-options-overlay .jointSize i {\
+			.sizeOptionsOverlay .jointSize i {\
 			    display: block;\
 			}\
-			.size-options-overlay .jointSize.small img {\
-			    width: 26px;\
+			.sizeOptionsOverlay .jointSize.small img {\
+			    width: 10px;\
 			}\
-			.size-options-overlay .jointSize.big img {\
-			    width: 42px;\
+			.sizeOptionsOverlay .jointSize.big img {\
+			    width: 18.8px;\
 			}\
 			</style>')
         .appendTo('head');
@@ -107,8 +115,9 @@
                     $productPageProcessing = $(productPage).find('.productAttributeList');
                     colorSwatch = $productPageProcessing.find("span:contains('Color')").parents().eq(2).find('.productAttributeValue div').html();
                     sizeSwatch = $productPageProcessing.find("span:contains('Size')").parents().eq(2).find('.productAttributeValue div').html();
-                    //sizeOptionsOverlay = '<div class="size-options-overlay">&nbsp;</div>';
-                    sizeOptionsOverlay = '<div class="size-options-overlay">' +
+                    //sizeOptionsOverlay = '<div class="sizeOptionsOverlay">&nbsp;</div>';
+                    sizeOptionsOverlay = '<div class="sizeOptionsOverlay">' +
+                    					'<span class="jointTitle">Fits these joint sizes:</span>' +
                     					'<div class="jointSize small male"><span>10mm</span><img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png"></div>' + 
                     					'<div class="jointSize  male"><span>14.5mm</span><img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png"></div>' + 
                     					'<div class="jointSize big male"><span>18.8mm</span><img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png"></div>' +
