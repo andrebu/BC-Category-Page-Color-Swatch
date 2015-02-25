@@ -49,12 +49,40 @@
 				padding: 0 4px;\
 			}\
 			.size-options-overlay {\
-				background: url("/template/images/JointSizesL.png") center center no-repeat;\
+				/* background: url("%%GLOBAL_TPL_PATH%%/images/JointSizesL.png") center center no-repeat; */\
 				background-size: auto 100%;\
 				width: 70px;\
 				height: 30px;\
 				position: absolute;\
 				top: 340px;\
+			]\
+			.size-options-overlay .jointSize {\
+			    display: inline-block;\
+			    width: 31%;\
+			    min-width: 46px;\
+			    text-align: center;\
+			    margin-bottom: 6px;\
+			    color: #BBB;\
+			}\
+			.size-options-overlay .jointSize img {\
+			    width: 42px;\
+			    display: block;\
+			    margin: 0 auto;\
+			}\
+			.size-options-overlay .jointSize span {\
+			    font-weight: bold;\
+			    color: black;\
+			    display: block;\
+			}\
+			.size-options-overlay .jointSize i {\
+			    display: block;\
+			}\
+			.size-options-overlay .jointSize.small img {\
+			    width: 36px;\
+			}\
+			.size-options-overlay .jointSize.big img {\
+			    width: 52px;\
+			}\
 			</style>')
         .appendTo('head');
     /* try to combine this with category videos! */
@@ -81,10 +109,12 @@
                     $productPageProcessing = $(productPage).find('.productAttributeList');
                     colorSwatch = $productPageProcessing.find("span:contains('Color')").parents().eq(2).find('.productAttributeValue div').html();
                     sizeSwatch = $productPageProcessing.find("span:contains('Size')").parents().eq(2).find('.productAttributeValue div').html();
-                    sizeOptionsOverlay = '<div class="size-options-overlay">&nbsp;</div>';
-                    sizeOptionsOverlay = '<div class="jointicon small male"><span>10mm</span><img src="//cdn.shopify.com/s/files/1/0350/8253/t/2/assets/malejoint.png?4143580721579676137"></div>' +
-'<div class="jointicon  male"><span>14.5mm</span><img src="//cdn.shopify.com/s/files/1/0350/8253/t/2/assets/malejoint.png?4143580721579676137"></div>' +
-'<div class="jointicon big male"><span>18.8mm</span><img src="//cdn.shopify.com/s/files/1/0350/8253/t/2/assets/malejoint.png?4143580721579676137"></div>';
+                    //sizeOptionsOverlay = '<div class="size-options-overlay">&nbsp;</div>';
+                    sizeOptionsOverlay = '<div class="size-options-overlay">' +
+                    					'<div class="jointSize small male"><span>10mm</span><img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png"></div>' + 
+                    					'<div class="jointSize  male"><span>14.5mm</span><img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png"></div>' + 
+                    					'<div class="jointSize big male"><span>18.8mm</span><img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png"></div>' +
+                    					'</div>';
                     if (colorSwatch != null) {
                         $this.parent().parent().find('.ProductDetails').before('<div class="catColorSwatch optionSwatch">' + colorSwatch + '</div>');
                         $this.addClass('withColorSwatch');
@@ -186,7 +216,7 @@
                     };
                     if (sizeSwatch != null) {
                         //$this.parent().parent().find('.ProductDetails').before('<div class="catSizeSwatch optionSwatch">' + sizeSwatch + '</div>');
-                        $this.parent().parent().find('.ProductDetails').before(sizeOptionsOverlay);
+                        $this.parent().parent().find('.ProductDetails').before(sizeOptionsOverlay); 
                     };
                 }).fail(function() {
                     return;
