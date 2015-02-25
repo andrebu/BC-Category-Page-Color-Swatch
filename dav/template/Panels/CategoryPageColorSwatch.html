@@ -48,6 +48,13 @@
 				line-height: 19px;\
 				padding: 0 4px;\
 			}\
+			.size-options-overlay {\
+				background: url("/template/images/JointSizesL.png") center center no-repeat;\
+				background-size: auto 100%;\
+				width: 70px;\
+				height: 30px;\
+				position: absolute;\
+				top: 340px;\
 			</style>')
         .appendTo('head');
     /* try to combine this with category videos! */
@@ -74,6 +81,10 @@
                     $productPageProcessing = $(productPage).find('.productAttributeList');
                     colorSwatch = $productPageProcessing.find("span:contains('Color')").parents().eq(2).find('.productAttributeValue div').html();
                     sizeSwatch = $productPageProcessing.find("span:contains('Size')").parents().eq(2).find('.productAttributeValue div').html();
+                    sizeOptionsOverlay = '<div class="size-options-overlay">&nbsp;</div>';
+                    sizeOptionsOverlay = '<div class="jointicon small male"><span>10mm</span><img src="//cdn.shopify.com/s/files/1/0350/8253/t/2/assets/malejoint.png?4143580721579676137"></div>' +
+'<div class="jointicon  male"><span>14.5mm</span><img src="//cdn.shopify.com/s/files/1/0350/8253/t/2/assets/malejoint.png?4143580721579676137"></div>' +
+'<div class="jointicon big male"><span>18.8mm</span><img src="//cdn.shopify.com/s/files/1/0350/8253/t/2/assets/malejoint.png?4143580721579676137"></div>';
                     if (colorSwatch != null) {
                         $this.parent().parent().find('.ProductDetails').before('<div class="catColorSwatch optionSwatch">' + colorSwatch + '</div>');
                         $this.addClass('withColorSwatch');
@@ -174,7 +185,8 @@
                         // Color swatch clickability ends here
                     };
                     if (sizeSwatch != null) {
-                        $this.parent().parent().find('.ProductDetails').before('<div class="catSizeSwatch optionSwatch">' + sizeSwatch + '</div>');
+                        //$this.parent().parent().find('.ProductDetails').before('<div class="catSizeSwatch optionSwatch">' + sizeSwatch + '</div>');
+                        $this.parent().parent().find('.ProductDetails').before(sizeOptionsOverlay);
                     };
                 }).fail(function() {
                     return;
