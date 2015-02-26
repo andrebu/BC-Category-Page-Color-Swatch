@@ -75,7 +75,7 @@
 			    font-size: 8px;\
 			}\
 			.sizeOptionsOverlay {\
-				/* background: url("%%GLOBAL_TPL_PATH%%/images/JointSizesL.png") center center no-repeat; */\
+				/* background: url("%%ASSET_images/JointSizesL.png%%") center center no-repeat; */\
 				background-size: auto 100%;\
 				position: absolute;\
 				top: 253px;\
@@ -121,12 +121,16 @@
 			}\
 			</style>')
         .appendTo('head');
+    jQuery.expr[':'].icontains = function(a, i, m) {
+	  return jQuery(a).text().toUpperCase()
+	      .indexOf(m[3].toUpperCase()) >= 0;
+	};   
     /* try to combine this with category videos! */
     $(document).ready(function() {
         // Swatches - Color and Size options swatches 
         $(".Options").each(function checkForOptionSwatches(url) {
             var productListing = $(this).closest('em.p-price').html();
-            productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
+            var productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
             var $this = $(this);
 
             function getOptionSwatches() {
@@ -142,15 +146,17 @@
 
                     result = data;
                     var productPage = result;
-                    $productPageProcessing = $(productPage).find('.productAttributeList');
-                    colorSwatch = $productPageProcessing.find("span:contains('Color')").parents().eq(2).find('.productAttributeValue div').html();
-                    sizeSwatch = $productPageProcessing.find("span:contains('Size')").parents().eq(2).find('.productAttributeValue div').html();
-                    sizeOptionsOverlay = '<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span>' + sizeSwatch + '</div>';
-                    //sizeOptionsOverlay = '<div class="sizeOptionsOverlay">' +
+                    var $productPageProcessing = $(productPage).find('.productAttributeList');
+                    var jointSizeAndGender = $(productPage).find('.JointSizeHeightContainer .Label:icontains("Joint Type:")').parent().find('.Value').text();
+                    var maleOrFemale = $.trim(jointSizeAndGender).split(' ')[1];
+                    var colorSwatch = $productPageProcessing.find("span:icontains('Color')").parents().eq(2).find('.productAttributeValue div').html();
+                    var sizeSwatch = $productPageProcessing.find("span:icontains('Size')").parents().eq(2).find('.productAttributeValue div').html();
+                    var sizeOptionsOverlay = '<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span>' + sizeSwatch + '</div>';
+                    //var sizeOptionsOverlay = '<div class="sizeOptionsOverlay">' +
                     					'<span class="jointTitle">Fits these joint sizes:</span>' +
-                    					'<div class="jointSize small male"><span>10mm</span><img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png"></div>' + 
-                    					'<div class="jointSize  male"><span>14.5mm</span><img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png"></div>' + 
-                    					'<div class="jointSize big male"><span>18.8mm</span><img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png"></div>' +
+                    					'<div class="jointSize small male"><span>10mm</span><img src="%%ASSET_images/malejoint.png%%" /></div>' + 
+                    					'<div class="jointSize  male"><span>14.5mm</span><img src="%%ASSET_images/malejoint.png%%" /></div>' + 
+                    					'<div class="jointSize big male"><span>18.8mm</span><img src="%%ASSET_images/malejoint.png%%" /></div>' +
                     					'</div>';
                     if (colorSwatch != null) {
                         $this.parent().parent().find('.ProductDetails').before('<div class="catColorSwatch optionSwatch">' + colorSwatch + '</div>');
@@ -252,12 +258,20 @@
                         // Color swatch clickability ends here
                     };
                     if (sizeSwatch != null) {
-	                    var thisProductListing = $this.parent().parent();
-                        thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
                         //thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
-                        thisProductListing.find('.name:contains("10mm")').after('<img class="small" src="%%GLOBAL_TPL_PATH%%/images/malejoint.png">');
-                        thisProductListing.find('.name:contains("14mm")').after('<img src="%%GLOBAL_TPL_PATH%%/images/malejoint.png">');
-                        thisProductListing.find('.name:contains("18mm")').after('<img class="big" src="%%GLOBAL_TPL_PATH%%/images/malejoint.png">');
+	                    var thisProductListing = $this.parent().parent();
+	                    if (maleOrFemale == 'Female') {
+	                        thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
+	                        thisProductListing.find('.name:icontains("10mm")').after('<img class="small" src="%%ASSET_images/malejoint.png%%" />');
+	                        thisProductListing.find('.name:icontains("14mm")').after('<img src="%%ASSET_images/malejoint.png%%" />');
+	                        thisProductListing.find('.name:icontains("18mm")').after('<img class="big" src="%%ASSET_images/malejoint.png%%" />');
+	                    };
+	                    if (maleOrFemale == 'Male') {
+	                        thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
+	                        thisProductListing.find('.name:icontains("10mm")').after('<img class="small" src="%%ASSET_images/femalejoint.png%%" />');
+	                        thisProductListing.find('.name:icontains("14mm")').after('<img src="%%ASSET_images/femalejoint.png%%" />');
+	                        thisProductListing.find('.name:icontains("18mm")').after('<img class="big" src="%%ASSET_images/femalejoint.png%%" />');
+	                    };
                     };
                 }).fail(function() {
                     return;
