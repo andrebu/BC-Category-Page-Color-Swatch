@@ -76,6 +76,8 @@ alert( $( "#myDiv2" ).html() );
 - [How do I get the n-th level parent of an element in jQuery?](http://stackoverflow.com/questions/7093659/how-do-i-get-the-n-th-level-parent-of-an-element-in-jquery)
 - [MDN: AJAX - Getting Started](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
 - [How to return the response from an Ajax call?](http://stackoverflow.com/questions/14220321/how-to-return-the-response-from-an-ajax-call)
+- [How to select the second word with jQuery and Regex..?](http://stackoverflow.com/questions/4134123/how-to-select-the-second-word-with-jquery-and-regex)
+- [jQuery :contains() selector uppercase and lower case issue](http://stackoverflow.com/questions/8746882/jquery-contains-selector-uppercase-and-lower-case-issue)
 - []()
 
 
