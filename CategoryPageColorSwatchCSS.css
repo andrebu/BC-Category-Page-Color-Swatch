@@ -1,3 +1,130 @@
+			/* Color and Size Options on Category Pages */\
+			/*.catSizeSwatch {\
+				display: none;\
+			}*/\
+			.catColorSwatch {\
+				display: inline-block;\
+			}\
+			.catColorSwatch li {\
+				padding: 0 4px;\
+			}\
+			.catColorSwatch .swatchOneColour .validation,\
+			.catColorSwatch .swatchOneColour .name,\
+			.catSizeSwatch .validation/*,\
+			.catSizeSwatch .name*/ {\
+				display: none;\
+			}\
+			.catColorSwatch li .validation {\
+				display: none;\
+			}\
+			.catColorSwatch .swatchColour {\
+				display: inline-block;\
+				width: 17px !important;\
+				height: 17px !important;\
+				border: 1px solid #fff;\
+			}\
+			.catColorSwatch li,\
+			.catColorSwatch li.swatch.swatchOneColour {\
+				display: inline-block;\
+				float: left;\
+				width: auto !important;\
+				padding: 0;\
+				border: 1px solid #d5d5d5;\
+				margin: 5px 4px 1px 1px;\
+			}\
+			.catColorSwatch li.swatch.swatchOneColour.selectedColorBox {\
+				padding: 0;\
+			}\
+			.catColorSwatch li label {\
+				margin: 0;\
+				line-height: normal;\
+			}\
+			.catColorSwatch li.swatch.swatchOneColour label span.swatchColours.swatchOneColour {\
+				line-height: inherit;\
+			}\
+			.catColorSwatch .name {\
+				line-height: 19px;\
+				padding: 0 4px;\
+			}\
+			.catSizeSwatch {\
+				background-size: auto 100%;\
+				position: absolute;\
+				top: 253px;\
+				right: 0px;\
+				padding: 3px 0;\
+				width: 45px;\
+			}\
+			.catSizeSwatch .list-horizontal {\
+				margin: 0;\
+			}\
+			.catSizeSwatch .list-horizontal .option {\
+				display: inline-block;\
+				width: 45px;\
+				padding: 0;\
+				background: none;\
+			}\
+			.catSizeSwatch .list-horizontal .option label {\
+				margin: 0;\
+			}\
+			.catSizeSwatch .list-horizontal .option label .name {\
+			    font-weight: bold;\
+			    color: black;\
+			    display: block;\
+			    font-size: 8px;\
+			}\
+			.sizeOptionsOverlay {\
+				/* background: url("%%ASSET_images/JointSizesL.png%%") center center no-repeat; */\
+				background-size: auto 100%;\
+				position: absolute;\
+				top: 253px;\
+				right: 0px;\
+				padding: 3px 0;\
+				width: 45px;\
+			}\
+			.catSizeSwatch .jointTitle,\
+			.sizeOptionsOverlay .jointTitle {\
+			    font-weight: bold;\
+				display: inline-block;\
+			    line-height: 9px;\
+			    font-size: 8px;\
+			}\
+			.sizeOptionsOverlay .jointSize {\
+			    display: inline-block;\
+			    text-align: center;\
+			    color: #BBB;\
+			    vertical-align: bottom;\
+			}\
+			.catSizeSwatch img,\
+			.sizeOptionsOverlay .jointSize img {\
+			    width: 14px;\
+			    display: block;\
+			    margin: 0 auto;\
+			}\
+			.sizeOptionsOverlay .jointSize span {\
+			    font-weight: bold;\
+			    color: black;\
+			    display: block;\
+			    font-size: 8px;\
+			}\
+			.sizeOptionsOverlay .jointSize i {\
+			    display: block;\
+			}\
+			.catSizeSwatch img.small,\
+			.sizeOptionsOverlay .jointSize.small img {\
+			    width: 10px;\
+			}\
+			.catSizeSwatch img.big,\
+			.sizeOptionsOverlay .jointSize.big img {\
+			    width: 18px;\
+			}\
+
+
+
+
+
+
+
+
 /* Color and Size Options TRUE/FALSE container strip on Category Pages */
 .catSizeSwatch {
 	display: none; 
