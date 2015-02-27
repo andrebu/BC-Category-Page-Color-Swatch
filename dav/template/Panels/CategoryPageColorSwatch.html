@@ -152,12 +152,6 @@
                     var colorSwatch = $productPageProcessing.find("span:icontains('Color')").parents().eq(2).find('.productAttributeValue div').html();
                     var sizeSwatch = $productPageProcessing.find("span:icontains('Size')").parents().eq(2).find('.productAttributeValue div').html();
                     var sizeOptionsOverlay = '<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span>' + sizeSwatch + '</div>';
-                    //var sizeOptionsOverlay = '<div class="sizeOptionsOverlay">' +
-                    					'<span class="jointTitle">Fits these joint sizes:</span>' +
-                    					'<div class="jointSize small male"><span>10mm</span><img src="%%ASSET_images/malejoint.png%%" /></div>' + 
-                    					'<div class="jointSize  male"><span>14.5mm</span><img src="%%ASSET_images/malejoint.png%%" /></div>' + 
-                    					'<div class="jointSize big male"><span>18.8mm</span><img src="%%ASSET_images/malejoint.png%%" /></div>' +
-                    					'</div>';
                     if (colorSwatch != null) {
                         $this.parent().parent().find('.ProductDetails').before('<div class="catColorSwatch optionSwatch">' + colorSwatch + '</div>');
                         $this.addClass('withColorSwatch');
@@ -258,7 +252,6 @@
                         // Color swatch clickability ends here
                     };
                     if (sizeSwatch != null) {
-                        //thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
 	                    var thisProductListing = $this.parent().parent();
 	                    if (maleOrFemale == 'Female') {
 	                        thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
