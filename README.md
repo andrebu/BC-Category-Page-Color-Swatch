@@ -1,5 +1,4 @@
-BigCommerce-Color-Swatch-On-Category
-====================================
+# BigCommerce-Color-Swatch-On-Category
 
 BigCommerce Color Swatch Options and Size Options On Category Pges
 
