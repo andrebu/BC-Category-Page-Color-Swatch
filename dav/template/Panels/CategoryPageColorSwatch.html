@@ -13,6 +13,7 @@
 			}\
 			.catColorSwatch .swatchOneColour .validation,\
 			.catColorSwatch .swatchOneColour .name,\
+			.catColorSwatch .swatchTexture .name,\
 			.catSizeSwatch .validation/*,\
 			.catSizeSwatch .name*/ {\
 				display: none;\
@@ -32,7 +33,7 @@
 				float: left;\
 				width: auto !important;\
 				padding: 0;\
-				border: 1px solid #d5d5d5;\
+				border: 2px solid #d5d5d5;\
 				margin: 5px 4px 1px 1px;\
 			}\
 			.catColorSwatch li.swatch.swatchOneColour.selectedColorBox {\
@@ -52,7 +53,7 @@
 			.catSizeSwatch {\
 				background-size: auto 100%;\
 				position: absolute;\
-				top: 253px;\
+				top: 200px;\
 				right: 0px;\
 				padding: 3px 0;\
 				width: 45px;\
@@ -74,6 +75,8 @@
 			    color: black;\
 			    display: block;\
 			    font-size: 8px;\
+			    line-height: 8px;\
+				margin: 10px 0 2px;\
 			}\
 			.sizeOptionsOverlay {\
 				/* background: url("%%ASSET_images/JointSizesL.png%%") center center no-repeat; */\
@@ -119,6 +122,17 @@
 			.catSizeSwatch img.big,\
 			.sizeOptionsOverlay .jointSize.big img {\
 			    width: 18px;\
+			}\
+			.catColorSwatch .textureContainer {\
+				display: block;\
+				width: 20px;\
+			}\
+			.catColorSwatch .textureContainer .thumbnail,\
+			.catColorSwatch .productOptionPickListSwatch .thumbnail {\
+				display: block;\
+				background-size: 100%;\
+				border: 1px solid white;\
+				height: 17px;\
 			}\
 			</style>')
         .appendTo('head');
@@ -220,7 +234,7 @@
                                     mouseleave: function(event) {
                                         if (!$(this).hasClass('selectedColorBox')) {
                                             $(this).css({
-                                                'border': '1px solid #d5d5d5',
+                                                'border': '2px solid #d5d5d5',
                                                 //'margin': '5px 4px 1px 1px'
                                             });
                                             //productImage.attr('src', activeImage);
@@ -233,7 +247,7 @@
                                         $(this).parents().eq(2).find('.ProductImage a img').attr('src', color.url);
                                         $(this).parents().eq(2).find('.ProductImage a img').attr('data-original', color.url);
                                         $(this).parent().find('li').css({
-                                            'border': '1px solid #d5d5d5',
+                                            'border': '2px solid #d5d5d5',
                                             //'margin': '5px 4px 1px 1px'
                                         });
                                         $(this).css({
@@ -256,15 +270,15 @@
 	                    var thisProductListing = $this.parent().parent();
 	                    if (maleOrFemale == 'Female') {
 	                        thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
-	                        thisProductListing.find('.name:icontains("10mm")').after('<img class="small" src="%%ASSET_images/malejoint.png%%" />');
-	                        thisProductListing.find('.name:icontains("14mm")').after('<img src="%%ASSET_images/malejoint.png%%" />');
-	                        thisProductListing.find('.name:icontains("18mm")').after('<img class="big" src="%%ASSET_images/malejoint.png%%" />');
+	                        thisProductListing.find('.name:icontains("10mm")').text('Male 10mm').after('<img class="small" src="%%ASSET_images/malejoint.png%%" />');
+	                        thisProductListing.find('.name:icontains("14mm")').text('Male 14mm').after('<img src="%%ASSET_images/malejoint.png%%" />');
+	                        thisProductListing.find('.name:icontains("18mm")').text('Male 18mm').after('<img class="big" src="%%ASSET_images/malejoint.png%%" />');
 	                    };
 	                    if (maleOrFemale == 'Male') {
 	                        thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
-	                        thisProductListing.find('.name:icontains("10mm")').after('<img class="small" src="%%ASSET_images/femalejoint.png%%" />');
-	                        thisProductListing.find('.name:icontains("14mm")').after('<img src="%%ASSET_images/femalejoint.png%%" />');
-	                        thisProductListing.find('.name:icontains("18mm")').after('<img class="big" src="%%ASSET_images/femalejoint.png%%" />');
+	                        thisProductListing.find('.name:icontains("10mm")').text('Female 10mm').after('<img class="small" src="%%ASSET_images/femalejoint.png%%" />');
+	                        thisProductListing.find('.name:icontains("14mm")').text('Female 14mm').after('<img src="%%ASSET_images/femalejoint.png%%" />');
+	                        thisProductListing.find('.name:icontains("18mm")').text('Female 18mm').after('<img class="big" src="%%ASSET_images/femalejoint.png%%" />');
 	                    };
                     };
                 }).fail(function() {
