@@ -58,14 +58,18 @@
 				padding: 3px 0;\
 				width: 45px;\
 			}\
+            #SearchProduct_Container .catSizeSwatch {\
+                top: 120px;\
+            }\
 			.catSizeSwatch .list-horizontal {\
 				margin: 0;\
 			}\
 			.catSizeSwatch .list-horizontal .option {\
 				display: inline-block;\
-				width: 45px;\
+				width: 37px !important;\
 				padding: 0;\
 				background: none;\
+                margin: 0;\
 			}\
 			.catSizeSwatch .list-horizontal .option label {\
 				margin: 0;\
@@ -143,7 +147,9 @@
     /* try to combine this with category videos! */
     $(document).ready(function() {
         // Swatches - Color and Size options swatches 
-        $(".Options").each(function checkForOptionSwatches(url) {
+        //$(".Options").each(function checkForOptionSwatches(url) {
+        //$(".TrackLink:contains('Options')").each(function checkForOptionSwatches(url) {
+        $(".ProductActionAdd a:contains('Options')").each(function checkForOptionSwatches(url) {
             var productListing = $(this).closest('em.p-price').html();
             var productLink = $(this).parent().parent().find('div.ProductImage a').attr('href');
             var $this = $(this);
@@ -176,7 +182,8 @@
                             var productColorSwatch = productDiv.find('.catColorSwatch');
                             var productName = productDiv.find('.pname').text();
                             var images = [];
-                            var productNumber = productDiv.find('div.ProductImage').attr('data-product');
+                            //var productNumber = productDiv.find('div.ProductImage').attr('data-product');
+                            var productNumber = productDiv.find('.ProductCompareButton .CheckBox').attr('value');
 
                             // We can pull the color values from the DOM! :)
                             var colors = [];
