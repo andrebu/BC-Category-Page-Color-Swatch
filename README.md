@@ -5,22 +5,30 @@ BigCommerce Color Swatch Options and Size Options On Category Pges
 
 ## Installation
 
-1. Add %%Panel.CategoryPageColorSwatch%% to
+> These are the latest instructions and are up to date.  I will update them as the widget is improved.
 
+1. Add **CategoryPageColorSwatch.html Panel file** to your folder in WebDAV/dav/template/Panels  
+  1. To access your WebDAV panel, BigCommerce gives you instructions in your Admin Panel.  
+  2. Click "Design" in the top right corner of your store admin panel.  
+  3. Then click "WebDAV" in the "Current Theme" section and follow the instructions
+2. Add %%Panel.CategoryPageColorSwatch%% to bottom of Panels/category.html
+  + Example:
 ```HTML
-    <ul class="ProductList %%GLOBAL_DisplayMode%%">
-        %%GLOBAL_CategoryProductListing%%
-        %%Panel.CategoryPageVideos%%                            
+            %%Panel.Footer%%
+        </div>
 
+        %%Panel.CategoryPageVideos%%                            
 <!-- ADD Panel reference here -->
         %%Panel.CategoryPageColorSwatch%%                            
 <!-- ADD Panel reference here -->
-
-    </ul>
+        %%Panel.CategoryPageOutOfStockRibbon%%
+        
+    </body>
+</html>​
 ```  
+![BigCommerce Category Page Demo Videos Installation Example](https://raw.githubusercontent.com/iamandrebulatov/BC-Category-Page-Demo-Videos/master/CategoryPageVideos-Screen%20Shot%202015-01-19%20at%208.08.50%20PM%201.png "BigCommerce Product Page Demo Videos Installation Example")
 
-2. Add CSS to styles.css
-     
+
 
 ## Using
 
