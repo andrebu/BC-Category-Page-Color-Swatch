@@ -26,7 +26,7 @@ BigCommerce Color Swatch Options and Size Options On Category Pges
     </body>
 </html>​
 ```  
-![BigCommerce Category Page Demo Videos Installation Example](https://raw.githubusercontent.com/iamandrebulatov/BC-Category-Page-Demo-Videos/master/CategoryPageVideos-Screen%20Shot%202015-01-19%20at%208.08.50%20PM%201.png "BigCommerce Product Page Demo Videos Installation Example")
+![BigCommerce Category Page Color Swatch Installation Example](https://raw.githubusercontent.com/iamandrebulatov/BC-Category-Page-Color-Swatch/master/CategoryPageColorSwatch-Screen%20Shot%202015-03-09%20at%208.13.05%20PM.png "BigCommerce Product Page Color Swatch Installation Example")
 
 
 
