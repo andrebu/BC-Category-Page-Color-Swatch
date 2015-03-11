@@ -138,6 +138,9 @@
 				border: 1px solid white;\
 				height: 17px;\
 			}\
+			.ProductList .ProductImage img.colorSwatchImage {\
+				width:auto;\
+			}\
 			</style>')
         .appendTo('head');
     jQuery.expr[':'].icontains = function(a, i, m) {
@@ -223,6 +226,7 @@
                                 });
 
                                 var productImage = productDiv.find('.ProductImage a img');
+                                productImage.addClass('colorSwatchImage');
                                 var colorSwatchBox = productColorSwatch.find('.validation[value=' + color.value + ']').parent().parent();
                                 var activeImage = productImage.attr('src');
                                 productImage.attr('data-original', activeImage);
