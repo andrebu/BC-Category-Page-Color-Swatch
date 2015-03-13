@@ -143,12 +143,14 @@
 			}\
 			</style>')
         .appendTo('head');
+    
     jQuery.expr[':'].icontains = function(a, i, m) {
 	  return jQuery(a).text().toUpperCase()
 	      .indexOf(m[3].toUpperCase()) >= 0;
 	};   
+	
     /* try to combine this with category videos! */
-    $(document).ready(function() {
+    function loadColorAndSizeSwatches() {
         // Swatches - Color and Size options swatches 
         //$(".Options").each(function checkForOptionSwatches(url) {
         //$(".TrackLink:contains('Options')").each(function checkForOptionSwatches(url) {
@@ -296,6 +298,9 @@
                     return;
                 });
         });
-
+    };
+    
+    $(document).ready(function() {
+	    loadColorAndSizeSwatches();
     });
 </script>
