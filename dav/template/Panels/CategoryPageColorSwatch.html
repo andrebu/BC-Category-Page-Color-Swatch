@@ -28,6 +28,7 @@
 				border: 1px solid #fff;\
 			}\
 			.catColorSwatch li,\
+			.catColorSwatch li.swatch.swatchTexture,\
 			.catColorSwatch li.swatch.swatchOneColour {\
 				display: inline-block;\
 				float: left;\
@@ -141,6 +142,11 @@
 			.ProductList .ProductImage img.colorSwatchImage {\
 				width:auto;\
 			}\
+			@media screen and (device-aspect-ratio: 40/71) {\
+				.catSizeSwatch {\
+					top: 170px;\
+				}\
+			}\
 			</style>')
         .appendTo('head');
     
@@ -185,6 +191,8 @@
                         $(".withColorSwatch").each(function() {
                             var productDiv = $(this).parent().parent();
                             var productColorSwatch = productDiv.find('.catColorSwatch');
+        					productColorSwatch.find('li.swatch').attr({style: 'width: auto !important;'});
+
                             var productName = productDiv.find('.pname').text();
                             var images = [];
                             //var productNumber = productDiv.find('div.ProductImage').attr('data-product');
