@@ -3,6 +3,9 @@
 BigCommerce Color Swatch Options and Size Options On Category Pges
 
 
+================================================================================================
+
+
 ## Installation
 
 > These are the latest instructions and are up to date.  I will update them as the widget is improved.
@@ -29,6 +32,8 @@ BigCommerce Color Swatch Options and Size Options On Category Pges
 ![BigCommerce Category Page Color Swatch Installation Example](https://raw.githubusercontent.com/iamandrebulatov/BC-Category-Page-Color-Swatch/master/CategoryPageColorSwatch-Screen%20Shot%202015-03-09%20at%208.13.05%20PM.png "BigCommerce Product Page Color Swatch Installation Example")
 
 
+================================================================================================
+
 
 ## Using
 
@@ -38,6 +43,8 @@ To get this to work, you just need to require the module once per run-time, like
     2. Color options must contain the term "Colors:" in the Option title
     3. Size options must contain the term "Sizes:" in the Option title
 
+
+================================================================================================
 
 
 ##Resources
@@ -88,6 +95,9 @@ alert( $( "#myDiv2" ).html() );
 - []()
 
 
+================================================================================================
+
+
 ## Other BigCommerce modules
 
 * [BigCommerce Product Page Demo Videos](https://github.com/iamandrebulatov/BC-Product-Page-Demo-Videos)
@@ -100,6 +110,9 @@ alert( $( "#myDiv2" ).html() );
 * [BigCommerce Category Page Out of Stock Ribbons](https://github.com/iamandrebulatov/BC-Category-Page-Out-of-Stock-Items)
 
 
+================================================================================================
+
+
 ## Support
 
 > ⚐ Please help me spend more time developing and maintaining awesome modules like this by donating!
@@ -108,6 +121,9 @@ The absolute best thing to do is to sign up with [ChangeTip](//changetip.com) or
 
 [![ChangeTip donate button](http://andrebulatov.com/wp-content/uploads/tipme_button.png)](//www.changetip.com/tipme/andre.bulatov/ "Donate once-off to this project using ChangeTip")
 [![GratiPay donate button](http://andrebulatov.com/wp-content/uploads/gratipay-button.png)](//www.gratipay.com/andrebulatov/ "Donate once-off to this project using GratiPay")
+
+
+================================================================================================
 
 
 ## License
