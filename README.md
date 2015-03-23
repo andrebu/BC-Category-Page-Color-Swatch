@@ -124,7 +124,7 @@ alert( $( "#myDiv2" ).html() );
 - [How to return the response from an Ajax call?](http://stackoverflow.com/questions/14220321/how-to-return-the-response-from-an-ajax-call)
 - [How to select the second word with jQuery and Regex..?](http://stackoverflow.com/questions/4134123/how-to-select-the-second-word-with-jquery-and-regex)
 - [jQuery :contains() selector uppercase and lower case issue](http://stackoverflow.com/questions/8746882/jquery-contains-selector-uppercase-and-lower-case-issue)
-- []()
+- [How can I calculate how much time a function takes in jQuery?](http://stackoverflow.com/questions/7314162/how-can-i-calculate-how-much-time-a-function-takes-in-jquery)
 
 
 ================================================================================================
