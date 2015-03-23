@@ -157,6 +157,7 @@
 	
     /* try to combine this with category videos! */
     function loadColorAndSizeSwatches() {
+	var start = new Date().getTime();
         // Swatches - Color and Size options swatches 
         //$(".Options").each(function checkForOptionSwatches(url) {
         //$(".TrackLink:contains('Options')").each(function checkForOptionSwatches(url) {
@@ -306,6 +307,7 @@
                     return;
                 });
         });
+    console.log(new Date().getTime() - start);
     };
     
     $(document).ready(function() {
