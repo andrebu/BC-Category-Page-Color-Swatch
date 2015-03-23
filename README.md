@@ -47,6 +47,29 @@ To get this to work, you just need to require the module once per run-time, like
 ================================================================================================
 
 
+## Some BigCommerce modules I've made
+
+* [BigCommerce Carousel Slider Slide Show Custom](https://github.com/iamandrebulatov/BC-Carousel-Slider-Slide-Show-Custom)
+* [BigCommerce Product Page Demo Videos](https://github.com/iamandrebulatov/BigCommerce-Product-Page-Demo-Videos)
+* [BigCommerce Product Page Brand Descriptions](https://github.com/iamandrebulatov/BigCommerce-Product-Page-Brand-Descriptions)
+* [BigCommerce Product Page Brand Logos](https://github.com/iamandrebulatov/BigCommerce-Product-Page-Brand-Logos)
+* [BigCommerce Product Page Dynamic Product Type Descriptions](https://github.com/iamandrebulatov/BC-Product-Page-Dynamic-Product-Type-Descriptions)
+* [BigCommerce Product Page Image Zoom](https://github.com/iamandrebulatov/BC-Product-Page-Image-Zoom)
+* [BigCommerce Category Page Color Swatch](https://github.com/iamandrebulatov/BigCommerce-Color-Swatch-On-Category)
+* [BigCommerce Category Page 2nd Alternate Thumbnail](https://github.com/iamandrebulatov/BigCommerce-Category-Pages-2nd-Alternate-Thumbnail)
+* [BigCommerce Category Page Videos](https://github.com/iamandrebulatov/BigCommerce-Category-Page-Demo-Videos)
+* [BigCommerce Category Page Out of Stock Ribbons](https://github.com/iamandrebulatov/BigCommerce-Out-of-Stock-Category-Items)
+* [BigCommerce Category Page Staff Picks Selector](https://github.com/iamandrebulatov/BC-Staff-Picks-Selector)
+* [BigCommerce Preview On MouseOver](https://github.com/iamandrebulatov/BC-Preview-On-MouseOver)
+* [BigCommerce Shipping Options Description](https://github.com/iamandrebulatov/BC-Shipping-Options-Descriptions)
+* [BigCommerce Welcoming Age Gate](https://github.com/iamandrebulatov/BC-Welcoming-Age-Gate)
+* [BigCommerce 360 Product View](https://github.com/iamandrebulatov/BC-360-Product-View)
+* [BigCommerce ThumbScroll](https://github.com/iamandrebulatov/BC-ThumbScroll)
+
+
+================================================================================================
+
+
 ##Resources
 
 - [Storing collection of HTML elements in variable for later use](http://stackoverflow.com/questions/10748323/storing-collection-of-html-elements-in-variable-for-later-use)
@@ -97,20 +120,6 @@ alert( $( "#myDiv2" ).html() );
 
 ================================================================================================
 
-
-## Other BigCommerce modules
-
-* [BigCommerce Product Page Demo Videos](https://github.com/iamandrebulatov/BC-Product-Page-Demo-Videos)
-* [BigCommerce Product Page Brand Descriptions](https://github.com/iamandrebulatov/BC-Product-Page-Brand-Descriptions)
-* [BigCommerce Product Page Brand Logos](https://github.com/iamandrebulatov/BC-Product-Page-Brand-Logos)
-* [BigCommerce Product Page Custom Fields On Right](https://github.com/iamandrebulatov/BC-Product-Page-Custom-Fields-On-Right)
-* [BigCommerce Category Page Color Swatch](https://github.com/iamandrebulatov/BC-Category-Page-Color-Swatch)
-* [BigCommerce Category Page 2nd Alternate Thumbnail](https://github.com/iamandrebulatov/BC-Category-Page-2nd-Alternate-Thumbnail)
-* [BigCommerce Category Page Videos](https://github.com/iamandrebulatov/BC-Category-Page-Demo-Videos)
-* [BigCommerce Category Page Out of Stock Ribbons](https://github.com/iamandrebulatov/BC-Category-Page-Out-of-Stock-Items)
-
-
-================================================================================================
 
 
 ## Support
