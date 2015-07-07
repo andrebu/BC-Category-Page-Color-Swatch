@@ -257,7 +257,10 @@ function loadColorAndSizeSwatches() {
                                     $(this).addClass('hovered');
                                 },
                                 mouseleave: function(event) {
-                                    $(this).removeClass('hovered').delay(10).parents().eq(2).find('.ProductImage a img').attr('src', originalImage);
+                                    $(this).removeClass('hovered');
+                                    if (!$(this).hasClass('selected')) {
+										$(this).delay(10).parents().eq(2).find('.ProductImage a img').attr('src', originalImage);
+                                    }
                                     //$(this).parents().eq(2).find('.ProductImage a img').attr('src', originalImage);
                                 },
                                 click: function(event) {
