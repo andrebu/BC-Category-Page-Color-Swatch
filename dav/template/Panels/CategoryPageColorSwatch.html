@@ -190,9 +190,10 @@ function loadColorAndSizeSwatches() {
                 var jointSizeAndGender = $(productPage).find('.JointSizeHeightContainer .Label:icontains("Joint Type:")').parent().find('.Value').text();
                 var maleOrFemale = $.trim(jointSizeAndGender).split(' ')[1];
 				var colorSwatch = $productPageProcessing.find("span:icontains('Color')").parents().eq(2).find('.productAttributeValue div').html();
-				var colorSwatchContent = '<div class="catColorSwatch optionSwatch">' + colorSwatch + '</div>';
+				var colorSwatchContent = $('<div class="catColorSwatch optionSwatch">' + colorSwatch + '</div>').fadeIn('slow').css("display","inline-block");
                 var sizeSwatch = $productPageProcessing.find("span:icontains('Size')").parents().eq(2).find('.productAttributeValue div').html();
-                var sizeOptionsOverlay = '<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span>' + sizeSwatch + '</div>';
+                var sizeOptionsOverlay = $('<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span>' + 
+                						sizeSwatch + '</div>').fadeIn(1300);
                 if (colorSwatch != null) {
                     $this.parent().parent().find('.ProductDetails').before(colorSwatchContent);
                     $this.addClass('withColorSwatch');
