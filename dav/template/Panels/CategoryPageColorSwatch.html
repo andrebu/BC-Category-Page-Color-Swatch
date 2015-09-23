@@ -7,6 +7,8 @@ $('<style type="text/css">\
 		}*/\
 		.catColorSwatch {\
 			display: inline-block;\
+			width: 100%;\
+			overflow: hidden;\
 		}\
 		.catColorSwatch li {\
 			padding: 0 4px;\
@@ -42,6 +44,7 @@ $('<style type="text/css">\
 			line-height: normal;\
 			border: 3px solid #d5d5d5;\
 			border-radius: 4px;\
+			pointer-events: none;\
 		}\
 		.catColorSwatch li.hovered label {\
 			border-color: #666;\
@@ -55,7 +58,6 @@ $('<style type="text/css">\
 		.catColorSwatch .swatchColour {\
 			display: inline-block;\
 			width: 17px !important;\
-			height: 17px !important;\
 			border: 1px solid #fff;\
 			border-radius: 4px;\
 		}\
@@ -159,6 +161,13 @@ $('<style type="text/css">\
 				top: 170px;\
 			}\
 		}\
+		.catColorSwatch .mcs-item {\
+			height: 100%;\
+			width: initial !important;\
+		}\
+		.catColorSwatch .mcs-button-arrow:before {\
+			font-size: 150%;\
+		}\
 		</style>')
     .appendTo('head');
 
@@ -196,8 +205,15 @@ function loadColorAndSizeSwatches() {
                 var sizeOptionsOverlay = $('<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span>' + 
                 						sizeSwatch + '</div>').fadeIn(1300);
                 if (colorSwatch != null) {
-                    $this.parent().parent().find('.ProductDetails').before(colorSwatchContent);
-                    $this.addClass('withColorSwatch');
+					$this.parent().parent().find('.ProductDetails').before(colorSwatchContent);
+					$this.parents().eq(1).find('.catColorSwatch ul').addClass('MagicScroll').attr('data-options', 'loop: off; arrows: outside; items: 6;'); 
+	            	MagicScroll.start();
+/*
+							$('.mcs-item').on('click', function(e) {
+								e.stopPropagation();
+							});
+*/
+					$this.addClass('withColorSwatch');
                     // Color swatch clickability Starts here
                     $(".withColorSwatch").each(function() {
                         var productDiv = $(this).parent().parent();
@@ -253,22 +269,24 @@ function loadColorAndSizeSwatches() {
                             var originalImage = productImage.attr('data-original');
                             colorSwatchBox.on({
                                 mouseenter: function(event) {
-                                    originalImage = $(this).parents().eq(2).find('.ProductImage a img').attr('data-original');
-                                    $(this).parents().eq(2).find('.ProductImage a img').attr('src', color.url);
+                                    originalImage = $(this).parents('li').find('.ProductImage a img').attr('data-original');
+                                    $(this).parents('li').find('.ProductImage a img').attr('src', color.url);
                                     $(this).addClass('hovered');
                                 },
                                 mouseleave: function(event) {
                                     $(this).removeClass('hovered');
                                     if (!$(this).hasClass('selected')) {
-										$(this).delay(10).parents().eq(2).find('.ProductImage a img').attr('src', originalImage);
+										$(this).delay(10).parents('li').find('.ProductImage a img').attr('src', originalImage);
                                     }
                                     //$(this).parents().eq(2).find('.ProductImage a img').attr('src', originalImage);
                                 },
                                 click: function(event) {
-                                    $(this).parent().find('li').removeClass('selected');
+                                    if (!$(this).hasClass('selected')) {
+	                                    $(this).parents().eq(1).find('li.swatch.selected').not(this).removeClass('selected');
+                                    }
+                                    $(this).parents('li').find('.ProductImage a img').attr('src', color.url);
+                                    $(this).parents('li').find('.ProductImage a img').attr('data-original', color.url);
                                     $(this).addClass('selected');
-                                    $(this).parents().eq(2).find('.ProductImage a img').attr('src', color.url);
-                                    $(this).parents().eq(2).find('.ProductImage a img').attr('data-original', color.url);
                                 }
                             });
                         }
@@ -302,6 +320,13 @@ function loadColorAndSizeSwatches() {
 };
 
 $(document).ready(function() {
-    loadColorAndSizeSwatches();
+	loadColorAndSizeSwatches();
+/*
+	    MagicScrollOptions = {
+        speed: 2000,
+        arrows: 'inside',
+        loop: 'rewind'
+    }
+*/
 });
 </script>
