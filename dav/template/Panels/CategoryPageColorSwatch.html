@@ -33,7 +33,7 @@ $('<style type="text/css">\
 			float: left;\
 			width: auto !important;\
 			padding: 0;\
-			padding: 5px 4px 1px;\
+			padding: 5px 2px 1px;\
 			margin-bottom: 0;\
 		}\
 		.catColorSwatch li.swatch.swatchOneColour.selectedColorBox {\
@@ -269,6 +269,9 @@ function loadColorAndSizeSwatches() {
                             var originalImage = productImage.attr('data-original');
                             colorSwatchBox.on({
                                 mouseenter: function(event) {
+	                                //console.log($(this).parents('li').find('.ProductImage a').height());
+	                                var maxImgHeight = $(this).parents('li').find('.ProductImage a').height();
+	                                $(this).parents('li').find('.ProductImage a').height(maxImgHeight);
                                     originalImage = $(this).parents('li').find('.ProductImage a img').attr('data-original');
                                     $(this).parents('li').find('.ProductImage a img').attr('src', color.url);
                                     $(this).addClass('hovered');
@@ -319,8 +322,11 @@ function loadColorAndSizeSwatches() {
     });
 };
 
-$(document).ready(function() {
+$(window).load(function() {
 	loadColorAndSizeSwatches();
+    $(window).on('resize', function() {
+        $('.ProductImage a').height('auto');
+    })
 /*
 	    MagicScrollOptions = {
         speed: 2000,
