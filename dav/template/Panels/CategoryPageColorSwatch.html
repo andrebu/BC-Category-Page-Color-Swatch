@@ -9,6 +9,7 @@ $('<style type="text/css">\
 			display: inline-block;\
 			width: 100%;\
 			overflow: hidden;\
+			margin-bottom: -13px;\
 		}\
 		.catColorSwatch li {\
 			padding: 0 4px;\
@@ -163,13 +164,13 @@ $('<style type="text/css">\
 		}\
 		.catColorSwatch .mcs-item {\
 			height: 100%;\
-			width: initial !important;\
+			/*width: initial !important;*/\
 		}\
 		.catColorSwatch .mcs-button-arrow:before {\
 			font-size: 150%;\
 		}\
 		.catColorSwatch .MagicScroll-horizontal .mcs-button-arrow {\
-			width: 30px;\
+			width: 23px;\
 		}\
 		</style>')
     .appendTo('head');
@@ -209,8 +210,10 @@ function loadColorAndSizeSwatches() {
                 						sizeSwatch + '</div>').fadeIn(1300);
                 if (colorSwatch != null) {
 					$this.parent().parent().find('.ProductDetails').before(colorSwatchContent);
-					$this.parents().eq(1).find('.catColorSwatch ul').addClass('MagicScroll').attr('data-options', 'loop: off; arrows: outside; items: 6;'); 
-	            	MagicScroll.start();
+					$this.parents().eq(1).find('.catColorSwatch ul')
+						.addClass('MagicScroll')
+						.attr('data-options', 'loop: off; arrows: outside; scrollOnWheel: false; items: [[100,2],[133,3],[166,4],[200,5]];'); 
+					MagicScroll.start();
 /*
 							$('.mcs-item').on('click', function(e) {
 								e.stopPropagation();
