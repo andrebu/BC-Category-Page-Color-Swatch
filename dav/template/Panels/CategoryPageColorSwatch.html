@@ -274,10 +274,10 @@ function loadColorAndSizeSwatches() {
                             productImage.attr('data-original', activeImage);
                             var originalImage = productImage.attr('data-original');
                             function setImgHeight() {
-                                console.log($(this).parents('li').find('.ProductImage a').height());
-                                var maxImgHeight = $(this).parents('li').find('.ProductImage a').height();
-                                $(this).parents('li').find('.ProductImage a').height(maxImgHeight);
-                            };
+                                var maxImgHeight = productImage.height();
+                                productImage.height(maxImgHeight);
+                            }
+                            setImgHeight();
                             colorSwatchBox.on({
                                 mouseenter: function(event) {
                                     originalImage = $(this).parents('li').find('.ProductImage a img').attr('data-original');
