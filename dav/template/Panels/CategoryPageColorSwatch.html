@@ -2,9 +2,6 @@
 //Category Page Color Swatches and Size Options
 $('<style type="text/css">\
 		/* Color and Size Options on Category Pages */\
-		/*.catSizeSwatch {\
-			display: none;\
-		}*/\
 		.catColorSwatch {\
 			display: inline-block;\
 			width: 100%;\
@@ -153,10 +150,6 @@ $('<style type="text/css">\
 			border: 1px solid white;\
 			height: 17px;\
 		}\
-		//.ProductList .ProductImage img.colorSwatchImage {\
-		//	width:auto;\
-		//	max-height: 400px;\
-		//}\
 		@media screen and (device-aspect-ratio: 40/71) {\
 			.catSizeSwatch {\
 				top: 170px;\
@@ -218,17 +211,11 @@ function loadColorAndSizeSwatches() {
 						.addClass('MagicScroll')
 						.attr('data-options', 'loop: off; arrows: outside; scrollOnWheel: false; items: [[100,2],[133,3],[166,4],[200,5]];'); 
 					MagicScroll.start();
-/*
-							$('.mcs-item').on('click', function(e) {
-								e.stopPropagation();
-							});
-*/
 					$this.addClass('withColorSwatch');
                     // Color swatch clickability Starts here
                     $(".withColorSwatch").each(function() {
                         var productDiv = $(this).parent().parent();
                         var productColorSwatch = productDiv.find('.catColorSwatch');
-    					//productColorSwatch.find('li.swatch').attr({style: 'width: auto !important;'});
 
                         var productName = productDiv.find('.pname').text();
                         var images = [];
@@ -293,7 +280,6 @@ function loadColorAndSizeSwatches() {
                                     if (!$(this).hasClass('selected')) {
 										$(this).delay(1).parents('li').find('.ProductImage a img').attr('src', originalImage);
                                     }
-                                    //$(this).parents().eq(2).find('.ProductImage a img').attr('src', originalImage);
                                 },
                                 click: function(event) {
                                     if (!$(this).hasClass('selected')) {
@@ -336,15 +322,5 @@ function loadColorAndSizeSwatches() {
 
 $(window).load(function() {
 	loadColorAndSizeSwatches();
-    $(window).on('resize', function() {
-        $('.ProductImage a').height('auto');
-    })
-/*
-	    MagicScrollOptions = {
-        speed: 2000,
-        arrows: 'inside',
-        loop: 'rewind'
-    }
-*/
 });
 </script>
