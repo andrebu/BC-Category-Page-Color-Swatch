@@ -282,6 +282,9 @@ function loadColorAndSizeSwatches() {
                                     }
                                 },
                                 click: function(event) {
+	                                if ($(this).parents('li').find('.videoDemoBtn.videoPlaying').length > 0) {
+		                                $(this).parents('li').find('.videoDemoBtn.videoPlaying').click();
+	                                }
                                     if (!$(this).hasClass('selected')) {
 	                                    $(this).parents().eq(1).find('li.swatch.selected').not(this).removeClass('selected');
                                     }
