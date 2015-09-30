@@ -310,6 +310,36 @@ function clickHoverAction() {
 	var productImage = productDiv.find('.ProductImage a img');
 	var originalImage = productImage.attr('data-original');
 	MagicScroll.start();
+	
+	$('li.Odd').on('mouseenter',function() {
+		console.log('HOVERING???');
+		originalImage = $(this).parents('li').find('.ProductImage a img').attr('data-original');
+		$(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
+		$(this).addClass('hovered');
+	});
+	
+	$('.catColorSwatch').on('mouseleave', 'li', function() {
+		$(this).removeClass('hovered');
+		if (!$(this).hasClass('selected')) {
+			$(this).delay(1).parents('li').find('.ProductImage a img').attr('src', originalImage);
+		}
+	});
+
+	$('.catColorSwatch').on('click', 'li', function() {
+			console.log('ONE click!');
+			//console.log(colorSwatchBox);
+			if ($(this).parents('li').find('.videoDemoBtn.videoPlaying').length > 0) {
+			    $(this).parents('li').find('.videoDemoBtn.videoPlaying').click();
+			}
+			if (!$(this).hasClass('selected')) {
+			    $(this).parents().eq(1).find('li.swatch.selected').not(this).removeClass('selected');
+			}
+			$(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
+			$(this).parents('li').find('.ProductImage a img').attr('data-original', $(this).attr('data-src'));
+			$(this).addClass('selected');
+	});
+
+/*
 	$('.catColorSwatch').on({
 		mouseenter: function() {
 			console.log('HOVERING???');
@@ -337,6 +367,7 @@ function clickHoverAction() {
 			$(this).addClass('selected');
 		}
 	}, 'li');
+*/
 }
 
 $(window).load(function() {
