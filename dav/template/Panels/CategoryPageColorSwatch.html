@@ -7,6 +7,7 @@ $('<style type="text/css">\
 			width: 100%;\
 			overflow: hidden;\
 			margin-bottom: -13px;\
+			visibility: hidden;\
 		}\
 		.catColorSwatch li {\
 			padding: 0 4px;\
@@ -210,10 +211,11 @@ function loadColorAndSizeSwatches() {
 					$this.parents().eq(1).find('.catColorSwatch ul')
 						.addClass('MagicScroll')
 						.attr('data-options', 'loop: off; arrows: outside; scrollOnWheel: false; items: [[100,2],[133,3],[166,4],[200,5]];'); 
-					MagicScroll.start();
 					$this.addClass('withColorSwatch');
                     // Color swatch clickability Starts here
                     $(".withColorSwatch").each(function() {
+	                    var thisColorSwatch = $(this);
+	                    //console.log(thisColorSwatch);
                         var productDiv = $(this).parent().parent();
                         var productColorSwatch = productDiv.find('.catColorSwatch');
 
@@ -256,6 +258,7 @@ function loadColorAndSizeSwatches() {
                                     color.url = response.details.image;
                                 }
                                 poll(cb); // Next in queue
+                            colorSwatchBox.attr('data-src', color.url);
                             });
 
                             var productImage = productDiv.find('.ProductImage a img');
@@ -263,36 +266,15 @@ function loadColorAndSizeSwatches() {
                             var colorSwatchBox = productColorSwatch.find('.validation[value=' + color.value + ']').parent().parent();
                             var activeImage = productImage.attr('src');
                             productImage.attr('data-original', activeImage);
-                            var originalImage = productImage.attr('data-original');
                             function setImgHeight() {
                                 var maxImgHeight = productImage.height();
                                 productImage.height(maxImgHeight);
                             }
                             setImgHeight();
-                            colorSwatchBox.on({
-                                mouseenter: function(event) {
-                                    originalImage = $(this).parents('li').find('.ProductImage a img').attr('data-original');
-                                    $(this).parents('li').find('.ProductImage a img').attr('src', color.url);
-                                    $(this).addClass('hovered');
-                                },
-                                mouseleave: function(event) {
-                                    $(this).removeClass('hovered');
-                                    if (!$(this).hasClass('selected')) {
-										$(this).delay(1).parents('li').find('.ProductImage a img').attr('src', originalImage);
-                                    }
-                                },
-                                click: function(event) {
-	                                if ($(this).parents('li').find('.videoDemoBtn.videoPlaying').length > 0) {
-		                                $(this).parents('li').find('.videoDemoBtn.videoPlaying').click();
-	                                }
-                                    if (!$(this).hasClass('selected')) {
-	                                    $(this).parents().eq(1).find('li.swatch.selected').not(this).removeClass('selected');
-                                    }
-                                    $(this).parents('li').find('.ProductImage a img').attr('src', color.url);
-                                    $(this).parents('li').find('.ProductImage a img').attr('data-original', color.url);
-                                    $(this).addClass('selected');
-                                }
-                            });
+                            //console.log(colorSwatchBox);
+                            //console.log(productColorSwatch);
+                            //console.log(color.url);
+                            //console.log(colorSwatchBox.attr('data-src'));
                         }
 
                         poll(function() {
@@ -323,7 +305,46 @@ function loadColorAndSizeSwatches() {
     });
 };
 
+function clickHoverAction() {
+	var productDiv = $(this).parent().parent();
+	var productImage = productDiv.find('.ProductImage a img');
+	var originalImage = productImage.attr('data-original');
+	MagicScroll.start();
+	$('.catColorSwatch').on({
+		mouseenter: function() {
+			console.log('HOVERING???');
+			originalImage = $(this).parents('li').find('.ProductImage a img').attr('data-original');
+			$(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
+			$(this).addClass('hovered');
+		},
+		mouseleave: function() {
+			$(this).removeClass('hovered');
+			if (!$(this).hasClass('selected')) {
+				$(this).delay(1).parents('li').find('.ProductImage a img').attr('src', originalImage);
+			}
+		},
+		click: function() {
+			console.log('ONE click!');
+			//console.log(colorSwatchBox);
+			if ($(this).parents('li').find('.videoDemoBtn.videoPlaying').length > 0) {
+			    $(this).parents('li').find('.videoDemoBtn.videoPlaying').click();
+			}
+			if (!$(this).hasClass('selected')) {
+			    $(this).parents().eq(1).find('li.swatch.selected').not(this).removeClass('selected');
+			}
+			$(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
+			$(this).parents('li').find('.ProductImage a img').attr('data-original', $(this).attr('data-src'));
+			$(this).addClass('selected');
+		}
+	}, 'li');
+}
+
 $(window).load(function() {
 	loadColorAndSizeSwatches();
+	$(document).ajaxStop(function() {
+		console.log('ALL Ajax done and now running the logic for click/hover.');
+		//$(this).unbind("ajaxStop"); //prevent running again when other calls finish
+		clickHoverAction();
+	});
 });
 </script>
