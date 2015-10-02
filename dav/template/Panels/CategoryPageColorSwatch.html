@@ -14,6 +14,8 @@ $('<style type="text/css">\
 		}\
 		.catColorSwatch ul {\
 			margin: 0 auto;\
+			display: inline-block;\
+			overflow: visible;\
 		}\
 		.catColorSwatch .swatchOneColour .validation,\
 		.catColorSwatch .swatchOneColour .name,\
@@ -151,6 +153,42 @@ $('<style type="text/css">\
 			border: 1px solid white;\
 			height: 17px;\
 		}\
+		.MagicScroll:not(.MagicScroll-horizontal):before {\
+			visibility: visible;\
+			content: "\\f110";\
+			font: normal normal normal 14px/1 FontAwesome;\
+			padding-right: 3px;\
+			font-weight: normal;\
+			display: inline-block;\
+			-webkit-transition: all .3s;\
+			-moz-transition: all .3s;\
+			-ms-transition: all .3s;\
+			-o-transition: all .3s;\
+			transition: all .3s;\
+			-webkit-transform-origin: 40% center;\
+			-moz-transform-origin: 40% center;\
+			-ms-transform-origin: 40% center;\
+			-o-transform-origin: 40% center;\
+			transform-origin: 40% center;\
+			-webkit-animation: fa-spin 1s infinite steps(8);\
+			animation: fa-spin 1s infinite steps(8);\
+			height: inherit;\
+			line-height: 30px;\
+			position: absolute;\
+			left: -16px;\
+			color: #39B54A;\
+		}\
+		.MagicScroll:not(.MagicScroll-horizontal):after {\
+			visibility: visible;\
+			content: "Color Options Loading...";\
+			display: block;\
+			height: 30px;\
+			width: 120px;\
+			font-size: 10px;\
+			line-height: 30px;\
+			text-align: center;\
+			position: absolute;\
+		}\
 		@media screen and (device-aspect-ratio: 40/71) {\
 			.catSizeSwatch {\
 				top: 170px;\
@@ -215,7 +253,6 @@ function loadColorAndSizeSwatches() {
                     // Color swatch clickability Starts here
                     $(".withColorSwatch").each(function() {
 	                    var thisColorSwatch = $(this);
-	                    //console.log(thisColorSwatch);
                         var productDiv = $(this).parent().parent();
                         var productColorSwatch = productDiv.find('.catColorSwatch');
 
@@ -271,10 +308,6 @@ function loadColorAndSizeSwatches() {
                                 productImage.height(maxImgHeight);
                             }
                             setImgHeight();
-                            //console.log(colorSwatchBox);
-                            //console.log(productColorSwatch);
-                            //console.log(color.url);
-                            //console.log(colorSwatchBox.attr('data-src'));
                         }
 
                         poll(function() {
@@ -286,17 +319,19 @@ function loadColorAndSizeSwatches() {
                 };
                 if (sizeSwatch != null) {
                     var thisProductListing = $this.parent().parent();
+                    var maleJointImg = '<img src="%%ASSET_images/malejoint.png%%" />';
+                    var femaleJointImg = '<img src="%%ASSET_images/femalejoint.png%%" />';
                     if (maleOrFemale == 'Female') {
                         thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
-                        thisProductListing.find('.name:icontains("10mm")').text('Male 10mm').after('<img class="small" src="%%ASSET_images/malejoint.png%%" />');
-                        thisProductListing.find('.name:icontains("14mm")').text('Male 14mm').after('<img src="%%ASSET_images/malejoint.png%%" />');
-                        thisProductListing.find('.name:icontains("18mm")').text('Male 18mm').after('<img class="big" src="%%ASSET_images/malejoint.png%%" />');
+                        thisProductListing.find('.name:icontains("10mm")').text('Male 10mm').after(maleJointImg).addClass('small');
+                        thisProductListing.find('.name:icontains("14mm")').text('Male 14mm').after(maleJointImg);
+                        thisProductListing.find('.name:icontains("18mm")').text('Male 18mm').after(maleJointImg).addClass('big');
                     };
                     if (maleOrFemale == 'Male') {
                         thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
-                        thisProductListing.find('.name:icontains("10mm")').text('Female 10mm').after('<img class="small" src="%%ASSET_images/femalejoint.png%%" />');
-                        thisProductListing.find('.name:icontains("14mm")').text('Female 14mm').after('<img src="%%ASSET_images/femalejoint.png%%" />');
-                        thisProductListing.find('.name:icontains("18mm")').text('Female 18mm').after('<img class="big" src="%%ASSET_images/femalejoint.png%%" />');
+                        thisProductListing.find('.name:icontains("10mm")').text('Female 10mm').after(femaleJointImg).addClass('small');
+                        thisProductListing.find('.name:icontains("14mm")').text('Female 14mm').after(femaleJointImg);
+                        thisProductListing.find('.name:icontains("18mm")').text('Female 18mm').after(femaleJointImg).addClass('big');
                     };
                 };
             }).fail(function() {
@@ -342,7 +377,6 @@ function scrollAndAction() {
 $(window).load(function() {
 	loadColorAndSizeSwatches();
 	$(document).ajaxStop(function() {
-		//$(this).unbind("ajaxStop"); //prevent running again when other calls finish
 		scrollAndAction();
 	});
 });
