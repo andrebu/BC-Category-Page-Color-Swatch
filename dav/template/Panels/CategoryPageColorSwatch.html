@@ -3226,12 +3226,13 @@ var DsColorIndex = {
 /* try to combine this with category videos! */
 function loadColorAndSizeSwatches() {
 	var mSOpts = 'data-options="loop: off; arrows: outside; ';
-		mSOpts += 'scrollOnWheel: false; items: [[100,2],[133,3],[166,4],[200,5]];"';
+		mSOpts += 'scrollOnWheel: false; items: [[100,2],[133,3],[166,4],[200,5]]"';
 	// Swatches - Color and Size options swatches 
 	$(".ProductActionAdd a:contains('Options')").each( function() {
 		var $this = $(this),
 			prodLi = $this.parent().parent(),
 			prodImg = prodLi.find('div.ProductImage'),
+			prodImgSrc = prodImg.find('a img').attr('src'),
 			prodId = prodImg.attr('data-product'),
 			productLink = prodImg.find('a').attr('href');
 		$this.addClass('withColorSwatch');
@@ -3240,16 +3241,15 @@ function loadColorAndSizeSwatches() {
 			var cSBoxes;
 			// Generate color swatch boxes = cSBoxes
 			for (i = 0; i < DsColorIndex[prodId].length; i++) { 
-				var cDNP = '%%GLOBAL_CdnStorePath%%/' + 'product_images/attribute_rule_images/',
-					cO = DsColorIndex[prodId][i],
+				var cO = DsColorIndex[prodId][i],
 					cN = cO.color,
 					cC = cO.code,
-					cS = cO.src,
-					cY = cC.charAt(0) == '#' ? 'background-color:'+cC : 'background-image:'+cC ;
+					cS = cO.src != '' ? cO.src : prodImgSrc,
+					cY = cC.charAt(0) == '#' ? 'background-color:'+cC : 'background-image:'+cC,
+					cDNP = cS.charAt(0) == 'h' ? '' : '%%GLOBAL_CdnStorePath%%/product_images/attribute_rule_images/',
 					cSName = '<span class="name">'+cN+'</span>',
 					cSDSrc = 'data-src="' + cDNP + cS + '"',
-					cSLab = '<label><span class="swatchColours swatchOneColour">',
-					cSLab += '<span class="swatchColour swatchColour_1" style="'+cY+';">&nbsp;</span></span></label>',
+					cSLab = '<label><span class="swatchColours swatchOneColour"><span class="swatchColour swatchColour_1" style="'+cY+';">&nbsp;</span></span></label>',
 					cSLiOp = '<li class="swatch hasPreview swatchOneColour" '+cSDSrc+'>',
 					cSLiCl = '</li>';
 				cSBoxes += cSLiOp + cSName + cSLab + cSLiCl;
@@ -3261,45 +3261,45 @@ function loadColorAndSizeSwatches() {
 		}
 
 	});
-}
-
-
-function scrollAndAction() {
-	var productDiv = $(this).parent().parent();
-	var productImage = productDiv.find('.ProductImage a img');
-	var originalImage = productImage.attr('data-original');
-	MagicScroll.start();
-	clickAndHover();
-	function clickAndHover() {
-		$('li.swatch').on({
-			mouseenter: function() {
-				originalImage = $(this).parents('li').find('.ProductImage a img').attr('data-original');
-				$(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
-				$(this).addClass('hovered');
-			},
-			mouseleave: function() {
-				$(this).removeClass('hovered');
-				if (!$(this).hasClass('selected')) {
-					$(this).delay(1).parents('li').find('.ProductImage a img').attr('src', originalImage);
+	function scrollAndAction() {
+		var productDiv = $(this).parent().parent();
+		var productImage = productDiv.find('.ProductImage a img');
+		var originalImage = productImage.attr('data-original');
+		MagicScroll.start();
+		clickAndHover();
+		function clickAndHover() {
+			$('li.swatch').on({
+				mouseenter: function() {
+					originalImage = $(this).parents('li').find('.ProductImage a img').attr('data-original');
+					$(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
+					$(this).addClass('hovered');
+				},
+				mouseleave: function() {
+					$(this).removeClass('hovered');
+					if (!$(this).hasClass('selected')) {
+						$(this).delay(1).parents('li').find('.ProductImage a img').attr('src', originalImage);
+					}
+				},
+				click: function() {
+					if ($(this).parents('li').find('.videoDemoBtn.videoPlaying').length > 0) {
+					    $(this).parents('li').find('.videoDemoBtn.videoPlaying').click();
+					}
+					if (!$(this).hasClass('selected')) {
+					    $(this).parents().eq(1).find('li.swatch.selected').not(this).removeClass('selected');
+					}
+					$(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
+					$(this).parents('li').find('.ProductImage a img').attr('data-original', $(this).attr('data-src'));
+					$(this).addClass('selected');
 				}
-			},
-			click: function() {
-				if ($(this).parents('li').find('.videoDemoBtn.videoPlaying').length > 0) {
-				    $(this).parents('li').find('.videoDemoBtn.videoPlaying').click();
-				}
-				if (!$(this).hasClass('selected')) {
-				    $(this).parents().eq(1).find('li.swatch.selected').not(this).removeClass('selected');
-				}
-				$(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
-				$(this).parents('li').find('.ProductImage a img').attr('data-original', $(this).attr('data-src'));
-				$(this).addClass('selected');
-			}
-		});
+			});
+		}
 	}
+	scrollAndAction();
 }
 
-$(document).ready(function() {
+
+
+$(window).load(function() {
 	loadColorAndSizeSwatches();
-	scrollAndAction();
 });
 </script>
