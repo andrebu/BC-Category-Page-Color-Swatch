@@ -3241,7 +3241,7 @@ function loadColorAndSizeSwatches() {
 			var cSBoxes;
 			// Generate color swatch boxes = cSBoxes
 			for (i = 0; i < DsColorIndex[prodId].length; i++) { 
-				var cDNP = '%%GLOBAL_CdnStorePath%%/',
+				var cDNP = '%%GLOBAL_CdnStorePath%%/' + 'product_images/attribute_rule_images/',
 					cO = DsColorIndex[prodId][i],
 					cN = cO.color,
 					cC = cO.code,
@@ -3250,7 +3250,7 @@ function loadColorAndSizeSwatches() {
 					cSName = '<span class="name">'+cN+'</span>',
 					cSDSrc = 'data-src="' + cDNP + cS + '"',
 					cSLab = '<label><span class="swatchColours swatchOneColour">',
-					cSLab += '<span class="swatchColour swatchColour_1" style="'+cY+';"></span></span></label>',
+					cSLab += '<span class="swatchColour swatchColour_1" style="'+cY+';">&nbsp;</span></span></label>',
 					cSLiOp = '<li class="swatch hasPreview swatchOneColour" '+cSDSrc+'>',
 					cSLiCl = '</li>';
 				cSBoxes += cSLiOp + cSName + cSLab + cSLiCl;
