@@ -65,6 +65,7 @@ $('<style type="text/css">\
 			width: 17px !important;\
 			border: 1px solid #fff;\
 			border-radius: 4px;\
+			background-position: center center;\
 		}\
 		.catColorSwatch .name {\
 			line-height: 19px;\
@@ -3247,8 +3248,8 @@ function loadColorAndSizeSwatches() {
 					cN = cO.color,
 					cC = cO.code,
 					cS = cO.src != '' ? cO.src : prodImgDivSrc,
-					cY = cC.charAt(0) == '#' ? 'background-color:'+cC : 'background-image:'+cC,
 					cDNP = cS.charAt(0) == 'h' ? '' : '%%GLOBAL_CdnStorePath%%/product_images/attribute_rule_images/',
+					cY = cC.charAt(0) == '#' ? 'background-color:'+cC : 'background-image:url('+cDNP+cC+')',
 					cSName = '<span class="name">'+cN+'</span>',
 					cSDSrc = 'data-src="' + cDNP + cS + '"',
 					cSLab = '<label><span class="swatchColours swatchOneColour"><span class="swatchColour swatchColour_1" style="'+cY+';">&nbsp;</span></span></label>',
