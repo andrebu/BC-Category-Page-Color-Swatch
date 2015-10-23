@@ -86,6 +86,11 @@ var DsColorIndex = {
   ],
   "125": [
     {
+      "color": "Black",
+      "code": "#000000",
+      "src": ""
+    },
+    {
       "color": "Glow in the Dark",
       "code": "372.thumbnail.png",
       "src": "771_std_1439477783.jpg"
@@ -857,6 +862,23 @@ var DsColorIndex = {
     }
   ],
   "352": [
+    {
+      "color": "Red",
+      "code": "#FF0000",
+      "src": "246_std_1427389458.jpg"
+    },
+    {
+      "color": "Green",
+      "code": "#00D407",
+      "src": "247_std_1427389489.jpg"
+    },
+    {
+      "color": "Blue",
+      "code": "#005EFF",
+      "src": "248_std_1427389511.jpg"
+    }
+  ],
+  "354": [
     {
       "color": "Red",
       "code": "#FF0000",
