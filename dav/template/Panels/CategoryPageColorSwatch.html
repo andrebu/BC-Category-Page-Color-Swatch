@@ -3018,6 +3018,11 @@ var DsColorIndex = {
       "color": "Purple Slyme",
       "code": "#d27efc",
       "src": "770_std_1439476086.jpg"
+    },
+    {
+      "color": "Green Slyme",
+      "code": "#a5f759",
+      "src": ""
     }
   ],
   "1253": [
@@ -3262,6 +3267,14 @@ function loadColorAndSizeSwatches() {
 		var productDiv = $(this).parent().parent();
 		var productImage = productDiv.find('.ProductImage a img');
 		var originalImage = productImage.attr('data-original');
+		MagicScrollOptions = {
+			items: 'fit',
+			arrows: 'outside',
+			loop: 'off'
+		};
+		MagicScrollExtraOptions = {
+		};
+		MagicScroll.start();
 		clickAndHover();
 		function clickAndHover() {
 			$('li.swatch').on({
@@ -3293,10 +3306,5 @@ function loadColorAndSizeSwatches() {
 	scrollAndAction();
 }
 
-	loadColorAndSizeSwatches();
-
-
-$(window).load(function() {
-		MagicScroll.start();
-});
+loadColorAndSizeSwatches();
 </script>
