@@ -304,9 +304,26 @@ var DsColorIndex = {
   ],
   "125": [
     {
+      "color": "Black",
+      "code": "#000000",
+      "src": ""
+    },
+    {
       "color": "Glow in the Dark",
       "code": "372.thumbnail.png",
       "src": "771_std_1439477783.jpg"
+    }
+  ],
+  "126": [
+    {
+      "color": "Green",
+      "code": "#00D407",
+      "src": ""
+    },
+    {
+      "color": "Purple",
+      "code": "#BD00BD",
+      "src": ""
     }
   ],
   "152": [
@@ -1091,6 +1108,23 @@ var DsColorIndex = {
       "src": "248_std_1427389511.jpg"
     }
   ],
+  "354": [
+    {
+      "color": "Red",
+      "code": "#FF0000",
+      "src": "246_std_1427389458.jpg"
+    },
+    {
+      "color": "Green",
+      "code": "#00D407",
+      "src": "247_std_1427389489.jpg"
+    },
+    {
+      "color": "Blue",
+      "code": "#005EFF",
+      "src": "248_std_1427389511.jpg"
+    }
+  ],
   "358": [
     {
       "color": "Black",
@@ -1155,11 +1189,6 @@ var DsColorIndex = {
     },
     {
       "color": "White",
-      "code": "#FFFFFF",
-      "src": "280_std_1428595516.jpg"
-    },
-    {
-      "color": "White2",
       "code": "#FFFFFF",
       "src": "281_std_1428595520.jpg"
     }
@@ -1866,6 +1895,33 @@ var DsColorIndex = {
       "src": "312_std_1429299376.jpg"
     }
   ],
+  "658": [
+    {
+      "color": "Blue",
+      "code": "#005EFF",
+      "src": ""
+    },
+    {
+      "color": "Green",
+      "code": "#00D407",
+      "src": ""
+    },
+    {
+      "color": "Black",
+      "code": "#000000",
+      "src": ""
+    },
+    {
+      "color": "Pink",
+      "code": "#FFA6ED",
+      "src": ""
+    },
+    {
+      "color": "Clear",
+      "code": "208.thumbnail.png",
+      "src": ""
+    }
+  ],
   "669": [
     {
       "color": "Blue",
@@ -1925,6 +1981,28 @@ var DsColorIndex = {
       "color": "Black",
       "code": "#000000",
       "src": "661_std_1434478579.jpg"
+    }
+  ],
+  "687": [
+    {
+      "color": "Red",
+      "code": "#FF0000",
+      "src": ""
+    },
+    {
+      "color": "Blue",
+      "code": "#006AFF",
+      "src": ""
+    },
+    {
+      "color": "Purple",
+      "code": "#D000FF",
+      "src": ""
+    },
+    {
+      "color": "Orange",
+      "code": "#FF7B00",
+      "src": ""
     }
   ],
   "694": [
@@ -2186,6 +2264,18 @@ var DsColorIndex = {
       "color": "Pink",
       "code": "#ff6bff",
       "src": "724_std_1435823854.jpg"
+    }
+  ],
+  "857": [
+    {
+      "color": "Green",
+      "code": "#00D407",
+      "src": ""
+    },
+    {
+      "color": "Red",
+      "code": "#FF0000",
+      "src": ""
     }
   ],
   "878": [
@@ -2758,6 +2848,16 @@ var DsColorIndex = {
       "color": "Charcoal",
       "code": "#6d6d6e",
       "src": "641_std_1434169499.jpg"
+    },
+    {
+      "color": "Yellow",
+      "code": "#ffff03",
+      "src": ""
+    },
+    {
+      "color": "Orange",
+      "code": "#ffa303",
+      "src": ""
     }
   ],
   "1113": [
@@ -3241,6 +3341,8 @@ function loadColorAndSizeSwatches() {
 		setImgHeight();
 
 		if (DsColorIndex[prodId]) {
+			var defImg = prodImg.attr('src');
+			prodImg.attr('data-original', defImg);
 			var cSBoxes;
 			// Generate color swatch boxes = cSBoxes
 			for (i = 0; i < DsColorIndex[prodId].length; i++) { 
