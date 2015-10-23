@@ -177,7 +177,7 @@ $('<style type="text/css">\
 			height: inherit;\
 			line-height: 30px;\
 			position: absolute;\
-			left: 17%;\
+			left: 13%;\
 			z-index: 1;\
 		}\
 		.MagicScroll:not(.MagicScroll-horizontal):after {\
@@ -1503,16 +1503,6 @@ var DsColorIndex = {
       "color": "Teal",
       "code": "#13C29F",
       "src": "96_std_1424487205.jpg"
-    },
-    {
-      "color": "Teal2",
-      "code": "#13C29F",
-      "src": "97_std_1424487209.jpg"
-    },
-    {
-      "color": "Teal3",
-      "code": "#13C29F",
-      "src": "98_std_1424487209.jpg"
     },
     {
       "color": "Blue",
@@ -3231,11 +3221,18 @@ function loadColorAndSizeSwatches() {
 	$(".ProductActionAdd a:contains('Options')").each( function() {
 		var $this = $(this),
 			prodLi = $this.parent().parent(),
-			prodImg = prodLi.find('div.ProductImage'),
-			prodImgSrc = prodImg.find('a img').attr('src'),
-			prodId = prodImg.attr('data-product'),
-			productLink = prodImg.find('a').attr('href');
+			prodImgDiv = prodLi.find('div.ProductImage'),
+			prodImgAnch = prodImgDiv.find('a'),
+			prodImg = prodImgAnch.find('img'),
+			prodImgDivSrc = prodImg.attr('src'),
+			prodId = prodImgDiv.attr('data-product'),
+			productLink = prodImgDiv.find('a').attr('href');
 		$this.addClass('withColorSwatch');
+		function setImgHeight() {
+			var maxImgHeight = prodImg.height();
+			prodImg.height(maxImgHeight);
+		}
+		setImgHeight();
 
 		if (DsColorIndex[prodId]) {
 			var cSBoxes;
@@ -3244,7 +3241,7 @@ function loadColorAndSizeSwatches() {
 				var cO = DsColorIndex[prodId][i],
 					cN = cO.color,
 					cC = cO.code,
-					cS = cO.src != '' ? cO.src : prodImgSrc,
+					cS = cO.src != '' ? cO.src : prodImgDivSrc,
 					cY = cC.charAt(0) == '#' ? 'background-color:'+cC : 'background-image:'+cC,
 					cDNP = cS.charAt(0) == 'h' ? '' : '%%GLOBAL_CdnStorePath%%/product_images/attribute_rule_images/',
 					cSName = '<span class="name">'+cN+'</span>',
@@ -3265,7 +3262,6 @@ function loadColorAndSizeSwatches() {
 		var productDiv = $(this).parent().parent();
 		var productImage = productDiv.find('.ProductImage a img');
 		var originalImage = productImage.attr('data-original');
-		MagicScroll.start();
 		clickAndHover();
 		function clickAndHover() {
 			$('li.swatch').on({
@@ -3297,9 +3293,10 @@ function loadColorAndSizeSwatches() {
 	scrollAndAction();
 }
 
+	loadColorAndSizeSwatches();
 
 
 $(window).load(function() {
-	loadColorAndSizeSwatches();
+		MagicScroll.start();
 });
 </script>
