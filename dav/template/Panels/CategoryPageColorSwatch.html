@@ -3298,10 +3298,8 @@ function scrollAndAction() {
 	}
 }
 
-$(window).load(function() {
+$(document).ready(function() {
 	loadColorAndSizeSwatches();
-	//$(document).ajaxStop(function() {
-		scrollAndAction();
-	//});
+	scrollAndAction();
 });
 </script>
