@@ -3227,7 +3227,6 @@ var DsColorIndex = {
 function loadColorAndSizeSwatches() {
 	var mSOpts = 'data-options="loop: off; arrows: outside; ';
 		mSOpts += 'scrollOnWheel: false; items: [[100,2],[133,3],[166,4],[200,5]];"';
-		console.log(mSOpts);
 	// Swatches - Color and Size options swatches 
 	$(".ProductActionAdd a:contains('Options')").each( function() {
 		var $this = $(this),
@@ -3255,7 +3254,6 @@ function loadColorAndSizeSwatches() {
 					cSLiCl = '</li>';
 				cSBoxes += cSLiOp + cSName + cSLab + cSLiCl;
 			}
-			console.log(cSBoxes);
 			var cSUl = '<ul class="MagicScroll" '+mSOpts+'>' + cSBoxes + '</ul>';
 			var cSWrap = $('<div class="catColorSwatch optionSwatch">' + cSUl + '</div>');
 			var cSContent = cSWrap.fadeIn('slow').css("display","inline-block");
