@@ -3663,12 +3663,15 @@ function loadColorAndSizeSwatches() {
 		var productDiv = $(this).parent().parent();
 		var productImage = productDiv.find('.ProductImage a img');
 		var originalImage = productImage.attr('data-original');
+		//Magic Scroll stuff
 		MagicScrollOptions = {
 			items: 'fit',
 			arrows: 'outside',
 			loop: 'off'
 		};
 		MagicScrollExtraOptions = {};
+		MagicScrollOptionsMobile = {};
+		MagicScrollExtraOptionsMobile = {};		
 		MagicScroll.start();
 		clickAndHover();
 		function clickAndHover() {
