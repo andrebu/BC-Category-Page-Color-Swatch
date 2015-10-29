@@ -126,6 +126,7 @@ $('<style type="text/css">\
 		    width: 14px;\
 		    display: block;\
 		    margin: 0 auto;\
+		    min-height: 20px;\
 		}\
 		.sizeOptionsOverlay .jointSize span {\
 		    font-weight: bold;\
@@ -1335,6 +1336,14 @@ var DsColorIndex = {
       }
     ]
   },
+  "414": {
+    "sizes": {
+      "male": [
+        14,
+        18
+      ]
+    }
+  },
   "419": {
     "colors": [
       {
@@ -2164,6 +2173,15 @@ var DsColorIndex = {
       }
     ]
   },
+  "635": {
+    "sizes": {
+      "female": [
+	    10,
+        14,
+        18
+      ]
+    }
+  },
   "646": {
     "colors": [
       {
@@ -2548,6 +2566,14 @@ var DsColorIndex = {
     ]
   },
   "736": {
+    "sizes": {
+      "female": [
+        14,
+        18
+      ]
+    }
+  },
+  "736": {
     "colors": [
       {
         "color": "Blue",
@@ -2597,6 +2623,15 @@ var DsColorIndex = {
     }
   },
   "811": {
+    "sizes": {
+      "male": [
+	    10,
+        14,
+        18
+      ]
+    }
+  },
+  "811": {
     "colors": [
       {
         "color": "Blue",
@@ -2638,6 +2673,14 @@ var DsColorIndex = {
         "src": "329_std_1430703094.jpg"
       }
     ]
+  },
+  "816": {
+    "sizes": {
+	    "male" : [
+		    14,
+		    18
+	    ]
+    }
   },
   "817": {
     "colors": [
@@ -2852,6 +2895,59 @@ var DsColorIndex = {
         "color": "Purple Lilac",
         "code": "#c967fa",
         "src": "327_std_1430670097.jpg"
+      },
+      {
+        "color": "Green Sparkle",
+        "code": "#37b037",
+        "src": ""
+      },
+      {
+        "color": "Yellow",
+        "code": "#ffff0d",
+        "src": ""
+      },
+      {
+        "color": "Slyme",
+        "code": "#52ff6c",
+        "src": ""
+      },
+      {
+        "color": "Honey",
+        "code": "#d6bb08",
+        "src": ""
+      },
+      {
+        "color": "Blue",
+        "code": "#0700d6",
+        "src": ""
+      }
+    ]
+  },
+  "951": {
+    "colors": [
+      {
+        "color": "Wisteria",
+        "code": "#d500ff",
+        "src": ""
+      },
+      {
+        "color": "Amber",
+        "code": "#803300",
+        "src": ""
+      }
+    ]
+  },
+  "952": {
+    "colors": [
+      {
+        "color": "Pink",
+        "code": "#ff00f7",
+        "src": ""
+      },
+      {
+        "color": "Purple",
+        "code": "#a200ff",
+        "src": ""
       }
     ]
   },
@@ -4081,7 +4177,38 @@ function loadColorAndSizeSwatches() {
 				var cSContent = cSWrap.fadeIn('slow').css("display","inline-block");
 				$this.parent().parent().find('.ProductDetails').before(cSContent);
 			}
-		}
+			function sizeSwatches() {
+				if (DsColorIndex[prodId].sizes) {
+				console.log(DsColorIndex[prodId].sizes);
+					for (var key in DsColorIndex[prodId].sizes) { 
+					console.log(key);
+						//var sOC = $('<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span>' + 
+						//sizeSwatch + '</div>').fadeIn(1300);
+						for (i2 = 0; i2 < DsColorIndex[prodId].sizes[key].length; i2++) { 
+							console.log(key, DsColorIndex[prodId].sizes[key][i2]);
+/*
+							var thisProductListing = $this.parent().parent();
+							var maleJointImg = '<img src="%%ASSET_images/malejoint.png%%" />';
+							var femaleJointImg = '<img src="%%ASSET_images/femalejoint.png%%" />';
+							if (maleOrFemale == 'Female') {
+								thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
+								thisProductListing.find('.name:icontains("10mm")').text('Male 10mm').after(maleJointImg).addClass('small');
+								thisProductListing.find('.name:icontains("14mm")').text('Male 14mm').after(maleJointImg);
+								thisProductListing.find('.name:icontains("18mm")').text('Male 18mm').after(maleJointImg).addClass('big');
+							};
+							if (maleOrFemale == 'Male') {
+								thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
+								thisProductListing.find('.name:icontains("10mm")').text('Female 10mm').after(femaleJointImg).addClass('small');
+								thisProductListing.find('.name:icontains("14mm")').text('Female 14mm').after(femaleJointImg);
+								thisProductListing.find('.name:icontains("18mm")').text('Female 18mm').after(femaleJointImg).addClass('big');
+							};
+*/
+						}
+					}
+				};
+			}
+			sizeSwatches();
+		}		
 
 	});
 	function scrollAndAction() {
