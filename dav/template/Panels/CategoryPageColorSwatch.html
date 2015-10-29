@@ -25,8 +25,8 @@ $('<style type="text/css">\
 		.catColorSwatch .swatchOneColour .validation,\
 		.catColorSwatch .swatchOneColour .name,\
 		.catColorSwatch .swatchTexture .name,\
-		.catSizeSwatch .validation/*,\
-		.catSizeSwatch .name*/ {\
+		.CategoryContent .ProductList .catSizeSwatch .validation/*,\
+		.CategoryContent .ProductList .catSizeSwatch .name*/ {\
 			display: none;\
 		}\
 		.catColorSwatch li .validation {\
@@ -71,7 +71,7 @@ $('<style type="text/css">\
 			line-height: 19px;\
 			padding: 0 4px;\
 		}\
-		.catSizeSwatch {\
+		.CategoryContent .ProductList .catSizeSwatch {\
 			background-size: auto 100%;\
 			position: absolute;\
 			top: 200px;\
@@ -79,25 +79,23 @@ $('<style type="text/css">\
 			padding: 3px 0;\
 			width: 45px;\
 		}\
-		.catSizeSwatch .list-horizontal {\
+		.CategoryContent .ProductList .catSizeSwatch ul {\
 			margin: 0;\
 		}\
-		.catSizeSwatch .list-horizontal .option {\
+		.CategoryContent .ProductList .catSizeSwatch ul li {\
 			display: inline-block;\
 			width: 37px !important;\
 			padding: 0;\
 			background: none;\
             margin: 2px;\
 		}\
-		.catSizeSwatch .list-horizontal .option label {\
-			margin: 0;\
-		}\
-		.catSizeSwatch .list-horizontal .option label .name {\
+		.CategoryContent .ProductList .catSizeSwatch ul li .name {\
 		    font-weight: bold;\
 		    color: black;\
 		    display: block;\
 		    font-size: 8px;\
 		    line-height: 8px;\
+			text-transform: capitalize;\
 		}\
 		.sizeOptionsOverlay {\
 			/* background: url("%%ASSET_images/JointSizesL.png%%") center center no-repeat; */\
@@ -108,7 +106,7 @@ $('<style type="text/css">\
 			padding: 3px 0;\
 			width: 45px;\
 		}\
-		.catSizeSwatch .jointTitle,\
+		.CategoryContent .ProductList .catSizeSwatch .jointTitle,\
 		.sizeOptionsOverlay .jointTitle {\
 		    font-weight: bold;\
 			display: inline-block;\
@@ -121,7 +119,7 @@ $('<style type="text/css">\
 		    color: #BBB;\
 		    vertical-align: bottom;\
 		}\
-		.catSizeSwatch img,\
+		.CategoryContent .ProductList .catSizeSwatch img,\
 		.sizeOptionsOverlay .jointSize img {\
 		    width: 14px;\
 		    display: block;\
@@ -137,11 +135,11 @@ $('<style type="text/css">\
 		.sizeOptionsOverlay .jointSize i {\
 		    display: block;\
 		}\
-		.catSizeSwatch img.small,\
+		.CategoryContent .ProductList .catSizeSwatch img.small,\
 		.sizeOptionsOverlay .jointSize.small img {\
 		    width: 10px;\
 		}\
-		.catSizeSwatch img.big,\
+		.CategoryContent .ProductList .catSizeSwatch img.big,\
 		.sizeOptionsOverlay .jointSize.big img {\
 		    width: 18px;\
 		}\
@@ -196,7 +194,7 @@ $('<style type="text/css">\
 			left: 20%;\
 		}\
 		@media screen and (device-aspect-ratio: 40/71) {\
-			.catSizeSwatch {\
+			.CategoryContent .ProductList .catSizeSwatch {\
 				top: 170px;\
 			}\
 		}\
@@ -2622,7 +2620,7 @@ var DsColorIndex = {
       ]
     }
   },
-  "811": {
+  "808": {
     "sizes": {
       "male": [
 	    10,
@@ -4132,6 +4130,7 @@ var DsColorIndex = {
 
 /* try to combine this with category videos! */
 function loadColorAndSizeSwatches() {
+	var bCCDN = '%%GLOBAL_CdnStorePath%%';
 	var mSOpts = 'data-options="loop: off; arrows: outside; ';
 		mSOpts += 'scrollOnWheel: false; items: [[100,2],[133,3],[166,4],[200,5]]"';
 	// Swatches - Color and Size options swatches 
@@ -4162,8 +4161,8 @@ function loadColorAndSizeSwatches() {
 						cN = cO.color,
 						cC = cO.code,
 						cS = cO.src != '' ? cO.src : prodImgDivSrc,
-						cDNP = cS.charAt(0) == 'h' ? '' : '%%GLOBAL_CdnStorePath%%/product_images/attribute_rule_images/',
-						cDNThumb = '%%GLOBAL_CdnStorePath%%/product_images/attribute_value_images/',
+						cDNP = cS.charAt(0) == 'h' ? '' : bCCDN+'/product_images/attribute_rule_images/',
+						cDNThumb = bCCDN+'/product_images/attribute_value_images/',
 						cY = cC.charAt(0) == '#' ? 'background-color:'+cC : 'background-image:url('+cDNThumb+cC+')',
 						cSName = '<span class="name">'+cN+'</span>',
 						cSDSrc = 'data-src="' + cDNP + cS + '"',
@@ -4179,17 +4178,18 @@ function loadColorAndSizeSwatches() {
 			}
 			function sizeSwatches() {
 				if (DsColorIndex[prodId].sizes) {
+					var sOC = '<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span><ul>';
 				console.log(DsColorIndex[prodId].sizes);
-					for (var key in DsColorIndex[prodId].sizes) { 
-					console.log(key);
-						//var sOC = $('<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span>' + 
-						//sizeSwatch + '</div>').fadeIn(1300);
-						for (i2 = 0; i2 < DsColorIndex[prodId].sizes[key].length; i2++) { 
-							console.log(key, DsColorIndex[prodId].sizes[key][i2]);
+					for (var jGender in DsColorIndex[prodId].sizes) { 
+					console.log(jGender);
+						for (i2 = 0; i2 < DsColorIndex[prodId].sizes[jGender].length; i2++) { 
+							console.log(jGender, DsColorIndex[prodId].sizes[jGender][i2]);
+							var jS = DsColorIndex[prodId].sizes[jGender][i2];
+							var jN = '<span class="name">'+jGender+' '+jS+'mm</span>';
+							var jI = '<img class="size'+jS+'" src="'+bCCDN+'/templates/__custom/images/'+jGender+'joint.png" />';
+							sOC += '<li>'+jN+jI+'</li>';
 /*
 							var thisProductListing = $this.parent().parent();
-							var maleJointImg = '<img src="%%ASSET_images/malejoint.png%%" />';
-							var femaleJointImg = '<img src="%%ASSET_images/femalejoint.png%%" />';
 							if (maleOrFemale == 'Female') {
 								thisProductListing.find('.ProductDetails').before(sizeOptionsOverlay);
 								thisProductListing.find('.name:icontains("10mm")').text('Male 10mm').after(maleJointImg).addClass('small');
@@ -4205,6 +4205,9 @@ function loadColorAndSizeSwatches() {
 */
 						}
 					}
+					sOC += '</ul></div>'; //).fadeIn(1300)
+					console.log(sOC);
+					$this.parent().parent().find('.ProductDetails').before(sOC);
 				};
 			}
 			sizeSwatches();
