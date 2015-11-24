@@ -4553,6 +4553,20 @@ var DsColorIndex = {
       }
     ]
   },
+  "1431": {
+	"colors": [
+	  {
+		"color": "White",
+        "code": "#ffffff",
+        "src": ""
+      },
+	  {
+		"color": "Black",
+        "code": "#000000",
+        "src": "903_std_1447975135"
+      }
+    ]
+  },
   "1436": {
     "colors": [
       {
@@ -4569,6 +4583,62 @@ var DsColorIndex = {
         "color": "Slyme",
         "code": "#7bff00",
         "src": "873_std_1446096700.jpg"
+      }
+    ]
+  },
+  "1441": {
+	"colors": [
+		{
+		"color": "Black",
+        "code": "#000000",
+        "src": "887_std_1447037647.jpg"
+        }, 
+        {
+		"color": "Red",
+        "code": "#FF0000",
+        "src": "888_std_1447037664.jpg"
+        }
+    ]
+  },
+  "1456": {
+	"colors": [
+		{
+		"color": "Black",
+        "code": "#000000",
+        "src": "909_std_1448302253.jpg"
+        }, 
+        {
+		"color": "White",
+        "code": "#ffffff",
+        "src": "910_std_1448302280"
+      }
+    ]
+  },
+  "1480": {
+	"colors": [
+		{
+		"color": "Clear",
+        "code": "08.preview.png",
+        "src": "904_std_1447980830.jpg"
+        }, 
+        {
+		"color": "Black",
+        "code": "#000000",
+        "src": "905_std_1447980880"
+      }
+    ]
+  },
+  "1481": {
+    "colors": [
+      {
+        "color": "Wisteria",
+        "code": "#bb7bd1",
+        "src": "907_std_1447981214.jpg"
+      },
+      {
+        "color": "Slyme",
+        "code": "#3bff58",
+        "src": "906_std_1447981195.jpg"
       }
     ]
   }
@@ -4589,7 +4659,6 @@ function loadColorAndSizeSwatches() {
 			prodImgDivSrc = prodImg.attr('src'),
 			prodId = prodImgDiv.attr('data-product'),
 			productLink = prodImgDiv.find('a').attr('href');
-		$this.addClass('withColorSwatch');
 		function setImgHeight() {
 			var maxImgHeight = prodImg.height();
 			prodImg.height(maxImgHeight);
@@ -4598,6 +4667,7 @@ function loadColorAndSizeSwatches() {
 
 		if (DsColorIndex[prodId]) {
 			if (DsColorIndex[prodId].colors) {
+				prodLi.addClass('withColorSwatch');
 				var defImg = prodImg.attr('src');
 				prodImg.attr('data-original', defImg);
 				var cSBoxes;
