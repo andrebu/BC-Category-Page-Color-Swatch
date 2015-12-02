@@ -1,184 +1,184 @@
 <style>
-	/* Color and Size Options on Category Pages */\
-	.CategoryContent .ProductList li,
-	.SearchContainer .ProductList li {
-		position: relative;
-	}
-	.catColorSwatch {
-		display: inline-block;
-		width: 100%;
-		overflow: hidden;
-		margin-bottom: -13px;
-		visibility: hidden;
-	}
-	.catColorSwatch ul {
-		margin: 0 auto;
-		display: inline-block;
-		overflow: visible;
-		white-space: nowrap;
-	}
-	.catColorSwatch li {
-		padding: 0 4px;
-	}
-	.catColorSwatch .swatchOneColour .validation,
-	.catColorSwatch .swatchOneColour .name,
-	.catColorSwatch .swatchTexture .name,
-	.CategoryContent .ProductList .catSizeSwatch .validation,
-	.CategoryContent .ProductList .catSizeSwatch .name {
-		display: none;
-	}
-	.catColorSwatch li .validation {
-		display: none;
-	}
-	.catColorSwatch li,
-	.catColorSwatch li.swatch.swatchTexture,
-	.catColorSwatch li.swatch.swatchOneColour {
-		display: inline-block;
-		width: auto !important;
-		padding: 5px 2px 1px;
-/* 		margin: 0 4px 0 0; */
-	}
-	.catColorSwatch li.swatch.swatchOneColour.selectedColorBox {
-		padding: 0;
-	}
-	.catColorSwatch li label {
-		margin: 0;
-		line-height: normal;
-		border: 2px solid transparent;
-		border-radius: 50%;
-		pointer-events: none;
-		padding: 2px;
-	}
-	.catColorSwatch li.hovered label {
-		border-color: #ddd;
-	}
-	.catColorSwatch li.selected label {
-		border-color: #39b54a;
-	}
-	.catColorSwatch li.swatch.swatchOneColour label span.swatchColours.swatchOneColour {
-		line-height: inherit;
-	}
-	.catColorSwatch .swatchColour {
-		display: inline-block;
-		width: 23px !important;
-		height: 23px;
-		background-position: center center;
-		border-radius: 50%;
-		box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-	}
-	.catColorSwatch .name {
-		line-height: 19px;
-		padding: 0 4px;
-	}
-	.CategoryContent .ProductList .catSizeSwatch {
-		background-size: auto 100%;
-		position: absolute;
-		top: 200px;
-		right: 0px;
-		padding: 3px 0;
-		width: 45px;
-	}
-	.CategoryContent .ProductList .catSizeSwatch ul {
-		margin: 0;
-	}
-	.CategoryContent .ProductList .catSizeSwatch ul li {
-		display: inline-block;
-		width: 37px !important;
-		padding: 0;
-		background: none;
+    /* Color and Size Options on Category Pages */\
+    .CategoryContent .ProductList li,
+    .SearchContainer .ProductList li {
+        position: relative;
+    }
+    .catColorSwatch {
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: -13px;
+        visibility: hidden;
+    }
+    .catColorSwatch ul {
+        margin: 0 auto;
+        display: inline-block;
+        overflow: visible;
+        white-space: nowrap;
+    }
+    .catColorSwatch li {
+        padding: 0 4px;
+    }
+    .catColorSwatch .swatchOneColour .validation,
+    .catColorSwatch .swatchOneColour .name,
+    .catColorSwatch .swatchTexture .name,
+    .CategoryContent .ProductList .catSizeSwatch .validation,
+    .CategoryContent .ProductList .catSizeSwatch .name {
+        display: none;
+    }
+    .catColorSwatch li .validation {
+        display: none;
+    }
+    .catColorSwatch li,
+    .catColorSwatch li.swatch.swatchTexture,
+    .catColorSwatch li.swatch.swatchOneColour {
+        display: inline-block;
+        width: auto !important;
+        padding: 5px 2px 1px;
+/*         margin: 0 4px 0 0; */
+    }
+    .catColorSwatch li.swatch.swatchOneColour.selectedColorBox {
+        padding: 0;
+    }
+    .catColorSwatch li label {
+        margin: 0;
+        line-height: normal;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        pointer-events: none;
+        padding: 2px;
+    }
+    .catColorSwatch li.hovered label {
+        border-color: #ddd;
+    }
+    .catColorSwatch li.selected label {
+        border-color: #39b54a;
+    }
+    .catColorSwatch li.swatch.swatchOneColour label span.swatchColours.swatchOneColour {
+        line-height: inherit;
+    }
+    .catColorSwatch .swatchColour {
+        display: inline-block;
+        width: 23px !important;
+        height: 23px;
+        background-position: center center;
+        border-radius: 50%;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+    }
+    .catColorSwatch .name {
+        line-height: 19px;
+        padding: 0 4px;
+    }
+    .CategoryContent .ProductList .catSizeSwatch {
+        background-size: auto 100%;
+        position: absolute;
+        top: 200px;
+        right: 0px;
+        padding: 3px 0;
+        width: 45px;
+    }
+    .CategoryContent .ProductList .catSizeSwatch ul {
+        margin: 0;
+    }
+    .CategoryContent .ProductList .catSizeSwatch ul li {
+        display: inline-block;
+        width: 37px !important;
+        padding: 0;
+        background: none;
         margin: 2px;
-		min-height: 38px;
-	}
-	.CategoryContent .ProductList .catSizeSwatch ul li .name {
-	    font-weight: bold;
-	    color: black;
-	    display: block;
-	    font-size: 8px;
-	    line-height: 8px;
-		text-transform: capitalize;
-	}
-	.CategoryContent .ProductList .catSizeSwatch .jointTitle {
-	    font-weight: bold;
-		display: inline-block;
-	    line-height: 9px;
-	    font-size: 8px;
-	}
-	.CategoryContent .ProductList .catSizeSwatch img {
-	    width: 14px;
-	    display: block;
-		margin: 1px auto 3px;
-	}
-	.CategoryContent .ProductList .catSizeSwatch img.size10 {
-	    width: 10px;
-	}
-	.CategoryContent .ProductList .catSizeSwatch img.size18 {
-	    width: 18px;
-	}
-	.catColorSwatch .textureContainer {
-		display: block;
-		width: 20px;
-	}
-	.catColorSwatch .textureContainer .thumbnail,
-	.catColorSwatch .productOptionPickListSwatch .thumbnail {
-		display: block;
-		background-size: 100%;
-		border: 1px solid white;
-		height: 17px;
-	}
-	.MagicScroll:not(.MagicScroll-horizontal):before {
-		visibility: visible;
-		content: "\f110";
-		color: #39B54A;
-		font: normal normal normal 14px/1 FontAwesome;
-		font-weight: normal;
-		display: inline-block;
-		vertical-align: middle;
-		-webkit-transition: all .3s;
-		-moz-transition: all .3s;
-		-ms-transition: all .3s;
-		-o-transition: all .3s;
-		transition: all .3s;
-		-webkit-animation: fa-spin 1s infinite steps(8);
-		animation: fa-spin 1s infinite steps(8);
-		height: 30px;
-		line-height: 30px;
-		position: absolute;
-		left: 23%;
-		z-index: 1;
-	}
-	.MagicScroll:not(.MagicScroll-horizontal):after {
-		visibility: visible;
-		content: "Color Options Loading...";
-		display: block;
-		height: 30px;
-		width: 120px;
-		font-size: 10px;
-		line-height: 30px;
-		text-align: center;
-		position: absolute;
-		top: 0;
-		left: 27%;
-		margin-left: 6px;
-	}
-	.catColorSwatch .mcs-item {
-		height: 100%;
-		/*width: initial !important;*/\
-	}
-	.catColorSwatch .mcs-button-arrow:before {
-		font-size: 150%;
-	}
-	.catColorSwatch .MagicScroll-horizontal .mcs-button-arrow {
-		width: 23px;
-	}
-	.catColorSwatch .MagicScroll-horizontal button.mcs-button.mcs-disabled,
-	.catColorSwatch .MagicScroll-horizontal button.mcs-button.mcs-button-arrow:disabled {
-		display: none !important;
-	}
-	@media screen and (device-aspect-ratio: 40/71) {
-		.CategoryContent .ProductList .catSizeSwatch {
-			top: 170px;
-		}
-	}
+        min-height: 38px;
+    }
+    .CategoryContent .ProductList .catSizeSwatch ul li .name {
+        font-weight: bold;
+        color: black;
+        display: block;
+        font-size: 8px;
+        line-height: 8px;
+        text-transform: capitalize;
+    }
+    .CategoryContent .ProductList .catSizeSwatch .jointTitle {
+        font-weight: bold;
+        display: inline-block;
+        line-height: 9px;
+        font-size: 8px;
+    }
+    .CategoryContent .ProductList .catSizeSwatch img {
+        width: 14px;
+        display: block;
+        margin: 1px auto 3px;
+    }
+    .CategoryContent .ProductList .catSizeSwatch img.size10 {
+        width: 10px;
+    }
+    .CategoryContent .ProductList .catSizeSwatch img.size18 {
+        width: 18px;
+    }
+    .catColorSwatch .textureContainer {
+        display: block;
+        width: 20px;
+    }
+    .catColorSwatch .textureContainer .thumbnail,
+    .catColorSwatch .productOptionPickListSwatch .thumbnail {
+        display: block;
+        background-size: 100%;
+        border: 1px solid white;
+        height: 17px;
+    }
+    .MagicScroll:not(.MagicScroll-horizontal):before {
+        visibility: visible;
+        content: "\f110";
+        color: #39B54A;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-weight: normal;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -ms-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+        -webkit-animation: fa-spin 1s infinite steps(8);
+        animation: fa-spin 1s infinite steps(8);
+        height: 30px;
+        line-height: 30px;
+        position: absolute;
+        left: 23%;
+        z-index: 1;
+    }
+    .MagicScroll:not(.MagicScroll-horizontal):after {
+        visibility: visible;
+        content: "Color Options Loading...";
+        display: block;
+        height: 30px;
+        width: 120px;
+        font-size: 10px;
+        line-height: 30px;
+        text-align: center;
+        position: absolute;
+        top: 0;
+        left: 27%;
+        margin-left: 6px;
+    }
+    .catColorSwatch .mcs-item {
+        height: 100%;
+        /*width: initial !important;*/\
+    }
+    .catColorSwatch .mcs-button-arrow:before {
+        font-size: 150%;
+    }
+    .catColorSwatch .MagicScroll-horizontal .mcs-button-arrow {
+        width: 23px;
+    }
+    .catColorSwatch .MagicScroll-horizontal button.mcs-button.mcs-disabled,
+    .catColorSwatch .MagicScroll-horizontal button.mcs-button.mcs-button-arrow:disabled {
+        display: none !important;
+    }
+    @media screen and (device-aspect-ratio: 40/71) {
+        .CategoryContent .ProductList .catSizeSwatch {
+            top: 170px;
+        }
+    }
 </style>
 <script language="javascript" type="text/javascript">
 //Category Page Color Swatches and Size Options
@@ -891,32 +891,42 @@ var DsColorIndex = {
       {
         "color": "White",
         "code": "#FFFFFF",
-        "src": "177_std_1426263081.jpg"
+        "src": "955_std_1449010865.jpg"
+      },
+      {
+        "color": "Turquoise",
+        "code": "#00BBFF",
+        "src": ""
       },
       {
         "color": "Yellow",
         "code": "#FFF200",
-        "src": "180_std_1426263117.jpg"
-      },
-      {
-        "color": "Pink",
-        "code": "#FFA6ED",
-        "src": "179_std_1426263107.jpg"
+        "src": "957_std_1449010904.jpg"
       },
       {
         "color": "Green",
         "code": "#00D407",
-        "src": "175_std_1426263049.jpg"
+        "src": "959_std_1449010945.jpg"
+      },
+      {
+        "color": "Pink",
+        "code": "#FFA6ED",
+        "src": "958_std_1449010924.jpg"
+      },
+      {
+        "color": "Purple",
+        "code": "#B329B3",
+        "src": ""
       },
       {
         "color": "Red",
         "code": "#FF0000",
-        "src": "178_std_1426263092.jpg"
+        "src": "954_std_1449010849.jpg"
       },
       {
         "color": "Black",
         "code": "#000000",
-        "src": "176_std_1426263068.jpg"
+        "src": "956_std_1449010889.jpg"
       }
     ]
   },
@@ -1261,17 +1271,17 @@ var DsColorIndex = {
       {
         "color": "Green",
         "code": "#00D407",
-        "src": "247_std_1427389489.jpg"
+        "src": "946_std_1448907244.jpg"
       },
       {
         "color": "Red",
         "code": "#FF0000",
-        "src": "246_std_1427389458.jpg"
+        "src": "947_std_1448907266.jpg"
       },
       {
         "color": "Blue",
         "code": "#005EFF",
-        "src": "248_std_1427389511.jpg"
+        "src": "945_std_1448910676.jpg"
       }
     ]
   },
@@ -2875,6 +2885,60 @@ var DsColorIndex = {
       ]
     }
   },
+  "831": {
+    "colors": [
+      {
+        "color": "White",
+        "code": "#ffffff",
+        "src": ""
+      },
+      {
+        "color": "Turquoise",
+        "code": "#00BBFF",
+        "src": ""
+      },
+      {
+        "color": "Yellow",
+        "code": "#E6E631",
+        "src": ""
+      },
+      {
+        "color": "Orange",
+        "code": "#E68A27",
+        "src": ""
+      },
+      {
+        "color": "Red",
+        "code": "#FF0000",
+        "src": ""
+      },
+      {
+        "color": "Pink",
+        "code": "#E36BE3",
+        "src": ""
+      },
+      {
+        "color": "Purple",
+        "code": "#B329B3",
+        "src": ""
+      },
+      {
+        "color": "Green",
+        "code": "#06bf1c",
+        "src": ""
+      },
+      {
+        "color": "Dark Green",
+        "code": "#295229",
+        "src": ""
+      },
+      {
+        "color": "Black",
+        "code": "#000000",
+        "src": ""
+      }
+    ]
+  },
   "833": {
     "sizes": {
       "male": [
@@ -2974,7 +3038,7 @@ var DsColorIndex = {
       {
         "color": "Red",
         "code": "#FF0000",
-        "src": ""
+        "src": "931_std_1448481745.jpg"
       }
     ]
   },
@@ -3186,6 +3250,22 @@ var DsColorIndex = {
         "src": ""
       }
     ]
+  },
+  "959": {
+    "sizes": {
+      "female": [
+        14,
+        18
+      ]
+    }
+  },
+  "960": {
+    "sizes": {
+      "male": [
+        14,
+        18
+      ]
+    }
   },
   "961": {
     "colors": [
@@ -4553,17 +4633,37 @@ var DsColorIndex = {
       }
     ]
   },
+  "1375": {
+    "sizes": {
+      "female": [
+        14,
+        18
+      ],
+      "male": [
+        14,
+        18
+      ]
+    }
+  },
+  "1409": {
+    "sizes": {
+      "female": [
+        14,
+        18
+      ]
+    }
+  },
   "1431": {
-	"colors": [
-	  {
-		"color": "White",
+    "colors": [
+      {
+        "color": "White",
         "code": "#ffffff",
         "src": ""
       },
-	  {
-		"color": "Black",
+      {
+        "color": "Black",
         "code": "#000000",
-        "src": "903_std_1447975135"
+        "src": "903_std_1447975135.jpg"
       }
     ]
   },
@@ -4587,42 +4687,42 @@ var DsColorIndex = {
     ]
   },
   "1441": {
-	"colors": [
-		{
-		"color": "Black",
+    "colors": [
+      {
+        "color": "Black",
         "code": "#000000",
         "src": "887_std_1447037647.jpg"
-        }, 
-        {
-		"color": "Red",
+      },
+      {
+        "color": "Red",
         "code": "#FF0000",
         "src": "888_std_1447037664.jpg"
-        }
+      }
     ]
   },
   "1456": {
-	"colors": [
-		{
-		"color": "Black",
+    "colors": [
+      {
+        "color": "Black",
         "code": "#000000",
         "src": "909_std_1448302253.jpg"
-        }, 
-        {
-		"color": "White",
+      },
+      {
+        "color": "White",
         "code": "#ffffff",
         "src": "910_std_1448302280"
       }
     ]
   },
   "1480": {
-	"colors": [
-		{
-		"color": "Clear",
+    "colors": [
+      {
+        "color": "Clear",
         "code": "08.preview.png",
         "src": "904_std_1447980830.jpg"
-        }, 
-        {
-		"color": "Black",
+      },
+      {
+        "color": "Black",
         "code": "#000000",
         "src": "905_std_1447980880"
       }
@@ -4646,124 +4746,124 @@ var DsColorIndex = {
 
 /* try to combine this with category videos! */
 function loadColorAndSizeSwatches() {
-	var bCCDN = '%%GLOBAL_CdnStorePath%%';
-	var mSOpts = 'data-options="loop: off; arrows: outside; ';
-		mSOpts += 'scrollOnWheel: false; items: fit"';
-	// Swatches - Color and Size options swatches 
-	$(".ProductActionAdd a").each( function() { //:contains('Options')
-		var $this = $(this),
-			prodLi = $this.parent().parent(),
-			prodImgDiv = prodLi.find('div.ProductImage'),
-			prodImgAnch = prodImgDiv.find('a'),
-			prodImg = prodImgAnch.find('img'),
-			prodImgDivSrc = prodImg.attr('src'),
-			prodId = prodImgDiv.attr('data-product'),
-			productLink = prodImgDiv.find('a').attr('href');
-		function setImgHeight() {
-			var maxImgHeight = prodImg.height();
-			prodImg.height(maxImgHeight);
-		}
-		setImgHeight();
+    var bCCDN = '%%GLOBAL_CdnStorePath%%';
+    var mSOpts = 'data-options="loop: off; arrows: outside; ';
+        mSOpts += 'scrollOnWheel: false; items: fit"';
+    // Swatches - Color and Size options swatches 
+    $(".ProductActionAdd a").each( function() { //:contains('Options')
+        var $this = $(this),
+            prodLi = $this.parent().parent(),
+            prodImgDiv = prodLi.find('div.ProductImage'),
+            prodImgAnch = prodImgDiv.find('a'),
+            prodImg = prodImgAnch.find('img'),
+            prodImgDivSrc = prodImg.attr('src'),
+            prodId = prodImgDiv.attr('data-product'),
+            productLink = prodImgDiv.find('a').attr('href');
+        function setImgHeight() {
+            var maxImgHeight = prodImg.height();
+            prodImg.height(maxImgHeight);
+        }
+        setImgHeight();
 
-		if (DsColorIndex[prodId]) {
-			if (DsColorIndex[prodId].colors) {
-				prodLi.addClass('withColorSwatch');
-				var defImg = prodImg.attr('src');
-				prodImg.attr('data-original', defImg);
-				var cSBoxes;
-				// Generate color swatch boxes = cSBoxes
-				for (i = 0; i < DsColorIndex[prodId].colors.length; i++) { 
-					var cO = DsColorIndex[prodId].colors[i],
-						cN = cO.color,
-						cC = cO.code,
-						cS = cO.src != '' ? cO.src : prodImgDivSrc,
-						cDNP = cS.charAt(0) == 'h' ? '' : bCCDN+'/product_images/attribute_rule_images/',
-						cDNThumb = bCCDN+'/product_images/attribute_value_images/',
-						cY = cC.charAt(0) == '#' ? 'background-color:'+cC : 'background-image:url('+cDNThumb+cC+')',
-						cSName = '<span class="name">'+cN+'</span>',
-						cSDSrc = 'data-src="' + cDNP + cS + '"',
-						cSLab = '<label><span class="swatchColours swatchOneColour"><span class="swatchColour swatchColour_1" style="'+cY+';">&nbsp;</span></span></label>',
-						cSLiOp = '<li class="swatch hasPreview swatchOneColour" '+cSDSrc+'>',
-						cSLiCl = '</li>';
-					cSBoxes += cSLiOp + cSName + cSLab + cSLiCl;
-				}
-				var cSUl = '<ul class="MagicScroll" '+mSOpts+'>' + cSBoxes + '</ul>';
-				var cSWrap = $('<div class="catColorSwatch optionSwatch">' + cSUl + '</div>');
-				var cSContent = cSWrap.fadeIn('slow').css("display","inline-block");
-				$this.parent().parent().find('.ProductDetails').before(cSContent);
-			}
-			function sizeSwatches() {
-				if (DsColorIndex[prodId].sizes) {
-					var sOC = '<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span><ul>';
-					for (var jGender in DsColorIndex[prodId].sizes) { 
-						for (i2 = 0; i2 < DsColorIndex[prodId].sizes[jGender].length; i2++) { 
-							var jS = DsColorIndex[prodId].sizes[jGender][i2];
-							var jN = '<span class="name">'+jGender+' '+jS+'mm</span>';
-							var mJI = '%%ASSET_images/malejoint.png%%';
-							var fJI = '%%ASSET_images/femalejoint.png%%';
-							var jIS = jGender == 'male' ? mJI : fJI;
-							var jI = '<img class="size'+jS+'" src="'+jIS+'" />';
-							sOC += '<li>'+jN+jI+'</li>';
-						}
-					}
-					sOC += '</ul></div>'; //).fadeIn(1300)
-					$this.parent().parent().find('.ProductDetails').before(sOC);
-				};
-			}
-			sizeSwatches();
-		}		
+        if (DsColorIndex[prodId]) {
+            if (DsColorIndex[prodId].colors) {
+                prodLi.addClass('withColorSwatch');
+                var defImg = prodImg.attr('src');
+                prodImg.attr('data-original', defImg);
+                var cSBoxes;
+                // Generate color swatch boxes = cSBoxes
+                for (i = 0; i < DsColorIndex[prodId].colors.length; i++) { 
+                    var cO = DsColorIndex[prodId].colors[i],
+                        cN = cO.color,
+                        cC = cO.code,
+                        cS = cO.src != '' ? cO.src : prodImgDivSrc,
+                        cDNP = cS.charAt(0) == 'h' ? '' : bCCDN+'/product_images/attribute_rule_images/',
+                        cDNThumb = bCCDN+'/product_images/attribute_value_images/',
+                        cY = cC.charAt(0) == '#' ? 'background-color:'+cC : 'background-image:url('+cDNThumb+cC+')',
+                        cSName = '<span class="name">'+cN+'</span>',
+                        cSDSrc = 'data-src="' + cDNP + cS + '"',
+                        cSLab = '<label><span class="swatchColours swatchOneColour"><span class="swatchColour swatchColour_1" style="'+cY+';">&nbsp;</span></span></label>',
+                        cSLiOp = '<li class="swatch hasPreview swatchOneColour" '+cSDSrc+'>',
+                        cSLiCl = '</li>';
+                    cSBoxes += cSLiOp + cSName + cSLab + cSLiCl;
+                }
+                var cSUl = '<ul class="MagicScroll" '+mSOpts+'>' + cSBoxes + '</ul>';
+                var cSWrap = $('<div class="catColorSwatch optionSwatch">' + cSUl + '</div>');
+                var cSContent = cSWrap.fadeIn('slow').css("display","inline-block");
+                $this.parent().parent().find('.ProductDetails').before(cSContent);
+            }
+            function sizeSwatches() {
+                if (DsColorIndex[prodId].sizes) {
+                    var sOC = '<div class="catSizeSwatch optionSwatch"><span class="jointTitle">Fits these joint sizes:</span><ul>';
+                    for (var jGender in DsColorIndex[prodId].sizes) { 
+                        for (i2 = 0; i2 < DsColorIndex[prodId].sizes[jGender].length; i2++) { 
+                            var jS = DsColorIndex[prodId].sizes[jGender][i2];
+                            var jN = '<span class="name">'+jGender+' '+jS+'mm</span>';
+                            var mJI = '%%ASSET_images/malejoint.png%%';
+                            var fJI = '%%ASSET_images/femalejoint.png%%';
+                            var jIS = jGender == 'male' ? mJI : fJI;
+                            var jI = '<img class="size'+jS+'" src="'+jIS+'" />';
+                            sOC += '<li>'+jN+jI+'</li>';
+                        }
+                    }
+                    sOC += '</ul></div>'; //).fadeIn(1300)
+                    $this.parent().parent().find('.ProductDetails').before(sOC);
+                };
+            }
+            sizeSwatches();
+        }        
 
-	});
-	function scrollAndAction() {
-		var productDiv = $(this).parent().parent();
-		var productImage = productDiv.find('.ProductImage a img');
-		var originalImage = productImage.attr('data-original');
-		//Magic Scroll stuff
-		MagicScrollOptions = {
-			items: 'fit',
-			arrows: 'outside',
-			loop: 'off'
-		};
-		MagicScrollExtraOptions = {};
-		MagicScrollOptionsMobile = {};
-		MagicScrollExtraOptionsMobile = {};		
-		MagicScroll.start();
-		clickAndHover();
-		function clickAndHover() {
-			var revertImg;
-			$('li.swatch').on({
-				mouseenter: function() {
-					clearTimeout(revertImg);
-					originalImage = $(this).parents('li').find('.ProductImage a img').attr('data-original');
-					$(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
-					$(this).addClass('hovered');
-				},
-				mouseleave: function() {
-					$(this).removeClass('hovered');
-					if (!$(this).hasClass('selected')) {
-						var thisLI = $(this);
-						clearTimeout(revertImg);
-						revertImg = setTimeout( function() {
-							thisLI.parents('li').find('.ProductImage a img').attr('src', originalImage);
-							}, 370);
-					}
-				},
-				click: function() {
-					clearTimeout(revertImg);
-					if ($(this).parents('li').find('.videoDemoBtn.videoPlaying').length > 0) {
-					    $(this).parents('li').find('.videoDemoBtn.videoPlaying').click();
-					}
-					if (!$(this).hasClass('selected')) {
-					    $(this).parents().eq(1).find('li.swatch.selected').not(this).removeClass('selected');
-					}
-					$(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
-					$(this).parents('li').find('.ProductImage a img').attr('data-original', $(this).attr('data-src'));
-					$(this).addClass('selected');
-				}
-			});
-		}
-	}
-	scrollAndAction();
+    });
+    function scrollAndAction() {
+        var productDiv = $(this).parent().parent();
+        var productImage = productDiv.find('.ProductImage a img');
+        var originalImage = productImage.attr('data-original');
+        //Magic Scroll stuff
+        MagicScrollOptions = {
+            items: 'fit',
+            arrows: 'outside',
+            loop: 'off'
+        };
+        MagicScrollExtraOptions = {};
+        MagicScrollOptionsMobile = {};
+        MagicScrollExtraOptionsMobile = {};        
+        MagicScroll.start();
+        clickAndHover();
+        function clickAndHover() {
+            var revertImg;
+            $('li.swatch').on({
+                mouseenter: function() {
+                    clearTimeout(revertImg);
+                    originalImage = $(this).parents('li').find('.ProductImage a img').attr('data-original');
+                    $(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
+                    $(this).addClass('hovered');
+                },
+                mouseleave: function() {
+                    $(this).removeClass('hovered');
+                    if (!$(this).hasClass('selected')) {
+                        var thisLI = $(this);
+                        clearTimeout(revertImg);
+                        revertImg = setTimeout( function() {
+                            thisLI.parents('li').find('.ProductImage a img').attr('src', originalImage);
+                            }, 370);
+                    }
+                },
+                click: function() {
+                    clearTimeout(revertImg);
+                    if ($(this).parents('li').find('.videoDemoBtn.videoPlaying').length > 0) {
+                        $(this).parents('li').find('.videoDemoBtn.videoPlaying').click();
+                    }
+                    if (!$(this).hasClass('selected')) {
+                        $(this).parents().eq(1).find('li.swatch.selected').not(this).removeClass('selected');
+                    }
+                    $(this).parents('li').find('.ProductImage a img').attr('src', $(this).attr('data-src'));
+                    $(this).parents('li').find('.ProductImage a img').attr('data-original', $(this).attr('data-src'));
+                    $(this).addClass('selected');
+                }
+            });
+        }
+    }
+    scrollAndAction();
 }
 
 loadColorAndSizeSwatches();
